@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <div>
+            <n-search :oSearch="oSearch"></n-search>
+        </div>
+        <tab-group class="tab-group" :value="tabBarValue" :tabs="tabGroupLabel" @input="v=>tabBarValue=v" :tabBarClass="tabBarClass">
+            <div v-for="(item, i) in tabGroupLabel" :key="i">
+                <tab-item class="tab-item" :label="item.label" :value="item.value">
+                    <div class="blockChain-wrap">
+                        <div class="bcClassification-wrap">
+                            <div class="bcClassification">
+                                <text class="bc-tit bcName-tit">名称</text>
+                                <text class="bc-tit bcAlgorithm-tit">行业领域</text>
+                                <text class="bc-tit bcLevel-tit">排序</text>
+                            </div>
+                        </div>
+                        <scroller class="bc-detail-wrap">
+                            <div v-for="(item, i) in bc" :key="i" class="bc-wrap">
+                                <user-header :article="item.article" class="bc-header"></user-header>
+                                <text class="bc-algorithm">{{ item.algorithm }}</text>
+                                <image src="/src/view/link-app/images/paixu.png" class="bc-paixu"></image>
+                            </div>
+                        </scroller>
+                    </div>
+                </tab-item>
+            </div>
+        </tab-group>
+    </div>
+</div>

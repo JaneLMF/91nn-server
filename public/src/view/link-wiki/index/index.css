@@ -1,0 +1,97 @@
+.nav-edit {
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.blockChain-wrap {
+    background-color: #fff;
+}
+
+.bcClassification-wrap {
+    width: 750px;
+    background-color: #f8f8f8;
+}
+
+.bcClassification {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 690px;
+    height: 60px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.bc-tit {
+    font-size: 24px;
+    color: #888888;
+}
+
+.bcName-tit {
+    width: 370px;
+}
+
+.bcAlgorithm-tit {
+    width: 150px;
+}
+
+.bcLevel-tit {
+    width: 170px;
+    text-align: right;
+}
+
+.bc-detail-wrap {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.bc-wrap {
+    width: 690px;
+    height: 150px;
+    border-bottom-width: 1px;
+    border-color: #e5e5e5;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bc-header {
+    width: 370px;
+    justify-content: flex-start;
+}
+
+.bc-algorithm {
+    width: 150px;
+    font-size: 28px;
+    color: #434343;
+}
+
+.bc-level-wrap {
+    width: 170px;
+}
+
+.bc-level-group {
+    width: 170px;
+}
+
+.bc-level {
+    width: 50px;
+    height: 26px;
+    text-align: center;
+    margin-left: 120px;
+    border-radius: 4px;
+    font-size: 24px;
+    color: #434343;
+    background-color: #fac011;
+}
+
+.bc-start {
+    width: 24px;
+    height: 23px;
+}
+
+.start-moudle {
+    margin-top: 10px;
+    width: 170px;
+    justify-content: space-between;
+}

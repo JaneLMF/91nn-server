@@ -1,0 +1,42 @@
+.root {
+	width: 750px;
+	height: 1334px;
+}
+
+.border{
+	border-width: 1px
+}
+
+.category{
+	flex-direction: row;
+	width: 750px;
+	height: 100px;
+	background-color: #f3f3f3;
+}
+
+.category_box {
+	height: 100px;
+	justify-content: center;
+	border-top-color: #f3f3f3;
+	border-top-width: 4px;
+	border-bottom-width: 4px;
+    border-bottom-color: #f3f3f3;
+}
+
+.category_item {
+    flex-direction: row;
+    width: 250px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.category_select {
+	border-top-color: #f3f3f3;
+	border-top-width: 4px;
+	border-bottom-width: 4px;
+    border-bottom-color: #ff6539;
+}
+.tab-active {
+    color: #ff6539;  
+}

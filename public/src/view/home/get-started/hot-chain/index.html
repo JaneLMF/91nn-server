@@ -1,0 +1,44 @@
+<list class="root">
+    <cell>
+		<slider-neighbor class="slider" neighbor-scale="1.0" neighbor-space="40" current-item-scale="1.0" interval="3000" neighbor-alpha="0.8" auto-play="true">
+			<image class="img" v-for="item in bannerData" @click="bannerItemClick(item.id)" :src="item.url" ></image>
+			<indicator class="slider-indicator" ></indicator>
+		</slider-neighbor>
+    </cell>
+	<cell>
+		<div class="list-head">
+			<text class="list-head-item" v-for="s in ['名称', '共识算法', '评测等级']">{{s}}</text>
+		</div>
+	</cell>
+	<cell v-for="chain in chains" @click="oncellclick(chain.id)">
+		<div class="item-line">
+			<div class="item-line-top"></div>
+			<div class="item border">
+				<div class="user-header-wrap border">
+					<image :src="chain.icon" class="user-header"></image>
+					<div class="user-info-wrap">
+						<text class="user-name">{{chain.name}}</text>
+						<text class="user-issue">{{chain.date}}</text>
+					</div>
+				</div>
+				<text>{{chain.status}}</text>
+				<div class="star-item border">
+					<div class="star-box">
+						<text class="star-text border">{{chain.star}}.0</text>
+					</div>
+					<div class="star">
+						<div v-for="i in 5">
+							<image v-if="i <= chain.star" src="/src/view/home/images/badge-boss.png">star{{i}}</image>
+							<image v-if="i > chain.star" src="">jane{{i}}</image>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item-line-bottom"></div>
+		</div>
+	</cell>
+</list>
+
+<!--<div class="root">-->
+    <!--<sliderNeighbor></sliderNeighbor>-->
+<!--</div>-->

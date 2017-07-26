@@ -1,0 +1,36 @@
+<div>
+    <div>
+        <div>
+            <n-search :oSearch="oSearch">
+                <image src="/src/view/link-wiki/images/edit.png" class="nav-edit"></image>
+            </n-search>
+        </div>
+        <tab-group class="tab-group" :value="tabBarValue" :tabs="tabGroupLabel" @input="v=>tabBarValue=v" :tabBarClass="tabBarClass">
+            <div v-for="(item, i) in tabGroupLabel" :key="i">
+                <tab-item class="tab-item" :label="item.label" :value="item.value">
+                    <div class="blockChain-wrap">
+                        <div class="bcClassification-wrap">
+                            <div class="bcClassification">
+                                <text class="bc-tit bcName-tit">名称</text>
+                                <text class="bc-tit bcAlgorithm-tit">共识算法</text>
+                                <text class="bc-tit bcLevel-tit">评测等级</text>
+                            </div>
+                        </div>
+                        <scroller class="bc-detail-wrap">
+                            <div v-for="(item, i) in bc" :key="i" class="bc-wrap">
+                                <user-header :article="item.article" class="bc-header"></user-header>
+                                <text class="bc-algorithm">{{ item.algorithm }}</text>
+                                <div class="bc-level-wrap">
+                                    <div class="bc-level-group">
+                                        <text class="bc-level">{{ item.level }}</text>
+                                    </div>
+                                    <starts :level="item.level" :startStyle="[item.startStyle]" class="start-moudle"></starts>
+                                </div>
+                            </div>
+                        </scroller>
+                    </div>
+                </tab-item>
+            </div>
+        </tab-group>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<list class="root">
+    <cell>
+		<slider-neighbor class="slider" neighbor-scale="1.0" neighbor-space="40" current-item-scale="1.0" interval="3000" neighbor-alpha="0.8" auto-play="true">
+			<image class="img" v-for="item in bannerData" @click="bannerItemClick(item.id)" :src="item.url" ></image>
+			<indicator class="slider-indicator" ></indicator>
+		</slider-neighbor>
+    </cell>
+	<cell>
+		<div class="list-head">
+			<text class="list-head-item" v-for="s in ['名称', '最新价格']">{{s}}</text>
+		</div>
+	</cell>
+	<cell v-for="coin in coins" @click="oncellclick(coin.id)">
+		<div class="item-line">
+			<div class="item-line-top"></div>
+			<div class="item border">
+				<div class="user-info-wrap">
+					<text class="user-name">{{coin.name}}</text>
+					<div class="price-group">
+						<text class="user-issue">{{coin.storeName}}</text>
+						<text v-if="coin.increase == 0" class="price-calm">  {{coin.increase}}%</text>
+						<text v-if="coin.increase > 0" class="price-up">  +{{coin.increase}}%</text>
+						<text v-if="coin.increase < 0" class="price-down">  {{coin.increase}}%</text>
+						<!--<text :class="[ coin.increase > 0 ? 'price-up' : 'price-down' ]"-->
+							  <!--:value="coin.increase > 0 ? '   +' + coin.increase + '%' : '   -' + coin.increase + '%'">-->
+						<!--</text>-->
+					</div>
+				</div>
+				<div class="price-group">
+					<div class="price border">
+						<text class="border">￥ {{coin.cnyPrice}}</text>
+						<text class="border">$ {{coin.usdPrice}}</text>
+					</div>
+					<image class="increase" v-if="coin.increase > 0" src="/src/view/home/images/badge-boss.png"></image>
+					<image class="increase" v-if="coin.increase < 0" src="/src/view/home/images/badge-boss.png"></image>
+					<text class="increase" v-if="coin.increase == 0"></text>
+				</div>
+			</div>
+			<div class="item-line-bottom"></div>
+		</div>
+	</cell>
+</list>
+
+<!--<div class="root">-->
+    <!--<sliderNeighbor></sliderNeighbor>-->
+<!--</div>-->
