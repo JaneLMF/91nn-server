@@ -15,7 +15,7 @@
                             </div>
                         </div>
                         <scroller class="bc-detail-wrap">
-                            <div v-for="(item, i) in bc" :key="i" class="bc-wrap">
+                            <div v-for="(item, i) in bc" :key="i" class="bc-wrap" @click="item.jumpDetails">
                                 <user-header :article="item.article" class="bc-header"></user-header>
                                 <text class="bc-algorithm">{{ item.algorithm }}</text>
                                 <image src="/src/view/link-app/images/paixu.png" class="bc-paixu"></image>

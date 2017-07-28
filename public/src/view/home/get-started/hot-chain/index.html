@@ -24,14 +24,15 @@
 				<text>{{chain.status}}</text>
 				<div class="star-item border">
 					<div class="star-box">
-						<text class="star-text border">{{chain.star}}.0</text>
+						<text class="star-text border">{{chain.star}}</text>
 					</div>
-					<div class="star">
-						<div v-for="i in 5">
-							<image v-if="i <= chain.star" src="/src/view/home/images/badge-boss.png">star{{i}}</image>
-							<image v-if="i > chain.star" src="">jane{{i}}</image>
-						</div>
-					</div>
+					<!--<div class="star">-->
+						<!--<div v-for="i in 5">-->
+							<!--<image v-if="i <= chain.star" src="/src/view/home/images/badge-boss.png">star{{i}}</image>-->
+							<!--<image v-if="i > chain.star" src="">jane{{i}}</image>-->
+						<!--</div>-->
+					<!--</div>-->
+					<starts :level="chain.star" :startStyle="[chain.startStyle]" class="start-moudle"></starts>
 				</div>
 			</div>
 			<div class="item-line-bottom"></div>

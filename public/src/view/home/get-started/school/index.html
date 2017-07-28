@@ -1,3 +1,6 @@
-<div class="root">
-	<text>hello 91nn</text>
-</div>
+<!--for new school-->
+<list>
+    <cell v-for="(item, i) in articleGroup" :key="i">
+		<text-cell :article="item"></text-cell>
+    </cell>
+</list>

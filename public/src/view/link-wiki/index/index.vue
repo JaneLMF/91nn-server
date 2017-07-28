@@ -2,6 +2,9 @@
 <style src="./index.css"></style>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     export default {
         data() {
             return {
@@ -71,7 +74,10 @@
                         },
                         algorithm: 'POW',
                         level: '2.8',
-                        startStyle: 'bc-start-small'
+                        startStyle: 'bc-start-small',
+                        jumpDetails() {
+                            navigator.push(routerPage.wikiDetails)
+                        }
                     },
                     {
                         article: {
@@ -82,7 +88,10 @@
                         },
                         algorithm: 'POW',
                         level: '4.5',
-                        startStyle: 'bc-start-small'
+                        startStyle: 'bc-start-small',
+                        jumpDetails() {
+                            navigator.push(routerPage.wikiDetails)
+                        }
                     },
                     {
                         article: {
@@ -93,7 +102,10 @@
                         },
                         algorithm: 'POW',
                         level: '1.0',
-                        startStyle: 'bc-start-small'
+                        startStyle: 'bc-start-small',
+                        jumpDetails() {
+                            navigator.push(routerPage.wikiDetails)
+                        }
                     },
                     {
                         article: {
@@ -104,7 +116,10 @@
                         },
                         algorithm: 'POW',
                         level: '4.0',
-                        startStyle: 'bc-start-small'
+                        startStyle: 'bc-start-small',
+                        jumpDetails() {
+                            navigator.push(routerPage.wikiDetails)
+                        }
                     }
                 ]
             }

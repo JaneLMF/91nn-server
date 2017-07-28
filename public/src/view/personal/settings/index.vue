@@ -1,8 +1,8 @@
 <template>
     <div class="setting-wrap">
         <div class="updateInfo-wrap">
-            <action-row :rowTit="'修改资料'" :btnClass="'details'" class="updateInfo-content"></action-row>
-            <action-row :rowTit="'账号绑定'" :btnClass="'details'" class="updateInfo-content"></action-row>
+            <action-row :rowTit="'修改资料'" :btnClass="'details'" class="updateInfo-content" :callBack="updateInfo"></action-row>
+            <action-row :rowTit="'账号绑定'" :btnClass="'details'" class="updateInfo-content" :callBack="bindAccount"></action-row>
             <action-row :rowTit="'修改密码'" :btnClass="'details'" class="updateInfo-content" :callBack="action"></action-row>
         </div>
         <div class="switch-wrap">
@@ -54,6 +54,12 @@
                 canVerify: true,
                 action() {
                     navigator.push(routerPage.updatePw)
+                },
+                bindAccount() {
+                    navigator.push(routerPage.bindAccount)
+                },
+                updateInfo() {
+                    navigator.push(routerPage.updateInfo)
                 }
             }
         },

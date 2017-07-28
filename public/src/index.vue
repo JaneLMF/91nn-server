@@ -36,7 +36,7 @@
 						icon: '',
 						image: '/src/view/home/images/application.png',
 						selectedImage: '/src/view/home/images/application-active.png',
-						src: '/content3.js',
+						src: '/view/link-app/index/index.js',
 						visibility: 'hidden',
 					},
                     {

@@ -36,7 +36,7 @@
         height: 130px;
         border-radius: 130px;
         border-width: 2px;
-        border-color: #fff;
+        border-color: #f8997a;
     }
 
     .userVIP {

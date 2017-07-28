@@ -8,6 +8,16 @@ export default {
         path: '/getStarted',
         jsPath: 'view/home/get-started/index'
     },
+    wikiDetails: {
+        title: '链百科',
+        path: '/wikiDetails',
+        jsPath: 'view/link-wiki/details/index'
+    },
+    appDetails: {
+        title: '链百应用',
+        path: '/appDetails',
+        jsPath: 'view/link-app/details/index'
+    },
     settings: {
         title: '设置',
         path: '/settings',
@@ -22,5 +32,60 @@ export default {
         title: '修改密码',
         path: '/submitNewPw',
         jsPath: 'view/personal/settings/updatePw/update'
+    },
+    bindAccount: {
+        title: '账号绑定',
+        path: '/bindAccount',
+        jsPath: 'view/personal/settings/bindAccount/index'
+    },
+    updateAccount: {
+        title: '绑定手机号',
+        path: '/updateAccount',
+        jsPath: 'view/personal/settings/bindAccount/updateAccount'
+    },
+    updateInfo: {
+        title: '修改资料',
+        path: '/updateInfo',
+        jsPath: 'view/personal/settings/updateInfo/index'
+    },
+    updateIntro: {
+        title: '编辑简介',
+        path: '/updateIntro',
+        jsPath: 'view/personal/settings/updateInfo/updateIntro'
+    },
+    updateName: {
+        title: '编辑昵称',
+        path: '/updateName',
+        jsPath: 'view/personal/settings/updateInfo/updateName'
+    },
+    updateFrom: {
+        title: '编辑地区',
+        path: '/updateFrom',
+        jsPath: 'view/personal/settings/updateInfo/updateFrom'
+    },
+    myNews: {
+        title: '我的动态',
+        path: '/myNews',
+        jsPath: 'view/personal/my-news/index'
+    },
+    myFavorites: {
+        title: '我的收藏',
+        path: '/myFavorites',
+        jsPath: 'view/personal/my-favorites/index'
+    },
+    myFollows: {
+        title: '我的关注',
+        path: '/myFollows',
+        jsPath: 'view/personal/my-follow/index'
+    },
+    myFans: {
+        title: '我的关注',
+        path: '/myFans',
+        jsPath: 'view/personal/my-fans/index'
+    },
+    myComments: {
+        title: '我的评论',
+        path: '/myComments',
+        jsPath: 'view/personal/my-comments/index'
     }
 }

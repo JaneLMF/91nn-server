@@ -2,6 +2,9 @@
 <style src="./index.css"></style>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     export default {
         data() {
             return {
@@ -62,7 +65,10 @@
                             subTitle: 'weibo',
                             headerStyle: 'user'
                         },
-                        algorithm: '资产交易'
+                        algorithm: '资产交易',
+                        jumpDetails() {
+                            navigator.push(routerPage.appDetails)
+                        }
                     },
                     {
                         article: {
@@ -71,7 +77,10 @@
                             subTitle: 'weibo',
                             headerStyle: 'user'
                         },
-                        algorithm: '资产交易'
+                        algorithm: '资产交易',
+                        jumpDetails() {
+                            navigator.push(routerPage.appDetails)
+                        }
                     },
                     {
                         article: {
@@ -80,7 +89,10 @@
                             subTitle: 'weibo',
                             headerStyle: 'user'
                         },
-                        algorithm: '资产交易'
+                        algorithm: '资产交易',
+                        jumpDetails() {
+                            navigator.push(routerPage.appDetails)
+                        }
                     },
                     {
                         article: {
@@ -89,7 +101,10 @@
                             subTitle: 'weibo',
                             headerStyle: 'user'
                         },
-                        algorithm: '资产交易'
+                        algorithm: '资产交易',
+                        jumpDetails() {
+                            navigator.push(routerPage.appDetails)
+                        }
                     }
                 ],
                 tabBarValue: 0,

@@ -11,31 +11,31 @@
         </cell>
         <cell class="user-atten-bg">
             <div class="user-atten-wrap">
-                <div class="user-atten-group">
+                <div class="user-atten-group" @click="jumpToFollows">
                     <text class="user-atten-tit">我的关注</text>
                     <text class="user-atten-content">88</text>
                 </div>
                 <text class="fenge">|</text>
-                <div class="user-atten-group">
+                <div class="user-atten-group" @click="jumpToFans">
                     <text class="user-atten-tit">我的粉丝</text>
                     <text class="user-atten-content">288</text>
                 </div>
             </div>
         </cell>
         <cell class="myInfo-wrap">
-            <action-row :rowTit="'我的动态'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-top: 10px;">
+            <action-row :rowTit="'我的动态'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-top: 10px;" :callBack="jumpMyNews">
                 <div class="row-icon-wrap" slot="icon">
                     <image src="/src/view/personal/images/me-status.png" class="row-icon"></image>
                 </div>
                 <text slot="mesg" class="row-mesg">0</text>
             </action-row>
-            <action-row :rowTit="'我的收藏'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
+            <action-row :rowTit="'我的收藏'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="jumpMyFavorites">
                 <div class="row-icon-wrap" slot="icon">
                     <image src="/src/view/personal/images/me-mark.png" class="row-icon"></image>
                 </div>
                 <text slot="mesg" class="row-mesg">0</text>
             </action-row>
-            <action-row :rowTit="'我的评论'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-bottom: 10px;">
+            <action-row :rowTit="'我的评论'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-bottom: 10px;" :callBack="jumpMyComments">
                 <div class="row-icon-wrap" slot="icon">
                     <image src="/src/view/personal/images/me-pinglun.png" class="row-icon"></image>
                 </div>
@@ -102,6 +102,12 @@
                 hasIcon: true,
                 settingAction() {
                     navigator.push(routerPage.settings)
+                },
+                jumpMyNews() {
+                    navigator.push(routerPage.myNews)
+                },
+                jumpMyFavorites() {
+                    navigator.push(routerPage.myFavorites)
                 }
             }
         },
@@ -109,6 +115,17 @@
             userInfo: require('components/userInfo/index.vue'),
             badge: require('components/badge/index.vue'),
             actionRow: require('components/actionRow/index.vue')
+        },
+        methods: {
+            jumpToFollows() {
+                navigator.push(routerPage.myFollows)
+            },
+            jumpToFans() {
+                navigator.push(routerPage.myFans)
+            },
+            jumpMyComments() {
+                navigator.push(routerPage.myComments)
+            }
         }
     }
 </script>

@@ -60,7 +60,7 @@
 }
 
 .star-item {
-	width: 250px;
+	width: 170px;
 	justify-content: flex-end;
 }
 
@@ -117,4 +117,10 @@
 .list-head-item {
 	font-size: 24px;
 	color: #959595;
+}
+
+.start-moudle {
+	/*margin-top: 10px;*/
+	width: 170px;
+	justify-content: space-between;
 }

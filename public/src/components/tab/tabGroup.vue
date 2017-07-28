@@ -19,6 +19,12 @@
         background-color: #f3f3f3;
     }
 
+    .homePage-default {
+        color: black;
+        border-bottom-width: 4px;
+        border-color: #f3f3f3;
+    }
+
     .homePage-active {
         color: #ff6539;
         border-bottom-width: 4px;
@@ -27,6 +33,12 @@
 
     .linkWiki-tabBarNav {
         background-color: #fc6d3f;
+    }
+
+    .link-wiki-default {
+        color: #fff;
+        border-bottom-width: 4px;
+        border-color: #fc6d3f;
     }
 
     .link-wiki-active {
@@ -71,8 +83,8 @@
     }
 
     .tab-item {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 17px;
+        padding-bottom: 17px;
         font-size: 28px;
     }
 

@@ -75,7 +75,7 @@
     }
 
     .action-item {
-        width: 13px;
+        width: 24px;
         height: 24px;
     }
 </style>
