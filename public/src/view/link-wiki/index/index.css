@@ -5,6 +5,7 @@
 }
 
 .blockChain-wrap {
+    width: 750px;
     background-color: #fff;
 }
 
@@ -44,6 +45,7 @@
 .bc-detail-wrap {
     padding-left: 30px;
     padding-right: 30px;
+    width: 750px;
 }
 
 .bc-wrap {

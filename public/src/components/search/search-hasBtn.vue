@@ -79,6 +79,11 @@
         height: 24px;
     }
 
+    .input-search {
+        height: 50px;
+        line-height: 50px;
+    }
+
     .input-search-fff {
         width: 550px;
         font-size: 26px;

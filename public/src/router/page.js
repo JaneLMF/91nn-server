@@ -8,13 +8,23 @@ export default {
         path: '/getStarted',
         jsPath: 'view/home/get-started/index'
     },
+    wikiIndex: {
+        title: '链百科',
+        path: '/wikiIndex',
+        jsPath: 'view/link-wiki/index/index'
+    },
     wikiDetails: {
         title: '链百科',
         path: '/wikiDetails',
         jsPath: 'view/link-wiki/details/index'
     },
+    appIndex: {
+        title: '链应用',
+        path: '/appIndex',
+        jsPath: 'view/link-app/index/index'
+    },
     appDetails: {
-        title: '链百应用',
+        title: '链应用',
         path: '/appDetails',
         jsPath: 'view/link-app/details/index'
     },

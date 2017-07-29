@@ -20,7 +20,7 @@
     .badgeIcon-wrap-m {
         position: relative;
         width: 90px;
-        height: 100px;
+        height: 90px;
     }
 
     .badgeImg-wrap-m {
@@ -58,7 +58,7 @@
         font-size: 24px;
         color: #333;
         font-weight: 200;
-        margin-top: 19px;
+        margin-top: 18px;
     }
 
     /*---------------------------------------------*/
@@ -131,6 +131,7 @@
     module.exports = {
         name: 'badge',
         props: {
+            bid: { default: '' },
             action: {default: function() {              //点击回调
 
             }},
@@ -180,7 +181,7 @@
         },
         methods: {
             clickIcon() {
-                this.action();
+                this.$emit('badge', this.bid);
             }
         }
     }

@@ -37,6 +37,34 @@
                         titleFontSize: '30px',
                         src: '/hot-coin/index.js',
                         visibility: 'hidden',
+                    },
+                    {
+                        index: 2,
+                        title: '热币推荐',
+                        titleFontSize: '30px',
+                        src: '/hot-coin/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 2,
+                        title: '热币推荐',
+                        titleFontSize: '30px',
+                        src: '/hot-coin/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 2,
+                        title: '热币推荐',
+                        titleFontSize: '30px',
+                        src: '/hot-coin/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 2,
+                        title: '热币推荐',
+                        titleFontSize: '30px',
+                        src: '/hot-coin/index.js',
+                        visibility: 'hidden',
                     }
                 ]
 			}

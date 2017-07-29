@@ -1,17 +1,21 @@
 <template>
   <div class="wrapper">
-    <div class="tabbar" append="tree">
-      <tabitem
-        v-for="item in tabItems"
-        :key="item.index"
-        :index="item.index"
-        :title="item.title"
-        :titleFontSize="item.titleFontSize"
-        :titleColor="item.titleColor"
-        :bottomColor="item.bottomColor"
-        :backgroundColor="backgroundColor"
-        @tabItemOnClick="tabItemOnClick">
-      </tabItem>
+    <div class="nav-wrap" :style="{
+        backgroundColor: backgroundColor,
+         }">
+      <scroller class="tabbar" append="tree" scroll-direction="horizontal">
+        <div v-for="item in tabItems"
+             :key="item.index">
+          <tabitem
+                  :index="item.index"
+                  :title="item.title"
+                  :titleFontSize="item.titleFontSize"
+                  :titleColor="item.titleColor"
+                  :bottomColor="item.bottomColor"
+                  @tabItemOnClick="tabItemOnClick">
+          </tabItem>
+        </div>
+      </scroller>
     </div>
     <embed
         v-for="(item , i) in tabItems"
@@ -26,23 +30,34 @@
 
 <style scoped>
   .wrapper {
+    /*width: 750px;*/
     width: 750px;
     position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
+
+  }
+  .nav-wrap {
+    width: 750px;
+    background-color: #f8f8f8;
   }
   .content {
+    width: 750px;
     position: absolute;
-    top: 0px;
+    top: 90px;
+    bottom: 0px;
     left: 0px;
     right: 0px;
-    bottom: 0px;
-    margin-top: 90px;
     margin-bottom: 0px;
   }
   .tabbar {
+    /*width: 750px;*/
+    /*height: 90px;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
     flex-direction: row;
     position: fixed;
     top: 0px;
@@ -50,7 +65,6 @@
     right: 0px;
     bottom: 0px;
     height: 90px;
-    /*border-width: 1px;*/
   }
 </style>
 
@@ -58,11 +72,11 @@
   module.exports = {
     props: {
       tabItems: { default: [] },
-      backgroundColor: { default: '#ffffee' },
-      selectedColor: { default: '#ff0000' },
-      unselectedColor: { default: '#000000' },
-      bottomSelectedColor: { default: '#ff0000'},
-      bottomUnSelectedColor: { default: '#000000'},
+      backgroundColor: { default: '#f8f8f8' },
+      selectedColor: { default: '#fc6d3f' },
+      unselectedColor: { default: '#333333' },
+      bottomSelectedColor: { default: '#fc6d3f'},
+      bottomUnSelectedColor: { default: '#f8f8f8'},
     },
     data: function () {
       return {

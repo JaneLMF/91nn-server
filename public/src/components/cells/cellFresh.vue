@@ -1,15 +1,17 @@
 <template>
     <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
         <div class="article-module-bg">
-            <div class="article-tit-wrap">
+            <div class="article-tit-wrap" v-if="newsDetails.cellModule.user.tit.length > 0">
                 <text class="article-tit">{{ newsDetails.cellModule.user.tit }}</text>
             </div>
             <div class="article-wrap">
-                <text class="article-content">{{ newsDetails.cellModule.user.content }}</text>
+                <text class="article-content" :class="[newsDetails.cellModule.user.tit.length == 0 ? 'article-content-notit' : '']">{{ newsDetails.cellModule.user.content }}</text>
             </div>
             <div class="article-img-wrap" v-if="newsDetails.cellModule.user.contentImg.length > 0">
                 <div class="article-img-group" v-for="(item, i) in newsDetails.cellModule.user.contentImg" :key="i">
-                    <image class="article-img-item" :src="item"></image>
+                    <div class="article-img-box">
+                        <image class="article-img-item" :src="item"></image>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,10 +30,10 @@
         color: #333333;
         font-weight: bolder;
         lines: 2;
+        margin-bottom: 25px;
     }
 
     .article-wrap {
-        margin-top: 25px;
         margin-bottom: 25px;
     }
 
@@ -40,6 +42,10 @@
         color: #888888;
         font-weight: 200;
         lines: 4;
+    }
+
+    .article-content-notit {
+        color: #333333;
     }
 
     .article-img-wrap {
@@ -53,9 +59,15 @@
 
     }
 
-    .article-img-item {
+    .article-img-box {
         width: 210px;
         height: 118px;
+        overflow: hidden;
+    }
+
+    .article-img-item {
+        width: 210px;
+        height: 210px;
         border-radius: 4px;
     }
 </style>
