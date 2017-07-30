@@ -18,6 +18,7 @@
 
 		data() {
 			return {
+                tabbarTop: 0,
                 title: '新手营',
                 navBarHeight: 88,
                 dir: 'examples',
@@ -50,10 +51,11 @@
 			}
         },
 
-        methods: {created: function() {
+        created: function() {
             for(var i = 0; i < this.tabItems.length; i++) {
                 var tabItem = this.tabItems[i];
                 tabItem.src = config.js(tabItem.src)
+                nn.log('tabItem.src ' + tabItem.src)
             }
             //adapter navbar for ios
             if (weexutil.isIOS()){
@@ -63,6 +65,7 @@
                 this.navBarHeight = 64.0 * 750.0 / deviceWidth;
             }
         },
+        methods: {
             selectTab(tab){
                 console.log('select ' + tab.index)
                 this.index = tab.index
