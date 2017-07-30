@@ -1,17 +1,33 @@
-<div class="root">
-	<!--title-->
-	<!--<div class="category">-->
-		<!--<div class="category_item" v-for="tab in tabs" @click="selectTab(tab)">-->
-			<!--<div class="category_box" :class="[tab.index === index ? 'category_select' : '']" >-->
-            		<!--<text style="font-size: 35px;" :class="[tab.index===index? 'tab-active' : '']">{{tab.label}}</text>-->
-            <!--</div>-->
-       	<!--</div>-->
-   	<!--</div>-->
+<!--<div class="root">-->
+	<!--&lt;!&ndash;title&ndash;&gt;-->
+	<!--&lt;!&ndash;<div class="category">&ndash;&gt;-->
+		<!--&lt;!&ndash;<div class="category_item" v-for="tab in tabs" @click="selectTab(tab)">&ndash;&gt;-->
+			<!--&lt;!&ndash;<div class="category_box" :class="[tab.index === index ? 'category_select' : '']" >&ndash;&gt;-->
+            		<!--&lt;!&ndash;<text style="font-size: 35px;" :class="[tab.index===index? 'tab-active' : '']">{{tab.label}}</text>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+       	<!--&lt;!&ndash;</div>&ndash;&gt;-->
+   	<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-	<osc-tabbar
-		backgroundColor="#f7f7f7"
-		bottomSelectedColor="#FB633C"
-		bottomUnSelectedColor="#f7f7f7"
-		:tabItems="tabItems"
-		@tabBarOnClick="tabBarOnClick"/>
-</div>
+	<!--<osc-tabbar-->
+		<!--backgroundColor="#f7f7f7"-->
+		<!--bottomSelectedColor="#FB633C"-->
+		<!--bottomUnSelectedColor="#f7f7f7"-->
+		<!--:tabItems="tabItems"-->
+		<!--@tabBarOnClick="tabBarOnClick"/>-->
+<!--</div>-->
+
+<navpage
+		class="root"
+		dataRole="none"
+		:height="navBarHeight"
+		:title="title"
+		@naviBarLeftItemClick="naviBarLeftItemClick">
+
+	<n-tabbar
+			:marginTop="tabbarTop"
+			backgroundColor="#f7f7f7"
+			bottomSelectedColor="#FB633C"
+			bottomUnSelectedColor="#f7f7f7"
+			:tabItems="tabItems"
+			@tabBarOnClick="tabBarOnClick"/>
+</navpage>

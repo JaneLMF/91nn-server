@@ -5,6 +5,8 @@
 <script>
     import config from 'utils/config'
     import nn from 'utils/debug'
+    import weexutil from 'utils/weex/instance'
+    import navigator from 'utils/modules/navigator'
 
 	export default {
 		props: {
@@ -16,6 +18,12 @@
 
 		data() {
 			return {
+                title: '新手营',
+                navBarHeight: 88,
+                dir: 'examples',
+                baseURL: '',
+                subPath: weex.config.env.platform === 'Web' ? 'vue-web/' : '',
+
                 tabItems: [
                     {
                         index: 0,
@@ -38,34 +46,6 @@
                         src: '/hot-coin/index.js',
                         visibility: 'hidden',
                     },
-                    {
-                        index: 2,
-                        title: '热币推荐',
-                        titleFontSize: '30px',
-                        src: '/hot-coin/index.js',
-                        visibility: 'hidden',
-                    },
-                    {
-                        index: 2,
-                        title: '热币推荐',
-                        titleFontSize: '30px',
-                        src: '/hot-coin/index.js',
-                        visibility: 'hidden',
-                    },
-                    {
-                        index: 2,
-                        title: '热币推荐',
-                        titleFontSize: '30px',
-                        src: '/hot-coin/index.js',
-                        visibility: 'hidden',
-                    },
-                    {
-                        index: 2,
-                        title: '热币推荐',
-                        titleFontSize: '30px',
-                        src: '/hot-coin/index.js',
-                        visibility: 'hidden',
-                    }
                 ]
 			}
         },
@@ -73,6 +53,13 @@
             for(var i = 0; i < this.tabItems.length; i++) {
                 var tabItem = this.tabItems[i];
                 tabItem.src = config.js(tabItem.src)
+            }
+            //adapter navbar for ios
+            if (weexutil.isIOS()){
+                let env = weex.config.env;
+                let scale = env.scale;
+                let deviceWidth = env.deviceWidth / scale;
+                this.navBarHeight = 64.0 * 750.0 / deviceWidth;
             }
         },
         methods: {
@@ -82,10 +69,14 @@
             },
             tabBarOnClick: function(e) {
                 console.log('tabBarOnClick', e.index)
+            },
+            naviBarLeftItemClick: function(){
+                navigator.pop()
             }
         },
         components:{
-            oscTabbar: require('./tab/tabbar.vue'),
+            nTabbar: require('components/tabbar/tabbar.vue'),
+            navpage: require('components/navbar/navpage.vue'),
         }
 	}
 </script>

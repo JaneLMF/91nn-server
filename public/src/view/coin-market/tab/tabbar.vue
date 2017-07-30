@@ -1,22 +1,19 @@
 <template>
   <div class="wrapper">
-    <div class="nav-wrap" :style="{
-        backgroundColor: backgroundColor,
-         }">
-      <scroller class="tabbar" append="tree" scroll-direction="horizontal">
-        <div v-for="item in tabItems"
-             :key="item.index">
-          <tabitem
-                  :index="item.index"
-                  :title="item.title"
-                  :titleFontSize="item.titleFontSize"
-                  :titleColor="item.titleColor"
-                  :bottomColor="item.bottomColor"
-                  @tabItemOnClick="tabItemOnClick">
-          </tabItem>
-        </div>
-      </scroller>
+    <div class="tabbar" append="tree">
+      <tabitem
+        v-for="item in tabItems"
+        :key="item.index"
+        :index="item.index"
+        :title="item.title"
+        :titleFontSize="item.titleFontSize"
+        :titleColor="item.titleColor"
+        :bottomColor="item.bottomColor"
+        :backgroundColor="backgroundColor"
+        @tabItemOnClick="tabItemOnClick">
+      </tabItem>
     </div>
+    <text>Hello</text>
     <embed
         v-for="(item , i) in tabItems"
         :src="item.src"
@@ -25,46 +22,40 @@
         :style="{ visibility: item.visibility }"
         class="content">
     </embed>
+    <text>hehehe</text>
   </div>
 </template>
 
 <style scoped>
   .wrapper {
-    /*width: 750px;*/
-    width: 750px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-
-  }
-  .nav-wrap {
-    width: 750px;
-    background-color: #f8f8f8;
-  }
-  .content {
     width: 750px;
     position: absolute;
     top: 90px;
-    bottom: 0px;
     left: 0px;
     right: 0px;
+    bottom: 0px;
+  }
+  .content {
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     margin-bottom: 0px;
+    /*height: 30px;*/
+    flex: 1;
+    background-color: #21cd3d;
+    border-width: 1px;
   }
   .tabbar {
-    /*width: 750px;*/
-    /*height: 90px;*/
-    /*flex-direction: row;*/
-    /*justify-content: space-between;*/
-    /*align-items: center;*/
     flex-direction: row;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    /*position: fixed;*/
+    /*top: 90px;*/
+    /*left: 0px;*/
+    /*right: 0px;*/
+    /*bottom: 0px;*/
     height: 90px;
+    /*border-width: 1px;*/
   }
 </style>
 
@@ -72,11 +63,11 @@
   module.exports = {
     props: {
       tabItems: { default: [] },
-      backgroundColor: { default: '#f8f8f8' },
-      selectedColor: { default: '#fc6d3f' },
-      unselectedColor: { default: '#333333' },
-      bottomSelectedColor: { default: '#fc6d3f'},
-      bottomUnSelectedColor: { default: '#f8f8f8'},
+      backgroundColor: { default: '#ffffee' },
+      selectedColor: { default: '#ff0000' },
+      unselectedColor: { default: '#000000' },
+      bottomSelectedColor: { default: '#ff0000'},
+      bottomUnSelectedColor: { default: '#000000'},
     },
     data: function () {
       return {

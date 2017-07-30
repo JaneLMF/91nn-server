@@ -1,5 +1,6 @@
 <template>
   <div
+    :style="{ backgroundColor: backgroundColor }"
     class="container"
     @click="onclickitem">
     <div :style="{
@@ -29,8 +30,6 @@
     /*border-width: 1px;*/
   }
   .tab-line {
-    margin-left: 25px;
-    margin-right: 25px;
     height: 90px;
     justify-content: center;
     border-top-width: 4px;
