@@ -49,7 +49,8 @@
                 ]
 			}
         },
-        created: function() {
+
+        methods: {created: function() {
             for(var i = 0; i < this.tabItems.length; i++) {
                 var tabItem = this.tabItems[i];
                 tabItem.src = config.js(tabItem.src)
@@ -62,7 +63,6 @@
                 this.navBarHeight = 64.0 * 750.0 / deviceWidth;
             }
         },
-        methods: {
             selectTab(tab){
                 console.log('select ' + tab.index)
                 this.index = tab.index

@@ -24,7 +24,6 @@
             </div>
         </cell>
         <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
-
             <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
         </cell>
     </list>
@@ -294,7 +293,7 @@
                     duration: 0.3
                 })
                 if (v == id_ico) {
-
+                    navigator.push(routerPage.ico)
                 } else if(v == id_wiki) {
                     navigator.push(routerPage.wikiIndex)
                 } else if(v == id_app) {

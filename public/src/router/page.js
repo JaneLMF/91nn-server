@@ -28,6 +28,11 @@ export default {
         path: '/appDetails',
         jsPath: 'view/link-app/details/index'
     },
+    ico: {
+        title: 'ICO爆料',
+        path: '/ico',
+        jsPath: 'view/ico/index'
+    },
     settings: {
         title: '设置',
         path: '/settings',

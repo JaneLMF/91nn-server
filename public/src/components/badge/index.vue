@@ -100,6 +100,33 @@
     }
 
     /*-------------------------------------*/
+    .badgeIcon-wrap-xm {
+        width: 100px;
+        height: 100px;
+    }
+
+    .badgeImg-wrap-xm {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon-wrap-xm {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        background-color: #fff;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .badgeTit-wrap-xm {
+        font-size: 24px;
+        color: #434343;
+        font-weight: 200;
+        margin-top: 20px;
+    }
+
+    /*-------------------------------------*/
     .badgeIcon-wrap-l {
         width: 120px;
         height: 120px;

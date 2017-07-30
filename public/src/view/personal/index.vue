@@ -48,7 +48,7 @@
                     <image src="/src/view/personal/images/settings.png" class="row-icon"></image>
                 </div>
             </action-row>
-            <action-row :rowTit="'关于链链'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
+            <action-row :rowTit="'关于你牛'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
                 <div class="row-icon-wrap" slot="icon">
                     <image src="/src/view/personal/images/about.png" class="row-icon"></image>
                 </div>

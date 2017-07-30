@@ -1,25 +1,37 @@
 <template>
-    <list>
-        <cell>
-            <n-search :oSearch="oSearch">
-                <badge class="personal-header-mesg"
-                       :action="badgeData.action"
-                       :iconStyle="badgeData.iconStyle"
-                       :superScriptState="badgeData.superScriptState"
-                       :iconName="badgeData.iconName"></badge>
-            </n-search>
-        </cell>
-        <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
-            <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
-        </cell>
-        <cell>
+    <div class="home-wrap">
+        <list class="list-wrap">
+            <cell>
+                <n-search :oSearch="oSearch">
+                    <badge class="personal-header-mesg"
+                           :action="badgeData.action"
+                           :iconStyle="badgeData.iconStyle"
+                           :superScriptState="badgeData.superScriptState"
+                           :iconName="badgeData.iconName"></badge>
+                </n-search>
+            </cell>
+            <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
+                <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+            </cell>
+        </list>
+        <div>
             <image src="/src/view/home/images/fatie.png" class="fatie" @click="toFatie"></image>
-            <all-screen-modal :flag="modalFlag" :openIt="v=>modalFlag=v"></all-screen-modal>
-        </cell>
-    </list>
+            <all-screen-modal :flag="modalFlag" :openIt="v=>modalFlag=v" class="all-screen-modal"></all-screen-modal>
+        </div>
+    </div>
 </template>
 
 <style>
+    /*.home-wrap {*/
+        /*position: relative;*/
+    /*}*/
+
+    /*.list-wrap {*/
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*left: 0px;*/
+    /*}*/
+
     .personal-header-mesg {
         margin-left: 30px;
         margin-top: 20px;
@@ -36,11 +48,19 @@
 
     .fatie {
         position: fixed;
-        top: 900px;
+        bottom: 60px;
         right: 60px;
         width: 100px;
         height: 100px;
     }
+
+    /*.all-screen-modal {*/
+        /*width: 750px;*/
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*left: 0px;*/
+        /*z-index: 10;*/
+    /*}*/
 </style>
 
 <script>

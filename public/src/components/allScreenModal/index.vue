@@ -1,5 +1,5 @@
 <template>
-    <div class="modal-wrap" @click="openModal">
+    <div v-if="flag" class="modal-wrap" @click="openModal">
         <slot></slot>
     </div>
 </template>
@@ -7,8 +7,9 @@
 <style>
     .modal-wrap {
         width: 750px;
-        height: 1080px;
-        background-color: rgba(255, 255, 255, 0.5);
+        height: 1334px;
+        background-color: #fff;
+        opacity: 0.5;
         justify-content: center;
         align-items: center;
     }
@@ -23,7 +24,8 @@
         },
         methods: {
             openModal() {
-                this.$emit('openIt', !this.flag);
+                this.flag = !this.flag;
+                this.$emit('openIt', this.flag);
                 modal.toast({
                     message: this.flag,
                     duration: 0.3
