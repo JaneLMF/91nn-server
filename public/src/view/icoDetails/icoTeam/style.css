@@ -1,0 +1,32 @@
+.wiki-team-wrap {
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.wiki-team-bossInfo {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.wiki-team-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #434343;
+}
+
+.wiki-team-boss {
+    margin-left: 20px;
+    font-size: 26px;
+    color: #434343;
+}
+
+.wiki-team-boss-intro {
+    font-size: 24px;
+    color: #959595;
+    line-height: 35px;
+    margin-left: 30px;
+    width: 660px;
+}

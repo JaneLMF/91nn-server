@@ -273,6 +273,6 @@
                 let deviceWidth = env.deviceWidth / scale;
                 this.navBarHeight = 64.0 * 750.0 / deviceWidth;
             }
-        },
+        }
     }
 </script>

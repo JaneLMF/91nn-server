@@ -1,7 +1,8 @@
 <template>
-    <image :src="[levelUrl]" :class="[levelStyle]"></image>
+    <image :src="levelUrl" :class="[oLevel.lStyle + '-level']"></image>
 </template>
 
+<img src="images/details-s.png"/>
 <style>
     .details-level {
         width: 55px;
@@ -26,13 +27,13 @@
                 }
             }
         },
-        computed: {
-            levelUrl() {
-                return '/src/components/icoLevel/images/' + this.oLevel.lStyle + '-' + this.oLevel.length + '.png'
-            },
-            levelStyle() {
-                return this.oLevel.lStyle + '-level'
+        data() {
+            return {
+                levelUrl: ''
             }
+        },
+        mounted() {
+            this.levelUrl = '/src/components/icoLevel/images/' + this.oLevel.lStyle + '-' + this.oLevel.level + '.png';
         }
     }
 </script>

@@ -33,6 +33,11 @@ export default {
         path: '/ico',
         jsPath: 'view/ico/index'
     },
+    icoDetails: {
+        title: 'ICO详情',
+        path: '/icoDetails',
+        jsPath: 'view/icoDetails/index'
+    },
     settings: {
         title: '设置',
         path: '/settings',

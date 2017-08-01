@@ -1,24 +1,24 @@
 <template>
-    <div class="level-bg">
-        <div class="level-wrap" v-for="(item, i) in icoInfo" :key="i">
+    <list class="level-bg">
+        <cell class="level-wrap" v-for="(item, i) in icoInfo" :key="i" @click="jumpTodetails">
             <div class="level-group">
                 <user-header class="follower-header" :article="item.article"></user-header>
                 <ico-level :oLevel="item.oLevel"></ico-level>
-                <!--<div v-if="[isOver(item.targetTime)]" class="ico-time-line-wrap">-->
-                    <!--<div class="ico-time-line-group">-->
-                        <!--<text class="ico-time-line-tit">开始</text>-->
-                        <!--<text class="ico-time-line-content">{{ item.startTime }}</text>-->
-                    <!--</div>-->
-                    <!--<div class="ico-time-line-group">-->
-                        <!--<text class="ico-time-line-tit">结束</text>-->
-                        <!--<text class="ico-time-line-content">{{ item.targetTime }}</text>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <count-down :targetTime="item.targetTime"></count-down>
+                <div v-if="isOver(item.targetTime)" class="ico-time-line-wrap">
+                    <div class="ico-time-line-group">
+                        <text class="ico-time-line-tit">开始</text>
+                        <text class="ico-time-line-content">{{ item.startTime }}</text>
+                    </div>
+                    <div class="ico-time-line-group">
+                        <text class="ico-time-line-tit">结束</text>
+                        <text class="ico-time-line-content">{{ item.targetTime }}</text>
+                    </div>
+                </div>
+                <count-down v-else :targetTime="item.targetTime"></count-down>
             </div>
             <div class="line"></div>
-        </div>
-    </div>
+        </cell>
+    </list>
 </template>
 
 <style>
@@ -27,16 +27,18 @@
     }
 
     .level-wrap {
-        margin-left: 30px;
-        margin-right: 30px;
-        width: 690px;
+        width: 750px;
+        justify-content: center;
+        align-items: center;
     }
 
     .level-group {
+        width: 690px;
         margin-top: 40px;
         margin-bottom: 40px;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 
     .ico-time-line-wrap {
@@ -69,9 +71,13 @@
 </style>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     export default {
         data() {
             return {
+                isCutDown: false,
                 icoInfo: [
                     {
                         article: {
@@ -85,7 +91,7 @@
                             level: 's'
                         },
                         startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        targetTime: 1501588184536
                     },
                     {
                         article: {
@@ -98,8 +104,8 @@
                             lStyle: 'details',
                             level: 'a'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        startTime: 1501668878136,
+                        targetTime: 1501584598645
                     },
                     {
                         article: {
@@ -112,8 +118,8 @@
                             lStyle: 'details',
                             level: 'b'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        startTime: 1501582479136,
+                        targetTime: 1501583048653
                     },
                     {
                         article: {
@@ -127,7 +133,7 @@
                             level: 'c'
                         },
                         startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        targetTime: 1501582478136
                     },
                     {
                         article: {
@@ -141,7 +147,7 @@
                             level: 'd'
                         },
                         startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        targetTime: 1501582478136
                     },
                     {
                         article: {
@@ -155,7 +161,7 @@
                             level: 'a'
                         },
                         startTime: 1501405931000,
-                        targetTime: 1501490891000
+                        targetTime: 1501582478136
                     }
                 ]
             }
@@ -166,12 +172,28 @@
             icoLevel: require('components/icoLevel/index.vue')
         },
         computed: {
+//            isOver(timming) {
+//                var now = new Date();
+//                var d_time = parseInt(timming) - now.getTime();
+//                if(d_time > 86400000 || d_time < 0) {
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            }
+        },
+        methods: {
+            jumpTodetails() {
+                navigator.push(routerPage.icoDetails)
+            },
             isOver(timming) {
                 var now = new Date();
-                if(now <= timming) {
-                    return false;
-                } else {
+                var d_time = parseInt(timming) - now.getTime();
+                console.log(now.getTime());
+                if(d_time > 86400000 || d_time < 0) {
                     return true;
+                } else {
+                    return false;
                 }
             }
         }

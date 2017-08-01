@@ -1,0 +1,9 @@
+<div>
+    <div class="wiki-team-wrap" v-for="(item, i) in teamGroupIntro" :key="i">
+        <div class="wiki-team-bossInfo">
+            <div class="wiki-team-icon"></div>
+            <text class="wiki-team-boss">{{ item.name }}</text>
+        </div>
+        <text class="wiki-team-boss-intro">{{ item.intro }}</text>
+    </div>
+</div>
