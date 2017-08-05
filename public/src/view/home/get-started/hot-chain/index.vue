@@ -4,6 +4,8 @@
 
 <script>
 	import nn from 'utils/debug'
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
 	export default {
 		mounted () {
 
@@ -127,9 +129,14 @@
         methods:{
             bannerItemClick(id){
               nn.log('bannerItemClick ' + id)
+                wikiDetails
             },
             oncellclick(id) {
               nn.log('oncellclick ' + id)
+              navigator.push(routerPage.wikiDetails,
+                {
+                    id: id
+                })
             }
         },
         components:{

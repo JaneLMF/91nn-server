@@ -1,0 +1,64 @@
+<navpage
+        style="width: 750px;"
+        dataRole="none"
+        :title="title">
+    <list>
+        <cell>
+            <div class="top-wrap">
+                <div class="top-bg"></div>
+                <badge class="app-logo-wrap"
+                       :action="badgeData.action"
+                       :iconStyle="badgeData.iconStyle"
+                       :superScriptState="badgeData.superScriptState"
+                       :iconName="badgeData.iconName"
+                ></badge>
+            </div>
+            <div class="nav-info-wrap">
+                <div class="nav-info-group">
+                    <text class="nav-info-content">{{ appInfo.industry }}</text>
+                    <text class="nav-info-tit">行业领域</text>
+                </div>
+                <text class="fenge">|</text>
+                <div class="nav-info-group">
+                    <text class="nav-info-content">{{ appInfo.deliveryTime }}</text>
+                    <text class="nav-info-tit">发布时间</text>
+                </div>
+                <text class="fenge">|</text>
+                <div class="nav-info-group">
+                    <text class="nav-info-content">{{ appInfo.userCount }}</text>
+                    <text class="nav-info-tit">用户总量</text>
+                </div>
+                <text class="fenge">|</text>
+                <div class="nav-info-group">
+                    <text class="nav-info-content">{{ appInfo.userCount }}</text>
+                    <text class="nav-info-tit">用户总量</text>
+                </div>
+            </div>
+        </cell>
+        <cell>
+            <div v-for="(item, i) in infoBox" :key="i">
+                <info-row :infoBox="item"></info-row>
+            </div>
+            <content-summary :proIntroContent="proIntroContent"></content-summary>
+        </cell>
+        <cell>
+            <tab-group class="tab-group" :value="tabBarValue" :tabs="tabGroupLabel" @input="v=>tabBarValue=v" :tabBarClass="tabBarClass">
+                <tab-item class="tab-item" :label="评论" :value="0">
+                    <scroller style="background-color: #fff" class="bc-wrap-box">
+                        <div v-for="(item, i) in comment" :key="i">
+                            <comment-group :comment="item"></comment-group>
+                        </div>
+                    </scroller>
+                </tab-item>
+                <tab-item class="tab-item" :label="新闻" :value="1">
+                    <scroller style="background-color: #f8f8f8">
+                        <div v-for="(item, i) in articleGroup" :key="i">
+                            <text-cell :article="item"></text-cell>
+                        </div>
+                    </scroller>
+                </tab-item>
+            </tab-group>
+            <comment-footer :commentFooter="commentFooter" class="fixed-input-wrap"></comment-footer>
+        </cell>
+    </list>
+</navpage>

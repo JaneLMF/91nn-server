@@ -8,6 +8,7 @@
 	export default {
 	    data() {
 	        return {
+                tabbarTop: 80,
                 oSearch: {
                     placeHolderText: '输入关键词',
                     hasBtn: true,
@@ -18,21 +19,28 @@
                 tabItems: [
                     {
                         index: 0,
-                        title: '新手学堂',
+                        title: '自选',
                         titleFontSize: '30px',
                         src: '/optional/index.js',
                         visibility: 'visible',
                     },
                     {
                         index: 1,
-                        title: '热链推荐',
+                        title: '比特币',
                         titleFontSize: '30px',
                         src: '/optional/index.js',
                         visibility: 'hidden',
                     },
                     {
                         index: 2,
-                        title: '热币推荐',
+                        title: '莱特币',
+                        titleFontSize: '30px',
+                        src: '..//home/get-started/hot-coin/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 3,
+                        title: 'ETH',
                         titleFontSize: '30px',
                         src: '..//home/get-started/hot-coin/index.js',
                         visibility: 'hidden',
@@ -54,7 +62,7 @@
         },
 		components: {
             nSearch: require('components/search/search-hasBtn.vue'),
-            oscTabbar: require('./tab/tabbar.vue'),
+            nTabbar: require('./tab/tabbar.vue'),
         },
 
 	}

@@ -4,6 +4,8 @@
 
 <script>
 	import nn from 'utils/debug'
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
 	export default {
 		mounted () {
 
@@ -130,6 +132,10 @@
             },
             oncellclick(id) {
               nn.log('oncellclick ' + id)
+              navigator.push(routerPage.coinDetails,
+                    {
+                        id: id
+                    })
             }
         },
         components:{

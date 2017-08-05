@@ -2,7 +2,7 @@
   <div class="wrapper">
     <navbar
             :dataRole="dataRole"
-            :height="height"
+            :height="computeHeight"
             :backgroundColor="backgroundColor"
             :title="title"
             :titleColor="titleColor"
@@ -13,7 +13,7 @@
             :rightItemTitle="rightItemTitle"
             :rightItemColor="rightItemColor"
             @naviBarRightItemClick="naviBarRightItemClick"
-            @naviBarLeftItemClick="naviBarLeftItemClick"
+            @naviBarLeftItemClick="leftItemClick"
     >
 
     </navbar>
@@ -35,6 +35,7 @@
 </style>
 
 <script>
+    import navigator from 'utils/modules/navigator'
     module.exports = {
         components: {
             navbar: require('./navbar.vue')
@@ -52,11 +53,27 @@
             leftItemTitle: { default: '' },
             leftItemColor: { default: 'black' }
         },
+        computed: {
+            computeHeight: function(){
+                //adapter navbar for ios
+                if (weex.config.env.platform === 'iOS'){
+                    let env = weex.config.env;
+                    let scale = env.scale;
+                    let deviceWidth = env.deviceWidth / scale;
+                    this.height = 64.0 * 750.0 / deviceWidth;
+                }
+                return this.height;
+            }
+        },
         methods: {
             naviBarRightItemClick: function (e) {
                 this.$emit('naviBarRightItemClick', e)
             },
-            naviBarLeftItemClick: function (e) {
+            leftItemClick: function (e) {
+                if (this.naviBarLeftItemClick == null){
+                    navigator.pop()
+                    return
+                }
                 this.$emit('naviBarLeftItemClick', e)
             }
         }

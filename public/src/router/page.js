@@ -107,5 +107,15 @@ export default {
         title: '我的评论',
         path: '/myComments',
         jsPath: 'view/personal/my-comments/index'
+    },
+    repostPage: {
+        title: '正文',
+        path: '/repostPage',
+        jsPath: 'view/content/index'
+    },
+    coinDetails: {
+        title: '详情',
+        path: '/coinDetails',
+        jsPath: 'view/coin-market/details/index'
     }
 }

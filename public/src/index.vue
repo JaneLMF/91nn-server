@@ -36,7 +36,7 @@
                         icon: '',
                         image: '/src/view/home/images/coin.png',
                         selectedImage: '/src/view/home/images/coin-active.png',
-                        src: '/content3.js',
+                        src: '/view/coin-market/index.js',
                         visibility: 'hidden',
                     },
                     {

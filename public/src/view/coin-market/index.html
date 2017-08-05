@@ -2,10 +2,14 @@
 	<n-search :oSearch="oSearch">
 		<image src="/src/view/link-wiki/images/edit.png" class="nav-edit"></image>
 	</n-search>
-	<osc-tabbar
-		backgroundColor="#f7f7f7"
-		bottomSelectedColor="#FB633C"
-		bottomUnSelectedColor="#f7f7f7"
+	<n-tabbar
+		:marginTop="tabbarTop"
+		backgroundColor="#fc6d3f"
+		bottomSelectedColor="white"
+		bottomUnSelectedColor="#fc6d3f"
+		titleColor="white"
+		unselectedColor="white"
+		selectedColor="white"
 		:tabItems="tabItems"
 		@tabBarOnClick="tabBarOnClick"/>
 </div>

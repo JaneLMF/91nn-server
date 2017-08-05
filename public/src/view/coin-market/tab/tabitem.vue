@@ -1,36 +1,39 @@
 <template>
   <div
-    :style="{ backgroundColor: backgroundColor }"
-    class="container"
-    @click="onclickitem">
-    <div :style="{
+          :style="{height: height }"
+          class="container"
+          @click="onclickitem">
+    <div class="tab-line" :style="{
         borderTopColor : backgroundColor,
         borderBottomColor: bottomColor,
-         }" class="tab-line">
+        height: height,
+        marginLeft: margin,
+        marginRight: margin,
+         }">
       <text
-        :style="{ color: titleColor, fontSize: titleFontSize}"
-        class="tab-text">{{title}}</text>
+              :style="{ color: titleColor, fontSize: titleFontSize}"
+              class="tab-text">{{title}}</text>
     </div>
-  </div>  
+  </div>
 </template>
 
 <style scoped>
+  .border {
+    border-width: 1px;
+  }
+
   .container {
     flex: 1;
-    flex-direction: column; 
-    align-items:center; 
-    justify-content:center; 
-    height: 90px;
-    /*border-width: 1px;*/
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
   }
 
   .tab-text {
-    text-align: center;  
-    font-size: 20px;
-    /*border-width: 1px;*/
+    text-align: center;
   }
+
   .tab-line {
-    height: 90px;
     justify-content: center;
     border-top-width: 4px;
     border-bottom-width: 4px;
@@ -38,22 +41,24 @@
 </style>
 
 <script>
-  module.exports = {
-    props: {
-      index: { default: 0 },
-      title: { default: '' },
-      titleColor: { default: '#000000' },
-      bottomColor: { default: '#ffffee' },
-      titleFontSize: { default: '30px' },
-      backgroundColor: { default: '#ffffee' }
-    },
-    methods: {
-      onclickitem: function (e) {
-        var params = {
-          index: this.index
-        };
-        this.$emit('tabItemOnClick', params);
-      }
+    module.exports = {
+        props: {
+            height: {default: 90 },
+            index: { default: 0 },
+            title: { default: '' },
+            margin: { default: 25 },
+            titleColor: { default: '#000000' },
+            bottomColor: { default: '#ffffee' },
+            titleFontSize: { default: '30px' },
+            backgroundColor: { default: '#ffffee' }
+        },
+        methods: {
+            onclickitem: function (e) {
+                var params = {
+                    index: this.index
+                };
+                this.$emit('tabItemOnClick', params);
+            }
+        }
     }
-  }
 </script>

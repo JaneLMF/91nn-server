@@ -5,8 +5,6 @@
 <script>
     import config from 'utils/config'
     import nn from 'utils/debug'
-    import weexutil from 'utils/weex/instance'
-    import navigator from 'utils/modules/navigator'
 
 	export default {
 		props: {
@@ -57,13 +55,6 @@
                 tabItem.src = config.js(tabItem.src)
                 nn.log('tabItem.src ' + tabItem.src)
             }
-            //adapter navbar for ios
-            if (weexutil.isIOS()){
-                let env = weex.config.env;
-                let scale = env.scale;
-                let deviceWidth = env.deviceWidth / scale;
-                this.navBarHeight = 64.0 * 750.0 / deviceWidth;
-            }
         },
         methods: {
             selectTab(tab){
@@ -72,9 +63,6 @@
             },
             tabBarOnClick: function(e) {
                 console.log('tabBarOnClick', e.index)
-            },
-            naviBarLeftItemClick: function(){
-                navigator.pop()
             }
         },
         components:{
