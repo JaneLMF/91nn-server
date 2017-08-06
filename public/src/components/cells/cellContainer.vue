@@ -3,7 +3,7 @@
         <cell-user-info :headerUrl="article.headerUrl" :userName="article.userName" :userIssue="article.userIssue" :articleTime="article.articleTime"></cell-user-info>
         <slot></slot>
         <div :class="[footerType == 0 ? 'button-fresh-group' : 'button-repost-group']">
-            <div class="button-item">
+            <div class="button-item" @click="repostIt">
                 <image class="button-icon" src="/src/components/cells/images/zhuanfa.png"></image>
                 <text class="button-content">{{ article.forward == 0 ? '转发' : article.forward }}</text>
             </div>
@@ -20,6 +20,9 @@
 </template>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     export default {
         props: {
             footerType: { default: 0 },
@@ -53,6 +56,9 @@
                     this.$emit('agree', parseInt(this.article.agree) - 1);
                 }
                 this.hasAgree = !this.hasAgree;
+            },
+            repostIt() {
+                navigator.push(routerPage.repostPage)
             }
         },
         components: {

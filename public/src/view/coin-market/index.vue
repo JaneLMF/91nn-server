@@ -5,64 +5,151 @@
 <script>
     import config from 'utils/config'
     import nn from 'utils/debug'
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
+    let id_add = 1, id_edit = 2;
 	export default {
 	    data() {
 	        return {
-                tabbarTop: 80,
-                oSearch: {
-                    placeHolderText: '输入关键词',
-                    hasBtn: true,
-                    searchWrapStyle: 'search-wrap-fc6d3f',
-                    searchMoudleStyle: '',
-                    inputSearchStyle: 'input-search-fff'
-                },
-                tabItems: [
+                title: '行情',
+                showmenu: false,
+                coins: [
                     {
-                        index: 0,
-                        title: '自选',
-                        titleFontSize: '30px',
-                        src: '/optional/index.js',
-                        visibility: 'visible',
+                        id: '0',
+                        name: '比特币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
                     },
                     {
-                        index: 1,
-                        title: '比特币',
-                        titleFontSize: '30px',
-                        src: '/optional/index.js',
-                        visibility: 'hidden',
+                        id: '1',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: -1.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
                     },
                     {
-                        index: 2,
-                        title: '莱特币',
-                        titleFontSize: '30px',
-                        src: '..//home/get-started/hot-coin/index.js',
-                        visibility: 'hidden',
+                        id: '2',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: -0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
                     },
                     {
-                        index: 3,
-                        title: 'ETH',
-                        titleFontSize: '30px',
-                        src: '..//home/get-started/hot-coin/index.js',
-                        visibility: 'hidden',
+                        id: '3',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 1.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '4',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '5',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '6',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '7',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '8',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    },
+                    {
+                        id: '9',
+                        name: '云储币',
+                        storeName: '云币网',
+                        unit: '$',
+                        increase: 0.6,
+                        cnyPrice: '1800',
+                        usdPrice: '300',
+                    }
+                ],
+                menulist: [
+                    {
+                        id: id_add,
+                        icon: '/resources/coin-market/menu_add.png',
+                        title: '添加'
+                    },
+                    {
+                        id: id_edit,
+                        icon: '/resources/coin-market/menu_edit.png',
+                        title: '编辑'
                     }
                 ]
             }
         },
         created: function() {
-            for(var i = 0; i < this.tabItems.length; i++) {
-                var tabItem = this.tabItems[i];
-                tabItem.src = config.js(tabItem.src)
-                nn.log(tabItem.src)
-            }
+
         },
         methods: {
-            tabBarOnClick(e){
-
+            naviBarRightItemClick(event){
+                nn.log('naviBarRightItemClick');
+                this.openMenu();
             },
+            openMenu(){
+                this.$refs.menu.open();
+            },
+            closeMenu(){
+                this.$refs.menu.close();
+            },
+            clickMenuItem(id){
+                nn.log('clickMenuItem ' + id);
+                this.closeMenu();
+                if (id_add == id){
+                    navigator.push(routerPage.addCoin)
+                }else if(id_edit == id){
+
+                }
+            }
         },
 		components: {
-            nSearch: require('components/search/search-hasBtn.vue'),
-            nTabbar: require('./tab/tabbar.vue'),
+            navpage: require('components/navbar/navpage.vue'),
+            nNull: require('./null/index.vue'),
+            nMarket: require('./market/index.vue'),
+            nAdd: require('./add/index.vue'),
+            nMenu: require('components/n-menu/index.vue')
         },
 
 	}

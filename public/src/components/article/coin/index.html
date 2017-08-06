@@ -1,0 +1,26 @@
+<div @click="viewDetails">
+	<div class="follow-text-wrap">
+		<text class="follow-text">我刚刚关注了</text>
+		<follow-target :followType="newsDetails.followType" :followClass="newsDetails.followClass" :followTarget="newsDetails.followTarget"></follow-target>
+		<text class="follow-text">当前价格</text>
+		<text class="follow-text">¥{{ newsDetails.coinPriceCNY }}</text>
+	</div>
+	<div class="cell-coin-bg">
+		<div class="cell-coin-wrap">
+			<div class="coin-rise-bg" :class="[newsDetails.riseStatus == 'up' ? 'coin-rise-bg-up' : 'coin-rise-bg-down']">
+				<div class="coin-rise-wrap">
+					<text class="coin-prise-CNY">¥{{ newsDetails.coinPriceCNY }}</text>
+					<text class="coin-prise-US">${{ newsDetails.coinPriceUS }}</text>
+				</div>
+			</div>
+			<div class="coin-info-wrap">
+				<div class="coin-name-wrap">
+					<text class="coin-name-text">{{ newsDetails.followClass }}</text>
+					<text class="coin-name-text">/</text>
+					<text class="coin-name-text">{{ newsDetails.followTarget }}</text>
+				</div>
+				<text class="coin-rise-text">{{ risePercent }}</text>
+			</div>
+		</div>
+	</div>
+</div>

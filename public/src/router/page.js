@@ -113,9 +113,19 @@ export default {
         path: '/repostPage',
         jsPath: 'view/content/index'
     },
+    userHome: {
+        title: '',
+        path: '/userHome',
+        jsPath: 'view/userHome/index'
+    },
     coinDetails: {
         title: '详情',
         path: '/coinDetails',
         jsPath: 'view/coin-market/details/index'
+    },
+    addCoin: {
+        title: '添加币',
+        path: '/addCoin',
+        jsPath: 'view/coin-market/add/index'
     }
 }

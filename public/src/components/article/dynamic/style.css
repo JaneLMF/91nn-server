@@ -1,0 +1,16 @@
+.mesg-wrap {
+    width: 690px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.user {
+    font-size: 26px;
+    color: #333333;
+}
+
+.content {
+    margin-top: 10px;
+    font-size: 26px;
+    color: #707070;
+}

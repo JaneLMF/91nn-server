@@ -1,0 +1,71 @@
+<style src="./style.css"></style>
+
+<template src="./index.html"></template>
+
+<script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
+	export default {
+        props: {
+            userType: { default: 'repost' },
+            articleType: { default: 'news' },
+            news: {
+                default() {
+                    return {
+                        articleID: '',
+                        tit: '',
+                        intro: '',
+                        imgUrl: '',
+                        issue: '',
+                        comment: '',
+                        agree: '',
+                        time: ''
+                    }
+                }
+            },
+            dynamic: {
+                default() {
+                    return {
+                        userName: '',
+                        content: ''
+                    }
+                }
+            },
+//            newsDetails: {
+//                default() {
+//                    return {
+//                        article: {
+//                            headerUrl: '',
+//                            userName: '',
+//                            userIssue: '',
+//                            articleTime: '',
+//                            comment: '',
+//                            forward: '',
+//                            agree: ''
+//                        },
+//                        followType: '',
+//                        followClass: '',
+//                        followTarget: '',
+//                        coinPriceCNY: '',
+//                        coinPriceUS: '',
+//                        rise: '',
+//                        riseStatus: ''
+//                    }
+//                }
+//            }
+        },
+        methods: {
+            viewNewsDetails() {
+                navigator.push(routerPage.getStarted);
+            }
+        },
+        components: {
+            nNews: require('components/article/news/index.vue'),
+            nDynamic: require('components/article/dynamic/index.vue'),
+//            nCoin: require('components/article/coin/index.vue'),
+//            nLink: require('components/article/link/index.vue')
+        }
+	}
+</script>
+

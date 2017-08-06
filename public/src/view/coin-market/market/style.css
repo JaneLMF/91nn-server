@@ -1,0 +1,148 @@
+.root {
+	width: 750px;
+	flex: 1;
+}
+
+.border {
+	/*border-width: 1px;*/
+}
+
+.item-line {
+	/*width: 750px;*/
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.item {
+	height: 148px;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.item-line-top {
+	border-width: 1px;
+	border-color: #ffffff;
+}
+
+.item-line-bottom {
+	border-width: 1px;
+	border-color: #f7f7f7;
+}
+
+.user-header-wrap {
+	flex-direction: row;
+	/*justify-content: center;*/
+	align-items: center;
+	text-align: left;
+	height: 60px;
+}
+
+.user-info-wrap {
+
+}
+
+.user-name {
+	font-size: 32px;
+	color: #434343;
+}
+
+.user-issue {
+	margin-top: 10px;
+	font-size: 20px;
+	color: #959595;
+}
+
+.div-increase {
+	width: 120px;
+	height: 50px;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.bg-price-down {
+	background-color: #ff5452;
+}
+
+.bg-price-up {
+	background-color: #21cd3d;
+}
+
+.price {
+	align-items: flex-end;
+	/*justify-content: flex-end;*/
+}
+
+.price-usd {
+	margin-top: 3px;
+	font-size: 20px;
+	color: #959595;
+}
+
+.price-calm {
+	color: white;
+	font-size: 20px;
+}
+
+.increase {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 18px;
+	height: 18px;
+}
+
+.star-box {
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-bottom: 10px;
+}
+
+.star-text {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #f9b713;
+	border-radius: 10px;
+}
+
+.star {
+	flex-direction: row;
+}
+
+/* for slider*/
+.slider{
+	width: 750px;
+	height: 290px;
+}
+
+.slider-indicator {
+	width: 750px;
+	height: 30px;
+	position: absolute;
+	bottom:60px;
+	item-color: rgba(51, 51, 51, 0.5);
+	item-selected-color: #fff;
+	item-size: 15px;
+}
+
+.img {
+	width: 520px;
+	height: 210px;
+	border-radius: 10px;
+}
+
+.list-head {
+	width: 750px;
+	height: 64px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: #f7f7f7;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.list-head-item {
+	font-size: 24px;
+	color: #959595;
+}

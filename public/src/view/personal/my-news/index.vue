@@ -7,6 +7,8 @@
         <cell v-else v-for="(item, i) in news" :key="i" class="cell-wrap">
             <cell-fresh v-if="item.type == 0" :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
             <cell-repost v-else-if="item.type == 1" :newsDetails="item.newsDetails" class="cell-item"></cell-repost>
+            <cell-coin v-else-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>
+            <cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>
         </cell>
     </list>
 </template>
@@ -113,12 +115,77 @@
                             }
                         }
                     },
+                    {
+                        type: 2,
+                        newsDetails: {
+                            article: {
+                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                                userName: '鹿晗',
+                                userIssue: '你牛',
+                                articleTime: '12.30',
+                                comment: '1',
+                                forward: '2',
+                                agree: '3'
+                            },
+                            followType: 'coin',
+                            followClass: '比特股',
+                            followTarget: 'BTS',
+                            coinPriceCNY: '1999.890',
+                            coinPriceUS: '3077.48',
+                            rise: '0.88%',
+                            riseStatus: 'up'
+                        }
+                    },
+                    {
+                        type: 2,
+                        newsDetails: {
+                            article: {
+                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                                userName: '鹿晗',
+                                userIssue: '你牛',
+                                articleTime: '12.30',
+                                comment: '1',
+                                forward: '2',
+                                agree: '3'
+                            },
+                            followType: 'coin',
+                            followClass: '比特股',
+                            followTarget: 'BTS',
+                            coinPriceCNY: '1999.890',
+                            coinPriceUS: '3077.48',
+                            rise: '0.88%',
+                            riseStatus: 'down'
+                        }
+                    },
+                    {
+                        type: 3,
+                        newsDetails: {
+                            article: {
+                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                                userName: '鹿晗',
+                                userIssue: '你牛',
+                                articleTime: '12.30',
+                                comment: '1',
+                                forward: '2',
+                                agree: '3'
+                            },
+                            followType: 'link',
+                            followClass: '比特股',
+                            followTarget: 'BTS',
+                            coinPriceCNY: '1999.890',
+                            coinPriceUS: '3077.48',
+                            rise: '0.88%',
+                            riseStatus: 'down'
+                        }
+                    }
                 ]
             }
         },
         components: {
             cellFresh: require('components/cells/cellFresh.vue'),
-            cellRepost: require('components/cells/cellRepost.vue')
+            cellRepost: require('components/cells/cellRepost.vue'),
+            cellCoin: require('components/cells/cellCoin.vue'),
+            cellLink: require('components/cells/cellLink.vue')
         }
     }
 </script>

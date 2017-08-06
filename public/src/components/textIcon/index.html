@@ -1,0 +1,5 @@
+<div :class="['icon-wrap-' + iconDirection]" @click="clickIt">
+	<image v-if="textDirection == 'bottom' || textDirection == 'right'" :src="iconUrl" :class="['icon-' + size]"></image>
+	<text v-if="text.length > 0" :class="['text-' + size, 'text-' + textDirection]" :style="{color: textColor}">{{ text }}</text>
+	<image v-if="textDirection == 'top' || textDirection == 'left'" :src="iconUrl" :class="['icon-' + size]"></image>
+</div>

@@ -1,0 +1,19 @@
+<div class="news-wrap" @click="viewDetails">
+    <div class="news-content-wrap" :class="[news.imgUrl.length > 0 ? 'news-content-wrap-hasImg' : 'news-content-wrap-noImg']">
+        <text class="news-content-tit">{{ news.tit }}</text>
+        <text v-if="news.imgUrl.length <= 0" class="news-content">{{ news.intro }}</text>
+        <div class="news-issue-wrap" :class="[news.imgUrl.length > 0 ? 'news-issue-wrap-hasImg' : 'news-issue-wrap-noImg']">
+            <div class="news-info-wrap">
+                <text class="news-submit-tit">{{ news.issue }}</text>
+                <text class="fenge">·</text>
+                <text class="news-submit-tit">评论{{ news.comment }}</text>
+                <text class="fenge">·</text>
+                <text class="news-submit-tit">赞{{ news.agree }}</text>
+            </div>
+            <text class="news-submit-tit">{{ news.time }}</text>
+        </div>
+    </div>
+    <div class="news-img-wrap">
+        <image v-if="news.imgUrl.length > 0" class="news-img" :src="news.imgUrl"></image>
+    </div>
+</div>

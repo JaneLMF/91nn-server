@@ -1,0 +1,54 @@
+.icon-wrap-row {
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-wrap-column {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-s {
+	width: 24px;
+	height: 24px;
+}
+
+.icon-m {
+	width: 32px;
+	height: 32px;
+}
+
+.icon-l {
+	width: 48px;
+	height: 48px;
+}
+
+.text-s {
+	font-size: 20px;
+}
+
+.text-m {
+	font-size: 24px;
+}
+
+.text-l {
+	font-size: 28px;
+}
+
+.text-top {
+	margin-bottom: 10px;
+}
+
+.text-right {
+	margin-left: 10px;
+}
+
+.text-bottom {
+	margin-top: 10px;
+}
+
+.text-left {
+	margin-right: 10px;
+}

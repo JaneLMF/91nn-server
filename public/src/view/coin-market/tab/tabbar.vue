@@ -1,23 +1,28 @@
 <template>
   <div class="wrapper" :style="{top: marginTop}">
-    <scroller append="tree" style="flex-direction: row;"  scroll-direction="horizontal">
-      <div :class="[ scrolleable == false ? 'tabbase' : 'tabbase-scroller' ]" :style="{height: tabHeight, backgroundColor: backgroundColor}" >
-        <div :style="{height: tabHeight}" v-for="item in tabItems"
-             :key="item.index">
-          <tabitem
-                  :index="item.index"
-                  :title="item.title"
-                  :height="tabHeight"
-                  :margin="tabMargin"
-                  :titleFontSize="item.titleFontSize"
-                  :titleColor="item.titleColor"
-                  :bottomColor="item.bottomColor"
-                  :backgroundColor="backgroundColor"
-                  @tabItemOnClick="tabItemOnClick">
-          </tabItem>
+    <div class="tab-bar" :style="{backgroundColor: backgroundColor, height: tabHeight}">
+      <scroller append="tree" :style="{height: tabHeight}" style="flex-direction: row; flex: 8;" show-scrollbar="false" scroll-direction="horizontal">
+        <div :class="[ scrolleable == false ? 'tabbase' : 'tabbase-scroller' ]" :style="{height: tabHeight, backgroundColor: backgroundColor}" >
+          <div :style="{height: tabHeight}" v-for="item in tabItems"
+               :key="item.index">
+            <tabitem
+                    :index="item.index"
+                    :title="item.title"
+                    :height="tabHeight"
+                    :margin="tabMargin"
+                    :titleFontSize="item.titleFontSize"
+                    :titleColor="item.titleColor"
+                    :bottomColor="item.bottomColor"
+                    :backgroundColor="backgroundColor"
+                    @tabItemOnClick="tabItemOnClick">
+            </tabItem>
+          </div>
         </div>
+      </scroller>
+      <div class="img-box" :style="{height: tabHeight}" @click="clickOption">
+        <image class="img-down" resize="contain" src="/resources/coin-market/down.png"/>
       </div>
-    </scroller>
+    </div>
     <embed
             v-for="(item , i) in tabItems"
             :src="item.src"
@@ -42,6 +47,11 @@
     bottom: 0px;
   }
 
+  .tab-bar {
+    width: 750px;
+    flex-direction: row;
+  }
+
   .tabbase{
     width: 750px;
     flex-direction: row;
@@ -52,6 +62,17 @@
     /*width: 750px;*/
     flex-direction: row;
     justify-content: space-around;
+  }
+
+  .img-box {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-down {
+    width: 24px;
+    height: 13px;
   }
 
   .content {
@@ -65,6 +86,7 @@
 </style>
 
 <script>
+    import nn from 'utils/debug'
     module.exports = {
         props: {
             scrolleable: {default: false},
@@ -111,6 +133,9 @@
                         tabItem.visibility = 'hidden';
                     }
                 }
+            },
+            clickOption(){
+                this.$emit('clickOption')
             },
         }
     }

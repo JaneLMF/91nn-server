@@ -10,12 +10,15 @@
             class="right-text"
             v-on:click="onclickrightitem">{{rightItemTitle}}</text>
 
-    <image
-            v-if="rightItemSrc"
-            naviItemPosition="right"
-            :src="rightItemSrc"
-            class="right-image"
-            v-on:click="onclickrightitem"></image>
+    <div v-if="rightItemSrc"
+         naviItemPosition="right"
+         class="right-image-box"
+         v-on:click="onclickrightitem">
+
+      <image :src="rightItemSrc"
+             class="right-image"/>
+
+    </div>
 
     <text
             v-if="!leftItemSrc"
@@ -49,59 +52,65 @@
   .container {
     flex-direction: row;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 750;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 750px;
   }
   .right-text {
     position: absolute;
-    bottom: 28;
-    right: 32;
+    bottom: 28px;
+    right: 32px;
     text-align: right;
-    font-size: 32;
+    font-size: 32px;
     font-family: 'Open Sans', sans-serif;
   }
   .left-text {
     position: absolute;
-    bottom: 28;
-    left :32;
+    bottom: 28px;
+    left :32px;
     text-align :left;
-    font-size: 32;
+    font-size: 32px;
     font-family: 'Open Sans', sans-serif;
   }
   .center-text {
     position: absolute;
-    bottom: 25;
-    left: 172;
-    right: 172;
+    bottom: 25px;
+    left: 172px;
+    right: 172px;
     text-align: center;
-    font-size: 36;
+    font-size: 36px;
     font-weight: bold;
   }
 
   .left-image-box {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 120;
-    height: 80;
+    bottom: 0px;
+    left: 0px;
+    width: 120px;
+    height: 80px;
   }
 
   .left-image {
     position: absolute;
-    bottom: 20;
-    left: 28;
-    width: 25;
-    height: 48;
+    bottom: 20px;
+    left: 28px;
+    width: 25px;
+    height: 48px;
+  }
+
+  .right-image-box {
+    position: absolute;
+    bottom: 20px;
+    right: 28px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
   }
 
   .right-image {
-    position: absolute;
-    bottom: 20;
-    right: 28;
-    width: 50;
-    height: 50;
+    width: 6px;
+    height: 40px;
   }
 </style>
 
@@ -132,10 +141,10 @@
         },
         methods: {
             onclickrightitem: function (e) {
-                this.$emit('naviBarRightItemClick');
+                this.$emit('naviBarRightItemClick', e);
             },
             onclickleftitem: function (e) {
-                this.$emit('naviBarLeftItemClick');
+                this.$emit('naviBarLeftItemClick', e);
             }
         }
     }

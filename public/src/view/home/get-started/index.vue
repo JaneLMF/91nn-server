@@ -67,7 +67,7 @@
         },
         components:{
             nTabbar: require('components/tabbar/tabbar.vue'),
-            navpage: require('components/navbar/navpage.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue'),
         }
 	}
 </script>

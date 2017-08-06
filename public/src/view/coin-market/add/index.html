@@ -1,0 +1,32 @@
+<back-navpage
+		:title="title">
+	<div class="root">
+		<div class="list-head">
+			<text class="list-head-item" v-for="s in ['名称', '最新价格', '添加']">{{s}}</text>
+		</div>
+		<list class="border">
+			<cell v-for="coin in coins" @click="oncellclick(coin.id)">
+				<div class="item-line" :key="coin.id">
+					<div class="item-line-top"></div>
+					<div class="item border">
+						<div class="user-info-wrap">
+							<text class="user-name">{{coin.name}}</text>
+							<div class="price-group">
+								<text class="user-issue">{{coin.storeName}}</text>
+							</div>
+						</div>
+						<div class="price border">
+							<text v-if="coin.increase == 0" class="user-name">￥ {{coin.cnyPrice}}</text>
+							<text v-if="coin.increase > 0" class="user-name price-up">￥ {{coin.cnyPrice}}</text>
+							<text v-if="coin.increase < 0" class="user-name price-down">￥ {{coin.cnyPrice}}</text>
+							<text class="user-issue border">$ {{coin.usdPrice}}</text>
+						</div>
+						<switch-btn :value="coin.follow" @input="v=>coin.follow=v"
+									true-value="true" false-value="false"></switch-btn>
+					</div>
+					<div class="item-line-bottom"></div>
+				</div>
+			</cell>
+		</list>
+	</div>
+</back-navpage>

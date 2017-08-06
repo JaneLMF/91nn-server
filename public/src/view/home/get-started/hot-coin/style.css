@@ -1,9 +1,10 @@
 .root {
 	width: 750px;
+	flex: 1;
 }
 
 .border {
-	/*border-width: 1px;*/
+	border-width: 1px;
 }
 
 .item-line {

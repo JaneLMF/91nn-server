@@ -19,17 +19,10 @@
                     },
                     iconName: {
                         hasName: true,                         //是否有tit
-                        name: '众托帮'
+                        name: '比特币'
                     }
                 },
                 infoBox: [
-                     {
-                        tit: '公司名称',
-                        content: '上海仲托网络科技有限公司',
-                        callBack() {
-
-                        }
-                     },
                     {
                         tit: '所用区块链',
                         content: '比特币／BitCoin',
@@ -153,7 +146,7 @@
             }
         },
         components: {
-            navpage: require('components/navbar/navpage.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue'),
             badge: require('components/badge/index.vue'),
             infoRow: require('components/infoRow/index.vue'),
             commentFooter: require('components/commentFooter/index.vue'),

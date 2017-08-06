@@ -52,7 +52,7 @@
 
     .repost-user {
         font-size: 26px;
-        color: #fc6d3f;
+        color: #5583ff;
     }
 
     .repost-content {
@@ -76,7 +76,7 @@
         margin-top: 20px;
         margin-bottom: 15px;
         font-size: 26px;
-        color: #fc6d3f;
+        color: #5583ff;
     }
 
     .article-tit {

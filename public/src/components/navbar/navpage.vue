@@ -13,7 +13,7 @@
             :rightItemTitle="rightItemTitle"
             :rightItemColor="rightItemColor"
             @naviBarRightItemClick="naviBarRightItemClick"
-            @naviBarLeftItemClick="leftItemClick"
+            @naviBarLeftItemClick="naviBarLeftItemClick"
     >
 
     </navbar>
@@ -35,7 +35,7 @@
 </style>
 
 <script>
-    import navigator from 'utils/modules/navigator'
+    import uweex from 'utils/weex/instance'
     module.exports = {
         components: {
             navbar: require('./navbar.vue')
@@ -49,14 +49,14 @@
             rightItemSrc: { default: '' },
             rightItemTitle: { default: '' },
             rightItemColor: { default: 'black' },
-            leftItemSrc: { default: '/src/images/common/back.png' },
+            leftItemSrc: { default: '' },
             leftItemTitle: { default: '' },
             leftItemColor: { default: 'black' }
         },
         computed: {
             computeHeight: function(){
                 //adapter navbar for ios
-                if (weex.config.env.platform === 'iOS'){
+                if (uweex.isIOS()){
                     let env = weex.config.env;
                     let scale = env.scale;
                     let deviceWidth = env.deviceWidth / scale;
@@ -69,11 +69,7 @@
             naviBarRightItemClick: function (e) {
                 this.$emit('naviBarRightItemClick', e)
             },
-            leftItemClick: function (e) {
-                if (this.naviBarLeftItemClick == null){
-                    navigator.pop()
-                    return
-                }
+            naviBarLeftItemClick: function (e) {
                 this.$emit('naviBarLeftItemClick', e)
             }
         }

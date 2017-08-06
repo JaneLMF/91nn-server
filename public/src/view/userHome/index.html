@@ -1,0 +1,33 @@
+<list class="personal-bg">
+    <cell class="personal-header">
+        <image src="/src/view/personal/images/index-bg.png" class="personal-header-bg"></image>
+        <badge class="personal-header-mesg"
+               :action="badgeData.action"
+               :iconStyle="badgeData.iconStyle"
+               :superScriptState="badgeData.superScriptState"
+               :iconName="badgeData.iconName"></badge>
+        <user-info :userInfo="userInfo" class="user-info-wrap"></user-info>
+        <div class="social-bar">
+            <text class="social-follow">+ 关注</text>
+            <text class="social-mesg">私信</text>
+        </div>
+    </cell>
+    <cell class="user-atten-bg">
+        <div class="user-atten-wrap">
+            <div class="user-atten-group" @click="jumpToFollows">
+                <text class="user-atten-tit">我的关注</text>
+                <text class="user-atten-content">88</text>
+            </div>
+            <text class="fenge">|</text>
+            <div class="user-atten-group" @click="jumpToFans">
+                <text class="user-atten-tit">我的粉丝</text>
+                <text class="user-atten-content">288</text>
+            </div>
+        </div>
+    </cell>
+    <cell>
+        <div class="my-news-tit-wrap">
+            <text class="my-news-tit">全部动态</text>
+        </div>
+    </cell>
+</list>

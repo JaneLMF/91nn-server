@@ -9,6 +9,8 @@ let stream = weex.requireModule('stream')
 
 // http base url
 const baseUrl = 'http://192.168.1.100:3000/'
+// 生产环境
+// const baseUrl = 'http://192.168.1.100:3000/'
 
 function get(url, params) {
   return new Promise((resolve, reject) => {

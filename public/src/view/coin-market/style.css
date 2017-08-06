@@ -2,8 +2,16 @@
 	width: 750px;
 }
 
-.nav-edit {
-	width: 40px;
-	height: 40px;
-	margin-left: 30px;
+.border {
+	border-width: 1px;
+}
+
+.menu-list {
+	background-color: white;
+}
+
+.menu-item {
+	align-items: center;
+	flex-direction: row;
+	padding: 30px;
 }

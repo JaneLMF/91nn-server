@@ -60,15 +60,14 @@
     }
 
     .article-img-box {
-        width: 210px;
-        height: 118px;
+        width: 220px;
+        height: 220px;
         overflow: hidden;
     }
 
     .article-img-item {
-        width: 210px;
-        height: 210px;
-        border-radius: 4px;
+        width: 220px;
+        height: 220px;
     }
 </style>
 

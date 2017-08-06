@@ -21,7 +21,7 @@
 					},
 					{
 						index: 1,
-						title: '知库',
+						title: '百科',
 						titleColor: '#888888',
 						icon: '',
 						image: '/src/view/home/images/baike.png',

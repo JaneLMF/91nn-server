@@ -1,15 +1,20 @@
-<div class="root">
-	<n-search :oSearch="oSearch">
-		<image src="/src/view/link-wiki/images/edit.png" class="nav-edit"></image>
-	</n-search>
-	<n-tabbar
-		:marginTop="tabbarTop"
-		backgroundColor="#fc6d3f"
-		bottomSelectedColor="white"
-		bottomUnSelectedColor="#fc6d3f"
-		titleColor="white"
-		unselectedColor="white"
-		selectedColor="white"
-		:tabItems="tabItems"
-		@tabBarOnClick="tabBarOnClick"/>
-</div>
+<navpage
+    class="root"
+    dataRole="none"
+    rightItemSrc="/resources/common/more.png"
+    @naviBarRightItemClick="naviBarRightItemClick($event)"
+    :title="title">
+
+    <n-null v-if="coins.length == 0"></n-null>
+    <n-market v-else :coins="coins"></n-market>
+    <n-menu ref="menu" :show="showmenu">
+        <div class="menu-list">
+            <div class="menu-item" v-for="item in menulist" @click="clickMenuItem(item.id)">
+                <image :src="item.icon" style="width: 24px; height: 24px;"></image>
+                <text style="margin-left: 20px; font-size: 30px;">{{item.title}}</text>
+            </div>
+        </div>
+    </n-menu>
+    <!--<n-add></n-add>-->
+
+</navpage>

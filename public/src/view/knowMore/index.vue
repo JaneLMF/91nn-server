@@ -24,8 +24,21 @@
             </div>
         </cell>
         <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
-            <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+            <n-news :news="item" class="cell-item"></n-news>
         </cell>
+        <!--<cell style="height: 4000px;">-->
+            <!--<n-tabbar-->
+                    <!--:scrolleable="scrolleable"-->
+                    <!--:marginTop="tabbarTop"-->
+                    <!--backgroundColor="#f7f7f7"-->
+                    <!--bottomSelectedColor="#FB633C"-->
+                    <!--bottomUnSelectedColor="#f7f7f7"-->
+                    <!--:tabItems="tabItems"-->
+                    <!--@tabBarOnClick="tabBarOnClick"/>-->
+        <!--</cell>-->
+        <!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
+            <!--<n-news :news="item" class="cell-item"></n-news>-->
+        <!--</cell>-->
     </list>
 </template>
 
@@ -46,6 +59,10 @@
 </style>
 
 <script>
+    import config from 'utils/config'
+    import nn from 'utils/debug'
+    import weexutil from 'utils/weex/instance'
+
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
@@ -84,120 +101,6 @@
                         name: ''
                     }
                 },
-                news: [
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: []
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: []
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
                 badgeLinkData: [
                     {
                         bid: id_ico,
@@ -276,15 +179,129 @@
                             name: '新手营'
                         }
                     }
+                ],
+                scrolleable: true,
+                tabbarTop: 285,
+                tabItems: [
+                    {
+                        index: 0,
+                        title: '全部',
+                        titleFontSize: '28px',
+                        src: '/wikiClass.js',
+                        visibility: 'visible',
+                    },
+                    {
+                        index: 1,
+                        title: '比特币',
+                        titleFontSize: '28px',
+                        src: '/test.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 2,
+                        title: '以太坊',
+                        titleFontSize: '28px',
+                        src: '/icoRate/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 3,
+                        title: 'ETH',
+                        titleFontSize: '28px',
+                        src: '/icoIntro/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 4,
+                        title: 'ETC',
+                        titleFontSize: '28px',
+                        src: '/icoTeam/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 5,
+                        title: 'BTS',
+                        titleFontSize: '28px',
+                        src: '/icoTeam/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 6,
+                        title: 'BCC',
+                        titleFontSize: '28px',
+                        src: '/icoTeam/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 7,
+                        title: 'EOS',
+                        titleFontSize: '28px',
+                        src: '/icoTeam/index.js',
+                        visibility: 'hidden',
+                    },
+                    {
+                        index: 8,
+                        title: 'OMG',
+                        titleFontSize: '28px',
+                        src: '/icoTeam/index.js',
+                        visibility: 'hidden',
+                    }
+                ],
+                news: [
+                    {
+                        tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
+                        intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
+                        imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
+                        issue: '比特大时代',
+                        comment: '10',
+                        agree: '10',
+                        time: '07/23'
+                    },
+                    {
+                        tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
+                        intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
+                        imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
+                        issue: '比特大时代',
+                        comment: '10',
+                        agree: '10',
+                        time: '07/23'
+                    },
+                    {
+                        tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
+                        intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
+                        imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
+                        issue: '比特大时代',
+                        comment: '10',
+                        agree: '10',
+                        time: '07/23'
+                    },
+                    {
+                        tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
+                        intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
+                        imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
+                        issue: '比特大时代',
+                        comment: '10',
+                        agree: '10',
+                        time: '07/23'
+                    },
+                    {
+                        tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
+                        intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
+                        imgUrl: '',
+                        issue: '比特大时代',
+                        comment: '10',
+                        agree: '10',
+                        time: '07/23'
+                    }
                 ]
             }
         },
         components: {
-            tabGroup: require('../../components/tab/tabGroup.vue'),
-            tabItem: require('../../components/tab/tabItem.vue'),
             cellFresh: require('components/cells/cellFresh.vue'),
             nSearch: require('components/search/search-hasBtn.vue'),
-            badge: require('components/badge/index.vue')
+            badge: require('components/badge/index.vue'),
+            nTabbar: require('components/tabbar/tabbar.vue'),
+            nNews: require('components/news/index.vue')
         },
         methods: {
             test(v) {
@@ -301,6 +318,20 @@
                 } else if(v == id_start) {
                     navigator.push(routerPage.getStarted)
                 }
+            }
+        },
+        created: function() {
+            for(var i = 0; i < this.tabItems.length; i++) {
+                var tabItem = this.tabItems[i];
+                tabItem.src = config.js(tabItem.src)
+                nn.log('src ' + tabItem.src)
+            }
+            //adapter navbar for ios
+            if (weexutil.isIOS()){
+                let env = weex.config.env;
+                let scale = env.scale;
+                let deviceWidth = env.deviceWidth / scale;
+                this.navBarHeight = 64.0 * 750.0 / deviceWidth;
             }
         }
     }

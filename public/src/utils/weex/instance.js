@@ -2,11 +2,11 @@
  * Created by jane on 2017/7/23.
  */
 function isIOS() {
-    return weex.config.env ? weex.config.env.platform === 'iOS' : false
+    return weex.config.env ? weex.config.env.platform.toLowerCase() == 'ios' : false
 }
 
 function isWeb() {
-    return weex.config.env.platform === 'Web'
+    return weex.config.env.platform.toLowerCase == 'web'
 }
 
 function getDeviceInfo() {

@@ -1,0 +1,13 @@
+.follow-text-wrap {
+	flex-direction: row;
+	margin-left: 30px;
+	margin-right: 30px;
+	width: 690px;
+	height: 60px;
+	justify-content: flex-start;
+}
+
+.follow-text {
+	font-size: 26px;
+	color: #434343;
+}
