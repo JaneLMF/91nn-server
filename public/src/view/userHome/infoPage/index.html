@@ -1,0 +1,31 @@
+<back-navpage :title="title">
+	<div class="wrap-bg">
+		<div class="info-bg">
+			<div class="info-wrap">
+				<div class="header-wrap">
+					<image :src="user.headerUrl" class="header"></image>
+				</div>
+				<div class="info-group info-group-link">
+					<text class="info-tit">昵称</text>
+					<text class="info-content">{{ user.nickName }}</text>
+				</div>
+				<div class="info-group info-group-link">
+					<text class="info-tit">性别</text>
+					<text class="info-content">{{ user.sex }}</text>
+				</div>
+				<div class="info-group info-group-link">
+					<text class="info-tit">简介</text>
+					<text class="info-content">{{ user.intro }}</text>
+				</div>
+				<div class="info-group info-group-link">
+					<text class="info-tit">地区</text>
+					<text class="info-content">{{ user.from }}</text>
+				</div>
+				<div class="info-group">
+					<text class="info-tit">UID</text>
+					<text class="info-content">{{ user.uid }}</text>
+				</div>
+			</div>
+		</div>
+	</div>
+</back-navpage>

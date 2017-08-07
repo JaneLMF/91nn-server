@@ -1,41 +1,43 @@
 <template>
-    <list class="myComments-wrap">
-        <cell class="myComments-group" v-for="(item, i) in commentGroup" :key="i">
-            <cell-user-info :headerUrl="item.article.headerUrl" :userName="item.article.userName" :userIssue="item.article.userIssue" :articleTime="item.article.articleTime"></cell-user-info>
-            <div class="myComments-content-wrap">
-                <div v-if="item.type == 0" class="myComments-content">
-                    <text class="reply-default">{{ item.myComment }}</text>
-                </div>
-                <div v-else-if="item.type == 1" class="myComments-reply-wrap">
-                    <div class="my-reply-wrap">
-                        <text class="reply-default">回复</text>
-                        <text class="reply-issue-name">@{{ item.issueUserName }}</text>
-                        <text class="reply-default">:</text>
-                        <text class="reply-default reply-content">{{ item.myComment }}</text>
+    <back-navpage :title="title">
+        <list class="myComments-wrap">
+            <cell class="myComments-group" v-for="(item, i) in commentGroup" :key="i">
+                <cell-user-info :headerUrl="item.article.headerUrl" :userName="item.article.userName" :userIssue="item.article.userIssue" :articleTime="item.article.articleTime"></cell-user-info>
+                <div class="myComments-content-wrap">
+                    <div v-if="item.type == 0" class="myComments-content">
+                        <text class="reply-default">{{ item.myComment }}</text>
                     </div>
-                    <div class="line"></div>
-                    <div class="reply-issue-wrap">
-                        <text class="reply-issue-name">@{{ item.issueUserName }}</text>
-                        <text class="reply-default">:</text>
-                        <text class="reply-default reply-content">{{ item.issueContent }}</text>
+                    <div v-else-if="item.type == 1" class="myComments-reply-wrap">
+                        <div class="my-reply-wrap">
+                            <text class="reply-default">回复</text>
+                            <text class="reply-issue-name">@{{ item.issueUserName }}</text>
+                            <text class="reply-default">:</text>
+                            <text class="reply-default reply-content">{{ item.myComment }}</text>
+                        </div>
+                        <div class="line"></div>
+                        <div class="reply-issue-wrap">
+                            <text class="reply-issue-name">@{{ item.issueUserName }}</text>
+                            <text class="reply-default">:</text>
+                            <text class="reply-default reply-content">{{ item.issueContent }}</text>
+                        </div>
+                    </div>
+                    <div v-else-if="item.type == 2" class="myComments-repost-wrap">
+                        <text class="reply-default">{{ item.myComment }}</text>
+                        <div class="repost-list" v-for="(reposter, j) in item.repostList" :key="j">
+                            <text class="reply-default">//</text>
+                            <text class="reply-issue-name">@{{ reposter.name }}</text>
+                            <text class="reply-default">:</text>
+                            <text class="reply-default reply-content">{{ reposter.content }}</text>
+                        </div>
                     </div>
                 </div>
-                <div v-else-if="item.type == 2" class="myComments-repost-wrap">
-                    <text class="reply-default">{{ item.myComment }}</text>
-                    <div class="repost-list" v-for="(reposter, j) in item.repostList" :key="j">
-                        <text class="reply-default">//</text>
-                        <text class="reply-issue-name">@{{ reposter.name }}</text>
-                        <text class="reply-default">:</text>
-                        <text class="reply-default reply-content">{{ reposter.content }}</text>
-                    </div>
+                <div>
+                    <my-comment :contentIssue="item.contentIssue" class="my-comment-issue"></my-comment>
                 </div>
-            </div>
-            <div>
-                <my-comment :contentIssue="item.contentIssue" class="my-comment-issue"></my-comment>
-            </div>
-            <div style="width: 750px; height: 10px; background-color: #f8f8f8;"></div>
-        </cell>
-    </list>
+                <div style="width: 750px; height: 10px; background-color: #f8f8f8;"></div>
+            </cell>
+        </list>
+    </back-navpage>
 </template>
 
 <style>
@@ -118,6 +120,7 @@
     export default {
         data() {
             return {
+                title: '我的评论',
                 commentGroup: [
                     {
                         type: 0,
@@ -187,7 +190,8 @@
         },
         components: {
             cellUserInfo: require('components/cell-user-info/index.vue'),
-            myComment: require('components/comment/index.vue')
+            myComment: require('components/comment/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

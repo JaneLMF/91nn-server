@@ -1,18 +1,20 @@
 <template>
-    <div class="setting-wrap">
-        <div class="updateInfo-wrap">
-            <action-row :rowTit="'修改资料'" :btnClass="'details'" class="updateInfo-content" :callBack="updateInfo"></action-row>
-            <action-row :rowTit="'账号绑定'" :btnClass="'details'" class="updateInfo-content" :callBack="bindAccount"></action-row>
-            <action-row :rowTit="'修改密码'" :btnClass="'details'" class="updateInfo-content" :callBack="action"></action-row>
+    <back-navpage :title="title">
+        <div class="setting-wrap">
+            <div class="updateInfo-wrap">
+                <action-row :rowTit="'修改资料'" :btnClass="'details'" class="updateInfo-content" :callBack="updateInfo"></action-row>
+                <action-row :rowTit="'账号绑定'" :btnClass="'details'" class="updateInfo-content" :callBack="bindAccount"></action-row>
+                <action-row :rowTit="'修改密码'" :btnClass="'details'" class="updateInfo-content" :callBack="action"></action-row>
+            </div>
+            <div class="switch-wrap">
+                <action-row :rowTit="'消息提醒'" :btnClass="'switchBtn'" class="updateInfo-content"></action-row>
+                <action-row :rowTit="'动态推送'" :btnClass="'switchBtn'" class="updateInfo-content" :switchIsChecked="'male'"></action-row>
+            </div>
+            <div class="logout-wrap">
+                <text class="logout">退出账号</text>
+            </div>
         </div>
-        <div class="switch-wrap">
-            <action-row :rowTit="'消息提醒'" :btnClass="'switchBtn'" class="updateInfo-content"></action-row>
-            <action-row :rowTit="'动态推送'" :btnClass="'switchBtn'" class="updateInfo-content" :switchIsChecked="'male'"></action-row>
-        </div>
-        <div class="logout-wrap">
-            <text class="logout">退出账号</text>
-        </div>
-    </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -51,6 +53,7 @@
     export default {
         data() {
             return {
+                title: '设置',
                 canVerify: true,
                 action() {
                     navigator.push(routerPage.updatePw)
@@ -64,7 +67,8 @@
             }
         },
         components: {
-            actionRow: require('components/actionRow/index.vue')
+            actionRow: require('components/actionRow/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

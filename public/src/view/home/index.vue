@@ -7,7 +7,9 @@
                            :action="badgeData.action"
                            :iconStyle="badgeData.iconStyle"
                            :superScriptState="badgeData.superScriptState"
-                           :iconName="badgeData.iconName"></badge>
+                           :iconName="badgeData.iconName"
+                           @badge="viewMesg">
+                    </badge>
                 </n-search>
             </cell>
             <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
@@ -46,6 +48,9 @@
 </style>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     var modal = weex.requireModule('modal');
 
     export default {
@@ -538,6 +543,11 @@
             slotRepost: require('components/cells/slotRepost.vue'),
             cellCoin: require('components/cells/cellCoin.vue'),
             cellLink: require('components/cells/cellLink.vue')
+        },
+        methods: {
+            viewMesg()  {
+                navigator.push(routerPage.mesgBox);
+            }
         }
     }
 </script>

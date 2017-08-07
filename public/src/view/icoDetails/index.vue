@@ -1,78 +1,80 @@
 <template>
-    <div class="ico-details-wrap">
-        <list class="ico-details-list">
-            <cell>
-                <div class="ico-tit-bg">
-                    <div class="ico-tit-wrap">
-                        <div class="ico-details-pro-wrap">
-                            <image class="ico-details-pro-logo" :src="icoPro.logoUrl"></image>
-                            <div class="ico-details-pro-text-wrap">
-                                <text class="ico-details-pro-name">{{ icoPro.name }}</text>
-                                <div class="ico-details-pro-time-wrap">
-                                    <text class="ico-details-pro-time">{{ icoPro.startTime }}</text>
-                                    <text class="ico-details-pro-time-line">--</text>
-                                    <text class="ico-details-pro-time">{{ icoPro.stopTime }}</text>
+    <back-navpage :title="title">
+        <div class="ico-details-wrap">
+            <list class="ico-details-list">
+                <cell>
+                    <div class="ico-tit-bg">
+                        <div class="ico-tit-wrap">
+                            <div class="ico-details-pro-wrap">
+                                <image class="ico-details-pro-logo" :src="icoPro.logoUrl"></image>
+                                <div class="ico-details-pro-text-wrap">
+                                    <text class="ico-details-pro-name">{{ icoPro.name }}</text>
+                                    <div class="ico-details-pro-time-wrap">
+                                        <text class="ico-details-pro-time">{{ icoPro.startTime }}</text>
+                                        <text class="ico-details-pro-time-line">--</text>
+                                        <text class="ico-details-pro-time">{{ icoPro.stopTime }}</text>
+                                    </div>
                                 </div>
                             </div>
+                            <ico-level :oLevel="oLevel" class="ico-level-wrap"></ico-level>
                         </div>
-                        <ico-level :oLevel="oLevel" class="ico-level-wrap"></ico-level>
+                        <div class="ico-info-wrap">
+                            <div class="ico-info-group">
+                                <text class="ico-info-content">{{ icoPro.appDomain }}</text>
+                                <text class="ico-info-tit">应用领域</text>
+                            </div>
+                            <text class="ico-info-fenge">|</text>
+                            <div class="ico-info-group">
+                                <text class="ico-info-content">{{ icoPro.cost }}</text>
+                                <text class="ico-info-tit">ICO成本</text>
+                            </div>
+                            <text class="ico-info-fenge">|</text>
+                            <div class="ico-info-group">
+                                <text class="ico-info-content">{{ icoPro.publishDomain }}</text>
+                                <text class="ico-info-tit">发布地域</text>
+                            </div>
+                            <text class="ico-info-fenge">|</text>
+                            <div class="ico-info-group">
+                                <text class="ico-info-content">{{ icoPro.status }}</text>
+                                <text class="ico-info-tit">项目状态</text>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ico-info-wrap">
-                        <div class="ico-info-group">
-                            <text class="ico-info-content">{{ icoPro.appDomain }}</text>
-                            <text class="ico-info-tit">应用领域</text>
-                        </div>
-                        <text class="ico-info-fenge">|</text>
-                        <div class="ico-info-group">
-                            <text class="ico-info-content">{{ icoPro.cost }}</text>
-                            <text class="ico-info-tit">ICO成本</text>
-                        </div>
-                        <text class="ico-info-fenge">|</text>
-                        <div class="ico-info-group">
-                            <text class="ico-info-content">{{ icoPro.publishDomain }}</text>
-                            <text class="ico-info-tit">发布地域</text>
-                        </div>
-                        <text class="ico-info-fenge">|</text>
-                        <div class="ico-info-group">
-                            <text class="ico-info-content">{{ icoPro.status }}</text>
-                            <text class="ico-info-tit">项目状态</text>
-                        </div>
+                </cell>
+                <cell>
+                    <div class="ico-target-wrap">
+                        <text class="ico-target-tit">众筹目标</text>
+                        <text class="ico-target-content">{{ icoPro.icoTarget }}</text>
                     </div>
-                </div>
-            </cell>
-            <cell>
-                <div class="ico-target-wrap">
-                    <text class="ico-target-tit">众筹目标</text>
-                    <text class="ico-target-content">{{ icoPro.icoTarget }}</text>
-                </div>
-            </cell>
-            <cell>
-                <div class="ico-intro-wrap">
-                    <text class="ico-intro-content">{{ icoPro.icoIntro }}</text>
-                    <text class="ico-intro-all">阅读全文</text>
-                </div>
-            </cell>
-            <!--<cell>-->
-                <!--<n-tabbar-->
-                        <!--:marginTop="tabbarTop"-->
-                        <!--backgroundColor="#f7f7f7"-->
-                        <!--bottomSelectedColor="#FB633C"-->
-                        <!--bottomUnSelectedColor="#f7f7f7"-->
-                        <!--:tabItems="tabItems"-->
-                        <!--@tabBarOnClick="tabBarOnClick"/>-->
-            <!--</cell>-->
-        </list>
-        <n-tabbar
-                :marginTop="tabbarTop"
-                backgroundColor="#f7f7f7"
-                bottomSelectedColor="#FB633C"
-                bottomUnSelectedColor="#f7f7f7"
-                :tabItems="tabItems"
-                @tabBarOnClick="tabBarOnClick"/>
-        <div>
-            <comment-footer :commentFooter="commentFooter" class="fixed-input-wrap"></comment-footer>
+                </cell>
+                <cell>
+                    <div class="ico-intro-wrap">
+                        <text class="ico-intro-content">{{ icoPro.icoIntro }}</text>
+                        <text class="ico-intro-all">阅读全文</text>
+                    </div>
+                </cell>
+                <!--<cell>-->
+                    <!--<n-tabbar-->
+                            <!--:marginTop="tabbarTop"-->
+                            <!--backgroundColor="#f7f7f7"-->
+                            <!--bottomSelectedColor="#FB633C"-->
+                            <!--bottomUnSelectedColor="#f7f7f7"-->
+                            <!--:tabItems="tabItems"-->
+                            <!--@tabBarOnClick="tabBarOnClick"/>-->
+                <!--</cell>-->
+            </list>
+            <n-tabbar
+                    :marginTop="tabbarTop"
+                    backgroundColor="#f7f7f7"
+                    bottomSelectedColor="#FB633C"
+                    bottomUnSelectedColor="#f7f7f7"
+                    :tabItems="tabItems"
+                    @tabBarOnClick="tabBarOnClick"/>
+            <div>
+                <comment-footer :commentFooter="commentFooter" class="fixed-input-wrap"></comment-footer>
+            </div>
         </div>
-    </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -234,6 +236,7 @@
     export default {
         data() {
             return {
+                title: '详情',
                 oLevel: {
                     lStyle: 'index',
                     level: 's'
@@ -297,7 +300,8 @@
         components: {
             icoLevel: require('components/icoLevel/index.vue'),
             commentFooter: require('components/commentFooter/index.vue'),
-            nTabbar: require('components/tabbar/tabbar.vue')
+            nTabbar: require('components/tabbar/tabbar.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         },
         methods: {
             tabBarOnClick: function(e) {

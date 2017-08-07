@@ -1,104 +1,106 @@
-<list class="content-wrap">
-    <cell class="detail-wrap">
-        <div class="coin-header-wrap">
-            <user-header :article="article">
-                <div class="coin-header">
-                    <starts :level="level.score" :startStyle="[level.startStyle]" class="start-moudle"></starts>
-                    <text class="coin-score">{{ level.score }}</text>
+<back-navpage :title="title">
+    <list class="content-wrap">
+        <cell class="detail-wrap">
+            <div class="coin-header-wrap">
+                <user-header :article="article">
+                    <div class="coin-header">
+                        <starts :level="level.score" :startStyle="[level.startStyle]" class="start-moudle"></starts>
+                        <text class="coin-score">{{ level.score }}</text>
+                    </div>
+                </user-header>
+                <div class="coin-comment-wrap">
+                    <text class="coin-comment">参与评测</text>
                 </div>
-            </user-header>
-            <div class="coin-comment-wrap">
-                <text class="coin-comment">参与评测</text>
             </div>
-        </div>
-        <div class="coin-intro-wrap">
-            <div class="coin-wrap">
-                <text class="coin-content">{{ coinInfo.tokenName }}</text>
-                <text class="coin-tit">系统代币</text>
-            </div>
-            <text class="fenge">|</text>
-            <div class="coin-wrap">
-                <text class="coin-content">{{ coinInfo.consensusAlgorithm }}</text>
-                <text class="coin-tit">共识算法</text>
-            </div>
-            <text class="fenge">|</text>
-            <div class="coin-wrap">
-                <text class="coin-content">{{ coinInfo.byRegion }}</text>
-                <text class="coin-tit">发布地域</text>
-            </div>
-            <text class="fenge">|</text>
-            <div class="coin-wrap">
-                <text class="coin-content">{{ coinInfo.deliveryTime }}</text>
-                <text class="coin-tit">发布时间</text>
-            </div>
-        </div>
-    </cell>
-    <cell class="detail-wrap">
-        <div class="details-row-wrap">
-            <text class="details-tit">核心团队</text>
-            <text class="details-content">{{ coinInfo.teamGroup }}</text>
-        </div>
-        <div class="details-row-wrap">
-            <text class="details-tit">白皮书</text>
-            <div class="details-content-wrap">
-                <text class="details-content">{{ coinInfo.whitePaper }}</text>
-                <image class="details-more" src="/src/view/home/images/nextButton.png"></image>
-            </div>
-        </div>
-        <div class="details-row-wrap">
-            <text class="details-tit">开源代码</text>
-            <div class="details-content-wrap">
-                <text class="details-content">{{ coinInfo.github }}</text>
-                <image class="details-more" src="/src/view/home/images/nextButton.png"></image>
-            </div>
-        </div>
-        <div class="details-intro-wrap">
-            <text class="details-intro-content">{{ coinInfo.introduction }}</text>
-            <text class="details-intro-content-all">阅读全文</text>
-        </div>
-    </cell>
-    <cell>
-        <tab-group class="tab-group" :value="tabBarValue" :tabs="tabGroupLabel" @input="v=>tabBarValue=v" :tabBarClass="tabBarClass">
-            <tab-item class="tab-item" :label="评论" :value="0">
-                <scroller style="background-color: #fff" class="bc-wrap-box">
-                    <div v-for="(item, i) in comment" :key="i">
-                        <comment-group :comment="item"></comment-group>
-                    </div>
-                </scroller>
-            </tab-item>
-            <tab-item class="tab-item" :label="新闻" :value="1">
-                <scroller style="background-color: #f8f8f8">
-                    <div v-for="(item, i) in articleGroup" :key="i">
-                        <text-cell :article="item"></text-cell>
-                    </div>
-                </scroller>
-            </tab-item>
-            <tab-item class="tab-item" :label="团队" :value="2">
-                <div class="wiki-team-wrap" v-for="(item, i) in coinInfo.teamGroupIntro" :key="i">
-                    <div class="wiki-team-bossInfo">
-                        <div class="wiki-team-icon"></div>
-                        <text class="wiki-team-boss">{{ item.name }}</text>
-                    </div>
-                    <text class="wiki-team-boss-intro">{{ item.intro }}</text>
+            <div class="coin-intro-wrap">
+                <div class="coin-wrap">
+                    <text class="coin-content">{{ coinInfo.tokenName }}</text>
+                    <text class="coin-tit">系统代币</text>
                 </div>
-            </tab-item>
-            <tab-item class="tab-item" :label="大事记" :value="3">
-                <div class="v-timeline">
-                    <v-timeline>
-                        <v-timeline-item v-for="(item, i) in coinInfo.timeLine" :key="i" :date="item.date">{{ item.content }}</v-timeline-item>
-                    </v-timeline>
+                <text class="fenge">|</text>
+                <div class="coin-wrap">
+                    <text class="coin-content">{{ coinInfo.consensusAlgorithm }}</text>
+                    <text class="coin-tit">共识算法</text>
                 </div>
-            </tab-item>
-            <tab-item class="tab-item" :label="应用" :value="4">
-                <scroller class="app-detail-wrap">
-                    <div v-for="(item, i) in app" :key="i" class="app-wrap">
-                        <user-header :article="item.article" class="app-header"></user-header>
-                        <text class="app-purpose">{{ item.purpose }}</text>
-                        <text class="app-platform">{{ item.platform }}</text>
+                <text class="fenge">|</text>
+                <div class="coin-wrap">
+                    <text class="coin-content">{{ coinInfo.byRegion }}</text>
+                    <text class="coin-tit">发布地域</text>
+                </div>
+                <text class="fenge">|</text>
+                <div class="coin-wrap">
+                    <text class="coin-content">{{ coinInfo.deliveryTime }}</text>
+                    <text class="coin-tit">发布时间</text>
+                </div>
+            </div>
+        </cell>
+        <cell class="detail-wrap">
+            <div class="details-row-wrap">
+                <text class="details-tit">核心团队</text>
+                <text class="details-content">{{ coinInfo.teamGroup }}</text>
+            </div>
+            <div class="details-row-wrap">
+                <text class="details-tit">白皮书</text>
+                <div class="details-content-wrap">
+                    <text class="details-content">{{ coinInfo.whitePaper }}</text>
+                    <image class="details-more" src="/src/view/home/images/nextButton.png"></image>
+                </div>
+            </div>
+            <div class="details-row-wrap">
+                <text class="details-tit">开源代码</text>
+                <div class="details-content-wrap">
+                    <text class="details-content">{{ coinInfo.github }}</text>
+                    <image class="details-more" src="/src/view/home/images/nextButton.png"></image>
+                </div>
+            </div>
+            <div class="details-intro-wrap">
+                <text class="details-intro-content">{{ coinInfo.introduction }}</text>
+                <text class="details-intro-content-all">阅读全文</text>
+            </div>
+        </cell>
+        <cell>
+            <tab-group class="tab-group" :value="tabBarValue" :tabs="tabGroupLabel" @input="v=>tabBarValue=v" :tabBarClass="tabBarClass">
+                <tab-item class="tab-item" :label="评论" :value="0">
+                    <scroller style="background-color: #fff" class="bc-wrap-box">
+                        <div v-for="(item, i) in comment" :key="i">
+                            <comment-group :comment="item"></comment-group>
+                        </div>
+                    </scroller>
+                </tab-item>
+                <tab-item class="tab-item" :label="新闻" :value="1">
+                    <scroller style="background-color: #f8f8f8">
+                        <div v-for="(item, i) in articleGroup" :key="i">
+                            <text-cell :article="item"></text-cell>
+                        </div>
+                    </scroller>
+                </tab-item>
+                <tab-item class="tab-item" :label="团队" :value="2">
+                    <div class="wiki-team-wrap" v-for="(item, i) in coinInfo.teamGroupIntro" :key="i">
+                        <div class="wiki-team-bossInfo">
+                            <div class="wiki-team-icon"></div>
+                            <text class="wiki-team-boss">{{ item.name }}</text>
+                        </div>
+                        <text class="wiki-team-boss-intro">{{ item.intro }}</text>
                     </div>
-                </scroller>
-            </tab-item>
-        </tab-group>
-        <comment-footer :commentFooter="commentFooter" class="fixed-input-wrap"></comment-footer>
-    </cell>
-</list>
+                </tab-item>
+                <tab-item class="tab-item" :label="大事记" :value="3">
+                    <div class="v-timeline">
+                        <v-timeline>
+                            <v-timeline-item v-for="(item, i) in coinInfo.timeLine" :key="i" :date="item.date">{{ item.content }}</v-timeline-item>
+                        </v-timeline>
+                    </div>
+                </tab-item>
+                <tab-item class="tab-item" :label="应用" :value="4">
+                    <scroller class="app-detail-wrap">
+                        <div v-for="(item, i) in app" :key="i" class="app-wrap">
+                            <user-header :article="item.article" class="app-header"></user-header>
+                            <text class="app-purpose">{{ item.purpose }}</text>
+                            <text class="app-platform">{{ item.platform }}</text>
+                        </div>
+                    </scroller>
+                </tab-item>
+            </tab-group>
+            <comment-footer :commentFooter="commentFooter" class="fixed-input-wrap"></comment-footer>
+        </cell>
+    </list>
+</back-navpage>

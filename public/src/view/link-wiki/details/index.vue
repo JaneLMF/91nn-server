@@ -6,6 +6,7 @@
     export default {
         data() {
             return {
+                title: '详情',
                 article: {
                     headerUrl: '/src/view/home/images/badge-boss.png',
                     userName: '比特币',
@@ -288,7 +289,8 @@
             VTimeline:require('../../../components/timeLine/Timeline.vue'),
             VTimelineItem:require('../../../components/timeLine/TimelineItem.vue'),
             commentGroup: require('../../../components/commentGroup/index.vue'),
-            commentFooter: require('../../../components/commentFooter/index.vue')
+            commentFooter: require('../../../components/commentFooter/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

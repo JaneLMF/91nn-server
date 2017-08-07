@@ -5,6 +5,7 @@
     export default {
         data() {
             return {
+                title: '详情',
                 badgeData: {
                     action() {                                  //点击回调
                         console.log('click badge1');
@@ -159,7 +160,8 @@
             commentGroup: require('../../../components/commentGroup/index.vue'),
             tabGroup: require('../../../components/tab/tabGroup.vue'),
             tabItem: require('../../../components/tab/tabItem.vue'),
-            textCell:require('../../home/cells/text-cell.vue')
+            textCell:require('../../home/cells/text-cell.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

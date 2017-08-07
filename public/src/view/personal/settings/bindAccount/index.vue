@@ -1,7 +1,11 @@
 <template>
-    <action-row :rowTit="rowTit" :btnClass="btnClass" :callBack="callBack">
-        <text class="phone" slot="mesg">{{ phoneNum }}</text>
-    </action-row>
+    <back-navpage :title="title">
+        <div>
+            <action-row :rowTit="rowTit" :btnClass="btnClass" :callBack="callBack">
+                <text class="phone" slot="mesg">{{ phoneNum }}</text>
+            </action-row>
+        </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -19,6 +23,7 @@
     export default {
         data() {
             return {
+                title: '账号绑定',
                 rowTit: '手机号绑定',
                 btnClass: 'details',
                 callBack() {
@@ -28,7 +33,8 @@
             }
         },
         components: {
-            actionRow: require('components/actionRow/index.vue')
+            actionRow: require('components/actionRow/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

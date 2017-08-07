@@ -1,16 +1,18 @@
 <template>
-    <list>
-        <cell v-if="news.length == 0" class="nofile-wrap">
-            <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
-            <text class="nofile-tit">你还没有动态内容，快去发个帖子吧！</text>
-        </cell>
-        <cell v-else v-for="(item, i) in news" :key="i" class="cell-wrap">
-            <cell-fresh v-if="item.type == 0" :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
-            <cell-repost v-else-if="item.type == 1" :newsDetails="item.newsDetails" class="cell-item"></cell-repost>
-            <cell-coin v-else-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>
-            <cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>
-        </cell>
-    </list>
+    <back-navpage :title="title">
+        <list>
+            <cell v-if="news.length == 0" class="nofile-wrap">
+                <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
+                <text class="nofile-tit">你还没有动态内容，快去发个帖子吧！</text>
+            </cell>
+            <cell v-else v-for="(item, i) in news" :key="i" class="cell-wrap">
+                <cell-fresh v-if="item.type == 0" :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+                <cell-repost v-else-if="item.type == 1" :newsDetails="item.newsDetails" class="cell-item"></cell-repost>
+                <cell-coin v-else-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>
+                <cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>
+            </cell>
+        </list>
+    </back-navpage>
 </template>
 
 <style>
@@ -46,6 +48,7 @@
     export default {
         data() {
             return {
+                title: '我的动态',
                 news: [
                     {
                         type: 0,
@@ -185,7 +188,8 @@
             cellFresh: require('components/cells/cellFresh.vue'),
             cellRepost: require('components/cells/cellRepost.vue'),
             cellCoin: require('components/cells/cellCoin.vue'),
-            cellLink: require('components/cells/cellLink.vue')
+            cellLink: require('components/cells/cellLink.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

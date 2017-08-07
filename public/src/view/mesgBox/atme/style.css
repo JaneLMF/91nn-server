@@ -1,0 +1,73 @@
+.myComments-wrap {
+	width: 750px;
+	background-color: #f8f8f8;
+}
+
+.myComments-group {
+	margin-bottom: 10px;
+	background-color: #fff;
+}
+
+.myComments-content-wrap {
+	margin-left: 30px;
+	margin-right: 30px;
+	width: 690px;
+}
+
+.myComments-content {
+	margin-bottom: 15px;
+}
+
+.myComments-reply-wrap {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.my-reply-wrap {
+	flex-direction: row;
+}
+
+.myComments-repost-wrap {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.line {
+	margin-top: 10px;
+	width: 690px;
+	height: 1px;
+	background-color: #dddddd;
+}
+
+.reply-issue-wrap {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	flex-direction: row;
+}
+
+.repost-list {
+	flex-direction: row;
+}
+
+.reply-content {
+	margin-left: 10px;
+}
+
+.reply-default {
+	line-height: 40px;
+	font-size: 26px;
+	color: #434343;
+}
+
+.reply-issue-name {
+	line-height: 40px;
+	font-size: 26px;
+	color: #fc6d3f;
+}
+
+.my-comment-issue {
+	padding-bottom: 30px;
+}

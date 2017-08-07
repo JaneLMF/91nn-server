@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <div v-if="followList.length == 0" class="nofile-wrap">
-            <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
-            <text class="nofile-tit">还没有人关注你，快去发条帖吧！</text>
+    <back-navpage :title="title">
+        <div>
+            <div v-if="followList.length == 0" class="nofile-wrap">
+                <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
+                <text class="nofile-tit">还没有人关注你，快去发条帖吧！</text>
+            </div>
+            <div v-else v-for="(item, i) in followList" :key="i">
+                <follows :followers="item" @follow="v=>item.isFollow=v"></follows>
+            </div>
         </div>
-        <div v-else v-for="(item, i) in followList" :key="i">
-            <follows :followers="item" @follow="v=>item.isFollow=v"></follows>
-        </div>
-    </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -34,6 +36,7 @@
     export default {
         data() {
             return {
+                title: '我的粉丝',
                 followList: [
                     {
                         article: {
@@ -75,7 +78,8 @@
             }
         },
         components: {
-            follows: require('components/follows/index.vue')
+            follows: require('components/follows/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

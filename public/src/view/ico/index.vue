@@ -1,36 +1,65 @@
 <template>
-    <div class="ico-wrap">
-        <div class="hot-ico-wrap">
-            <text class="hot-ico-tit">热门ICO</text>
-            <scroller scroll-direction="horizontal" class="hot-ico-group">
-                <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center; margin-right: 40px;">
-                    <badge
-                          :iconStyle="item.iconStyle"
-                          :superScriptState="item.superScriptState"
-                          :iconName="item.iconName"
-                          @badge="test"
-                    ></badge>
+    <back-navpage :title="title">
+        <div class="ico-wrap">
+            <div class="hot-ico-bg">
+                <div class="hot-ico-wrap">
+                    <text class="hot-ico-tit">热门ICO</text>
+                    <scroller scroll-direction="horizontal" class="hot-ico-group">
+                        <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center; margin-right: 40px;">
+                            <badge
+                                  :iconStyle="item.iconStyle"
+                                  :superScriptState="item.superScriptState"
+                                  :iconName="item.iconName"
+                                  @badge="test"
+                            ></badge>
+                        </div>
+                    </scroller>
                 </div>
-            </scroller>
+            </div>
+            <div class="hot-ico-bg my-follow-ico-wrap">
+                <div class="hot-ico-wrap">
+                    <text class="hot-ico-tit">关注的ICO</text>
+                    <scroller scroll-direction="horizontal" class="hot-ico-group">
+                        <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center; margin-right: 40px;">
+                            <badge
+                                    :iconStyle="item.iconStyle"
+                                    :superScriptState="item.superScriptState"
+                                    :iconName="item.iconName"
+                                    @badge="test"
+                            ></badge>
+                        </div>
+                    </scroller>
+                </div>
+            </div>
+            <n-tabbar
+                    :marginTop="tabbarTop"
+                    backgroundColor="#f7f7f7"
+                    bottomSelectedColor="#FB633C"
+                    bottomUnSelectedColor="#f7f7f7"
+                    :tabItems="tabItems"
+                    @tabBarOnClick="tabBarOnClick"/>
         </div>
-        <n-tabbar
-                :marginTop="tabbarTop"
-                backgroundColor="#f7f7f7"
-                bottomSelectedColor="#FB633C"
-                bottomUnSelectedColor="#f7f7f7"
-                :tabItems="tabItems"
-                @tabBarOnClick="tabBarOnClick"/>
-    </div>
+    </back-navpage>
 </template>
 
 <style>
     .ico-wrap {
         width: 750px;
+        background-color: #f8f8f8;
+    }
+
+    .hot-ico-bg {
+        width: 750px;
+        background-color: #fff;
     }
 
     .hot-ico-wrap {
         width: 720px;
         margin-left: 30px;
+    }
+
+    .my-follow-ico-wrap {
+        margin-top: 10px;
     }
 
     .hot-ico-tit {
@@ -58,7 +87,8 @@
     export default {
         data() {
             return {
-                tabbarTop: 270,
+                title: 'ICO爆料',
+                tabbarTop: 580,
                 tabItems: [
                     {
                         index: 0,
@@ -253,7 +283,8 @@
         },
         components: {
             nTabbar: require('components/tabbar/tabbar.vue'),
-            badge: require('components/badge/index.vue')
+            badge: require('components/badge/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         },
         methods: {
             tabBarOnClick: function(e) {

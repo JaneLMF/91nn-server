@@ -127,5 +127,30 @@ export default {
         title: '添加币',
         path: '/addCoin',
         jsPath: 'view/coin-market/add/index'
+    },
+    userInfo: {
+        title: '我的资料',
+        path: '/userInfo',
+        jsPath: 'view/userHome/infoPage/index'
+    },
+    mesgBox: {
+        title: '消息',
+        path: '/mesgBox',
+        jsPath: 'view/mesgBox/index'
+    },
+    commentMe: {
+        title: '添加币',
+        path: '/commentMe',
+        jsPath: 'view/mesgBox/commentme/index'
+    },
+    atMe: {
+        title: '我的资料',
+        path: '/atMe',
+        jsPath: 'view/mesgBox/atme/index'
+    },
+    agreeMe: {
+        title: '消息',
+        path: '/agreeMe',
+        jsPath: 'view/mesgBox/agreeme/index'
     }
 }

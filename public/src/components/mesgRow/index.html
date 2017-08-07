@@ -1,0 +1,18 @@
+<div class="mesg-row-bg" @click="clickIt">
+	<div class="mesg-row-wrap">
+		<div class="mesg-row-content-wrap">
+			<div class="tit-wrap">
+				<image class="tit-icon" :src="mesgRow.iconUrl"></image>
+				<div class="tit-content-wrap">
+					<text class="tit-content">{{ mesgRow.iconName }}</text>
+					<text class="newest-mesg" v-if="mesgRow.newestMesg.length > 0">{{ mesgRow.newestMesg }}</text>
+				</div>
+			</div>
+			<div class="mesg-wrap" v-if="mesgRow.mesgCount != 0">
+				<text class="time">{{ mesgRow.time }}</text>
+				<text class="count">{{ mesgRow.mesgCount }}</text>
+			</div>
+		</div>
+		<div class="line"></div>
+	</div>
+</div>

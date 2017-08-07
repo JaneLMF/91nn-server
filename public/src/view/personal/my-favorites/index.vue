@@ -1,13 +1,15 @@
 <template>
-    <list>
-        <cell v-if="news.length == 0" class="nofile-wrap">
-            <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
-            <text class="nofile-tit">那么多美好的事，快去收藏他们吧！</text>
-        </cell>
-        <cell v-else v-for="(item, i) in news" :key="i" class="cell-wrap">
-            <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
-        </cell>
-    </list>
+    <back-navpage :title="title">
+        <list>
+            <cell v-if="news.length == 0" class="nofile-wrap">
+                <image src="/src/view/personal/my-news/images/nofile.png" class="nofile"></image>
+                <text class="nofile-tit">那么多美好的事，快去收藏他们吧！</text>
+            </cell>
+            <cell v-else v-for="(item, i) in news" :key="i" class="cell-wrap">
+                <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+            </cell>
+        </list>
+    </back-navpage>
 </template>
 
 <style>
@@ -43,6 +45,7 @@
     export default {
         data() {
             return {
+                title: '我的收藏',
                 news: [
                     {
                         newsDetails: {
@@ -169,7 +172,8 @@
         },
         components: {
             cellFresh: require('components/cells/cellFresh.vue'),
-            cellRepost: require('components/cells/cellRepost.vue')
+            cellRepost: require('components/cells/cellRepost.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>

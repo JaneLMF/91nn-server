@@ -6,6 +6,7 @@
     export default {
         data() {
             return {
+                title: '正文',
                 isAuth: false,
                 comment: [
                     {
@@ -62,7 +63,8 @@
             }
         },
         components: {
-            commentGroup: require('components/commentGroup/index.vue')
+            commentGroup: require('components/commentGroup/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         },
         methods: {
             agreeIt() {

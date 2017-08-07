@@ -1,11 +1,13 @@
 <template>
-    <div class="update-bg">
-        <div class="update-wrap">
-            <input type="text" placeholder="请输入新密码" class="update-input" />
-            <input type="text" placeholder="请确认密码" class="update-input" />
-            <text class="submit-btn">完成</text>
+    <back-navpage :title="title">
+        <div class="update-bg">
+            <div class="update-wrap">
+                <input type="text" placeholder="请输入新密码" class="update-input" />
+                <input type="text" placeholder="请确认密码" class="update-input" />
+                <text class="submit-btn">完成</text>
+            </div>
         </div>
-    </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -40,3 +42,16 @@
         background-color: #fc6d3f;
     }
 </style>
+
+<script>
+    export default {
+        data() {
+            return {
+                title: '修改密码'
+            }
+        },
+        components: {
+            backNavpage: require('components/navbar/back-navbar.vue')
+        }
+    }
+</script>

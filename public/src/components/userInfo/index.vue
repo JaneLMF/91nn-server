@@ -2,7 +2,7 @@
     <div class="userIcon-wrap">
         <div class="userHeader-wrap">
             <div class="userHeader-bg">
-                <image :src="userInfo.userHeader" class="userHeader"></image>
+                <image :src="userInfo.userHeader" class="userHeader" @click="viewInfo"></image>
             </div>
             <image v-if="userInfo.isVIP" src="/src/components/userInfo/images/vip.png" class="userVIP"></image>
         </div>
@@ -91,6 +91,11 @@
                         userIntro: ''
                     }
                 }
+            }
+        },
+        methods: {
+            viewInfo() {
+                this.$emit('viewInfo');
             }
         }
     }

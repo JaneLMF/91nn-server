@@ -1,14 +1,14 @@
 <list class="personal-bg">
     <cell class="personal-header">
         <image src="/src/view/personal/images/index-bg.png" class="personal-header-bg"></image>
-        <badge class="personal-header-mesg"
-               :action="badgeData.action"
-               :iconStyle="badgeData.iconStyle"
-               :superScriptState="badgeData.superScriptState"
-               :iconName="badgeData.iconName"></badge>
-        <user-info :userInfo="userInfo" class="user-info-wrap"></user-info>
+        <!--<badge class="personal-header-mesg"-->
+               <!--:action="badgeData.action"-->
+               <!--:iconStyle="badgeData.iconStyle"-->
+               <!--:superScriptState="badgeData.superScriptState"-->
+               <!--:iconName="badgeData.iconName"></badge>-->
+        <user-info :userInfo="userInfo" class="user-info-wrap" @viewInfo="viewInfo"></user-info>
         <div class="social-bar">
-            <text class="social-follow">+ 关注</text>
+            <text class="social-follow" @click="changeFollow">{{ isfollow ? '已关注' : '十 关注' }}</text>
             <text class="social-mesg">私信</text>
         </div>
     </cell>
@@ -29,5 +29,15 @@
         <div class="my-news-tit-wrap">
             <text class="my-news-tit">全部动态</text>
         </div>
+    </cell>
+    <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
+        <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+    </cell>
+    <cell v-for="(item, i) in articleArr" :key="i" class="cell-wrap">
+        <slot-repost class="cell-item" :repostMesgArr="item.repostMesgArr" :article="item.article" :news="item.news" :articleType="item.articleType" :dynamic="item.dynamic"></slot-repost>
+    </cell>
+    <cell v-for="(item, i) in dynamic" :key="i" class="cell-wrap">
+        <cell-coin v-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>
+        <cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>
     </cell>
 </list>

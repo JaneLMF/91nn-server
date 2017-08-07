@@ -1,21 +1,23 @@
 <template>
-    <div>
-        <action-row :rowTit="header.rowTit" :btnClass="header.btnClass" :callBack="header.callBack">
-            <image class="header" slot="mesg" :src="header.content"></image>
-        </action-row>
-        <action-row :rowTit="name.rowTit" :btnClass="name.btnClass" :callBack="name.callBack">
-            <text class="content" slot="mesg">{{ name.content }}</text>
-        </action-row>
-        <action-row :rowTit="sex.rowTit" :btnClass="sex.btnClass" :callBack="sex.callBack">
-            <text class="content" slot="mesg">{{ sex.content }}</text>
-        </action-row>
-        <action-row :rowTit="intro.rowTit" :btnClass="intro.btnClass" :callBack="intro.callBack">
-            <text class="content" slot="mesg">{{ intro.content }}</text>
-        </action-row>
-        <action-row :rowTit="from.rowTit" :btnClass="from.btnClass" :callBack="from.callBack">
-            <text class="content" slot="mesg">{{ from.content }}</text>
-        </action-row>
-    </div>
+    <back-navpage :title="title">
+        <div>
+            <action-row :rowTit="header.rowTit" :btnClass="header.btnClass" :callBack="header.callBack">
+                <image class="header" slot="mesg" :src="header.content"></image>
+            </action-row>
+            <action-row :rowTit="name.rowTit" :btnClass="name.btnClass" :callBack="name.callBack">
+                <text class="content" slot="mesg">{{ name.content }}</text>
+            </action-row>
+            <action-row :rowTit="sex.rowTit" :btnClass="sex.btnClass" :callBack="sex.callBack">
+                <text class="content" slot="mesg">{{ sex.content }}</text>
+            </action-row>
+            <action-row :rowTit="intro.rowTit" :btnClass="intro.btnClass" :callBack="intro.callBack">
+                <text class="content" slot="mesg">{{ intro.content }}</text>
+            </action-row>
+            <action-row :rowTit="from.rowTit" :btnClass="from.btnClass" :callBack="from.callBack">
+                <text class="content" slot="mesg">{{ from.content }}</text>
+            </action-row>
+        </div>
+    </back-navpage>
 </template>
 
 <style>
@@ -39,6 +41,7 @@
     export default {
         data() {
             return {
+                title: '修改资料',
                 header: {
                     rowTit: '手机',
                     btnClass: 'details',
@@ -82,7 +85,8 @@
             }
         },
         components: {
-            actionRow: require('components/actionRow/index.vue')
+            actionRow: require('components/actionRow/index.vue'),
+            backNavpage: require('components/navbar/back-navbar.vue')
         }
     }
 </script>
