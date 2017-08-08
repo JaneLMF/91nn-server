@@ -1,6 +1,6 @@
 <template>
     <div class="article-box">
-        <cell-user-info :headerUrl="article.headerUrl" :userName="article.userName" :userIssue="article.userIssue" :articleTime="article.articleTime"></cell-user-info>
+        <cell-user-info :headerUrl="article.headerUrl" :userName="article.userName" :userIssue="article.userIssue" :articleTime="article.articleTime" @callBack="toUserHome"></cell-user-info>
         <slot></slot>
         <div :class="[footerType == 0 ? 'button-fresh-group' : 'button-repost-group']">
             <div class="button-item" @click="repostIt">
@@ -22,6 +22,8 @@
 <script>
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
+
+    var modal = weex.requireModule('modal')
 
     export default {
         props: {
@@ -49,16 +51,27 @@
         methods: {
             agreeIt() {
                 if(!this.hasAgree) {
+                    modal.toast({
+                        message: '已赞',
+                        duration: 0.3
+                    })
                     this.agreeIcon = '/src/components/cells/images/agree-active.png';
                     this.$emit('agree', parseInt(this.article.agree) + 1);
                 } else {
+                    modal.toast({
+                        message: '取消赞',
+                        duration: 0.3
+                    })
                     this.agreeIcon = '/src/components/cells/images/zan.png';
                     this.$emit('agree', parseInt(this.article.agree) - 1);
                 }
                 this.hasAgree = !this.hasAgree;
             },
             repostIt() {
-                navigator.push(routerPage.repostPage)
+                navigator.push(routerPage.repostInput)
+            },
+            toUserHome() {
+                navigator.push(routerPage.userHome)
             }
         },
         components: {

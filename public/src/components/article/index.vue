@@ -57,7 +57,7 @@
         },
         methods: {
             viewNewsDetails() {
-                navigator.push(routerPage.getStarted);
+                navigator.push(routerPage.repostPage);
             }
         },
         components: {

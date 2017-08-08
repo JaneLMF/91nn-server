@@ -1,0 +1,15 @@
+<back-navpage :title="title">
+	<div class="repost-mesg-wrap">
+		<textarea class="repost-mesg-input" placeholder="谈谈你的看法..."></textarea>
+		<div class="repost-action-bar-bg">
+			<div class="repost-action-bar-wrap">
+				<n-check-box :ischecked="ischecked"
+							 :name="checkBoxName"
+							 @callBack="checkBoxCallBack(v)"
+				></n-check-box>
+				<image src="/resources/repostMesgBox/at-btn.png" class="at-icon" @click="atUser"></image>
+				<!--<n-at @callBack="atUser" :size="atSize" :iconUrl="atIconUrl"></n-at>-->
+			</div>
+		</div>
+	</div>
+</back-navpage>

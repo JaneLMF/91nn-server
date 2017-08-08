@@ -1,0 +1,6 @@
+<div class="check-box-wrap" @click="checkIt">
+	<image v-if="ischecked" :src="checked" class="check-box-icon"></image>
+	<image v-else :src="unchecked" class="check-box-icon"></image>
+	<!--<image :src="[ischecked ? checked : unchecked]" class="check-box-icon"></image>-->
+	<text class="check-box-name">{{ name }}</text>
+</div>

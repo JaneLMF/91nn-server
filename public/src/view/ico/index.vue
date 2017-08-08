@@ -1,5 +1,5 @@
 <template>
-    <back-navpage :title="title">
+    <!--<back-navpage :title="title">-->
         <div class="ico-wrap">
             <div class="hot-ico-bg">
                 <div class="hot-ico-wrap">
@@ -39,7 +39,7 @@
                     :tabItems="tabItems"
                     @tabBarOnClick="tabBarOnClick"/>
         </div>
-    </back-navpage>
+    <!--</back-navpage>-->
 </template>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
     <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
-        <div class="article-module-bg">
+        <div class="article-module-bg" @click="viewDetails">
             <div class="article-tit-wrap" v-if="newsDetails.cellModule.user.tit.length > 0">
                 <text class="article-tit">{{ newsDetails.cellModule.user.tit }}</text>
             </div>
@@ -72,6 +72,9 @@
 </style>
 
 <script>
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
     export default {
         props: {
             newsDetails: {
@@ -104,6 +107,11 @@
         },
         components: {
             cellContainer: require('./cellContainer.vue')
+        },
+        methods: {
+            viewDetails() {
+                navigator.push(routerPage.repostPage)
+            }
         }
     }
 </script>

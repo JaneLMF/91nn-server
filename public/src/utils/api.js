@@ -8,7 +8,7 @@ import nn from 'utils/debug'
 let stream = weex.requireModule('stream')
 
 // http base url
-const baseUrl = 'http://192.168.1.100:3000/'
+const baseUrl = 'http://115.159.67.22:60800/'
 // 生产环境
 // const baseUrl = 'http://192.168.1.100:3000/'
 

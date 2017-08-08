@@ -152,5 +152,10 @@ export default {
         title: '消息',
         path: '/agreeMe',
         jsPath: 'view/mesgBox/agreeme/index'
+    },
+    repostInput: {
+        title: '转发',
+        path: '/repostInput',
+        jsPath: 'view/repostInput/index'
     }
 }

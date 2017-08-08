@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+</head>
+<style>
+    img {
+        display: block;
+        width:100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    [contenteditable=true]:empty:before {
+        content: attr(placeholder);
+        color: #a6a6a6;
+        font-size: 20px;
+    }
+
+    #title {
+        height:50px;
+        color: #333333;
+        width:80%;
+        font-size: 20px;
+        border:0;
+    }
+
+    #content {
+        font-size: 18px;
+        padding:10px 0;
+        min-height:200px;
+    }
+    .title-theme {
+        display: none;
+    }
+</style>
+<body>
+    <input id="title" placeholder="请输入标题" class="title-theme"/>
+    <hr class="title-theme"/>
+    <div id="content" contenteditable="true" placeholder="轻触开始编辑"></div>
+    <script>
+        var editor = document.getElementById('content');
+        var title = document.getElementById('title');
+        function insertImage(imagePath) {
+            console.log('insertImage')
+            var image = document.createElement('img');
+            image.src = imagePath;
+            editor.appendChild(image)
+            editor.appendChild(document.createElement('br'))
+        }
+        function placeHTMLToEditor(obj) {
+            editor.innerHTML = obj.html;
+
+            if (obj.showTitle) {
+                var els = document.getElementsByClassName('title-theme');
+                els[0].style.display = 'block';
+                els[1].style.display = 'block';
+                if (obj.title) {
+                    title.value = obj.title;
+                }
+            }
+        }
+        function html() {
+            return {
+                html:editor.innerHTML.replace(/div/g,"p"),
+                title:title.value
+            };
+        }
+    </script>
+</body>
+</html>

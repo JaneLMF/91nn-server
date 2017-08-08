@@ -1,7 +1,7 @@
 <template>
     <div class="article-content-wrap">
         <div class="user-wrap">
-            <div class="user-header-wrap">
+            <div class="user-header-wrap" @click="clickIt">
                 <image :src="headerUrl" class="user-header"></image>
                 <text class="user-name">{{ userName }}</text>
                 <text class="user-issue">来自: {{ userIssue }}</text>
@@ -72,6 +72,11 @@
             userName: { default: ''},
             userIssue: { default: ''},
             articleTime: { default: ''}
+        },
+        methods: {
+            clickIt() {
+                this.$emit('callBack');
+            }
         }
     }
 </script>
