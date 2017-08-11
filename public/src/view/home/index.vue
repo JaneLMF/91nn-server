@@ -51,9 +51,31 @@
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
+    import apiUtils from 'utils/api'
+    import nn from 'utils/debug'
+
+//    import { getArticleInHome } from 'api/index'
+
     var modal = weex.requireModule('modal');
 
     export default {
+        mounted() {
+            var getArticleInHome = function(_start, _length) {
+                var params = {
+                    topCategory: 'home',
+                    start: 0,
+                    length: 1000
+                }
+                return apiUtils.get('api/article', params);
+            }
+
+            getArticleInHome(0, 1000).then(res => {
+                nn.dump('success', res);
+                console.log(res.result);
+            }).catch(res => {
+                nn.dump('Failed', res)
+            })
+        },
         data() {
             return {
                 oSearch: {
@@ -525,7 +547,49 @@
                                 agree: '3'
                             },
                             followType: 'link',
-                            followClass: '比特股',
+                            followClass: '区块链',
+                            followTarget: 'BTS',
+                            coinPriceCNY: '1999.890',
+                            coinPriceUS: '3077.48',
+                            rise: '0.88%',
+                            riseStatus: 'down'
+                        }
+                    },
+                    {
+                        type: 3,
+                        newsDetails: {
+                            article: {
+                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                                userName: '鹿晗',
+                                userIssue: '你牛',
+                                articleTime: '12.30',
+                                comment: '1',
+                                forward: '2',
+                                agree: '3'
+                            },
+                            followType: 'app',
+                            followClass: '区块链应用',
+                            followTarget: 'BTS',
+                            coinPriceCNY: '1999.890',
+                            coinPriceUS: '3077.48',
+                            rise: '0.88%',
+                            riseStatus: 'down'
+                        }
+                    },
+                    {
+                        type: 3,
+                        newsDetails: {
+                            article: {
+                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                                userName: '鹿晗',
+                                userIssue: '你牛',
+                                articleTime: '12.30',
+                                comment: '1',
+                                forward: '2',
+                                agree: '3'
+                            },
+                            followType: 'ico',
+                            followClass: 'ICO项目',
                             followTarget: 'BTS',
                             coinPriceCNY: '1999.890',
                             coinPriceUS: '3077.48',

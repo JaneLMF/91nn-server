@@ -3,8 +3,11 @@
         <div class="user-wrap">
             <div class="user-header-wrap" @click="clickIt">
                 <image :src="headerUrl" class="user-header"></image>
-                <text class="user-name">{{ userName }}</text>
-                <text class="user-issue">来自: {{ userIssue }}</text>
+                <text v-if="useType == 'agree'" class="user-name">{{ userName }}刚刚赞了你的评论：</text>
+                <div v-else-if="useType == 'normal'" class="user-header-issue-wrap">
+                    <text class="user-name">{{ userName }}</text>
+                    <text class="user-issue">来自: {{ userIssue }}</text>
+                </div>
             </div>
             <div class="article-time-wrap">
                 <text class="article-time">{{ articleTime }}</text>
@@ -28,6 +31,13 @@
     }
 
     .user-header-wrap {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+
+    .user-header-issue-wrap {
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -71,7 +81,8 @@
             headerUrl: { default: ''},
             userName: { default: ''},
             userIssue: { default: ''},
-            articleTime: { default: ''}
+            articleTime: { default: ''},
+            useType: { default: 'normal' }
         },
         methods: {
             clickIt() {

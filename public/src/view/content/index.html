@@ -1,6 +1,6 @@
 <back-navpage :title="title">
-    <div class="content-wrap">
-        <list class="content-list">
+    <div class="content-wrap" style="flex: 1;">
+        <list class="content-list" style="flex: 1;">
             <cell class="content-bg">
                 <div class="user-info-row">
                     <div class="user-info-wrap">
@@ -14,7 +14,7 @@
                             </div>
                         </div>
                     </div>
-                    <text v-if="!isAuth" class="follow-auth">+ 关注</text>
+                    <text v-if="!isAuth" class="follow-auth">十 关注</text>
                 </div>
                 <div class="content-moudle">
                     <text class="content-moudle-tit">{{ contentTit }}</text>

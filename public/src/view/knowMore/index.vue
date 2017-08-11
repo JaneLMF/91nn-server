@@ -10,35 +10,35 @@
                 ></badge>
             </n-search>
         </cell>
-        <cell>
-            <div style="flex-direction: row; justify-content: space-around; width: 750px; height: 185px;">
-                <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center;">
-                    <badge 	:action="item.action"
-                            :iconStyle="item.iconStyle"
-                            :superScriptState="item.superScriptState"
-                            :iconName="item.iconName"
-                            :bid="item.bid"
-                            @badge="test"
-                    ></badge>
-                </div>
-            </div>
-        </cell>
-        <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
-            <n-news :news="item" class="cell-item"></n-news>
-        </cell>
-        <!--<cell style="height: 4000px;">-->
-            <!--<n-tabbar-->
-                    <!--:scrolleable="scrolleable"-->
-                    <!--:marginTop="tabbarTop"-->
-                    <!--backgroundColor="#f7f7f7"-->
-                    <!--bottomSelectedColor="#FB633C"-->
-                    <!--bottomUnSelectedColor="#f7f7f7"-->
-                    <!--:tabItems="tabItems"-->
-                    <!--@tabBarOnClick="tabBarOnClick"/>-->
+        <!--<cell>-->
+            <!--<div style="flex-direction: row; justify-content: space-around; width: 750px; height: 185px;">-->
+                <!--<div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center;">-->
+                    <!--<badge 	:action="item.action"-->
+                            <!--:iconStyle="item.iconStyle"-->
+                            <!--:superScriptState="item.superScriptState"-->
+                            <!--:iconName="item.iconName"-->
+                            <!--:bid="item.bid"-->
+                            <!--@badge="test"-->
+                    <!--&gt;</badge>-->
+                <!--</div>-->
+            <!--</div>-->
         <!--</cell>-->
         <!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
             <!--<n-news :news="item" class="cell-item"></n-news>-->
         <!--</cell>-->
+        <cell style="flex: 1;">
+            <n-tabbar
+                    :scrolleable="scrolleable"
+                    :marginTop="tabbarTop"
+                    backgroundColor="#f7f7f7"
+                    bottomSelectedColor="#FB633C"
+                    bottomUnSelectedColor="#f7f7f7"
+                    :tabItems="tabItems"
+                    @tabBarOnClick="tabBarOnClick"/>
+        </cell>
+        <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
+            <n-news :news="item" class="cell-item"></n-news>
+        </cell>
     </list>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
-    <!--<back-navpage :title="title">-->
+    <back-navpage :title="title">
         <div class="ico-wrap">
             <div class="hot-ico-bg">
                 <div class="hot-ico-wrap">
                     <text class="hot-ico-tit">热门ICO</text>
-                    <scroller scroll-direction="horizontal" class="hot-ico-group">
+                    <scroller show-scrollbar="false" scroll-direction="horizontal" class="hot-ico-group">
                         <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center; margin-right: 40px;">
                             <badge
                                   :iconStyle="item.iconStyle"
@@ -19,7 +19,7 @@
             <div class="hot-ico-bg my-follow-ico-wrap">
                 <div class="hot-ico-wrap">
                     <text class="hot-ico-tit">关注的ICO</text>
-                    <scroller scroll-direction="horizontal" class="hot-ico-group">
+                    <scroller show-scrollbar="false" scroll-direction="horizontal" class="hot-ico-group">
                         <div v-for="(item, i) in badgeLinkData" :key="i" style="justify-content: space-around; align-items: center; margin-right: 40px;">
                             <badge
                                     :iconStyle="item.iconStyle"
@@ -39,12 +39,13 @@
                     :tabItems="tabItems"
                     @tabBarOnClick="tabBarOnClick"/>
         </div>
-    <!--</back-navpage>-->
+    </back-navpage>
 </template>
 
 <style>
     .ico-wrap {
         width: 750px;
+        flex: 1;
         background-color: #f8f8f8;
     }
 
@@ -76,6 +77,8 @@
         margin-bottom: 40px;
         flex-direction: row;
         width: 720px;
+        height: 150px;
+        /*border-width: 1px;*/
     }
 </style>
 

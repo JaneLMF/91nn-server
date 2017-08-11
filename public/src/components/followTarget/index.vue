@@ -28,7 +28,7 @@
                     followTarget = this.followTarget;
                 if(followType == 'coin') {
                     followText = '$' + followClass + '/' + followTarget + '$';
-                } else if(followType == 'link') {
+                } else if(followType == 'link' || followType == 'app' || followType == 'ico') {
                     followText = '$' + followClass + '·' + followTarget + '$';
                 } else if(followType == 'user') {
                     followText = '@' + followTarget;
@@ -41,9 +41,13 @@
                 if(this.followType == 'coin') {
                     navigator.push(routerPage.appDetails)
                 } else if(this.followType == 'link') {
-                    navigator.push(routerPage.userHome)
+                    navigator.push(routerPage.wikiDetails)
                 } else if(this.followType == 'user') {
                     navigator.push(routerPage.userHome)
+                } else if(this.followType == 'app') {
+                    navigator.push(routerPage.appDetails)
+                } else if(this.followType == 'ico') {
+                    navigator.push(routerPage.coinDetails)
                 }
             }
         }

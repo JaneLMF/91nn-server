@@ -14,7 +14,7 @@
                         article: {
                             headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
                             userName: '鹿晗',
-                            userIssue: '你牛',
+                            useType: 'agree',
                             articleTime: '12:30'
                         },
                         contentIssue: {
@@ -31,7 +31,7 @@
                         article: {
                             headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
                             userName: '鹿晗',
-                            userIssue: '你牛',
+                            useType: 'agree',
                             articleTime: '12:30'
                         },
                         contentIssue: {
@@ -62,7 +62,7 @@
                         article: {
                             headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
                             userName: '鹿晗',
-                            userIssue: '你牛',
+                            useType: 'agree',
                             articleTime: '12:30'
                         },
                         contentIssue: {

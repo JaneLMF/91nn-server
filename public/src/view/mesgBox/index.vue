@@ -45,6 +45,13 @@
                         newestMesg: '你好！欢迎使用链链。如果在使用过程中...',
                         time: '05/23',
                         mesgCount: 5
+                    },
+                    {
+                        iconUrl: '/resources/mesgBox/fans.png',
+                        iconName: '我的粉丝',
+                        newestMesg: '您新增了2个粉丝',
+                        time: '05/23',
+                        mesgCount: 5
                     }
                 ]
             }
