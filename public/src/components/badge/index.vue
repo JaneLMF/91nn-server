@@ -87,13 +87,13 @@
         top: 0;
         right: 2px;
         display: block;
-        width: 26px;
+        width: 34px;
         height: 22px;
         line-height: 20px;
         text-align: center;
         background-color: #fff;
         color: #ff6a3c;
-        font-size: 12px;
+        font-size: 18px;
         border-radius: 16px;
         border-width: 2px;
         border-color: #ff6a3c;

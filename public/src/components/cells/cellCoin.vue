@@ -38,7 +38,7 @@
     }
 
     .follow-text {
-        font-size: 26px;
+        font-size: 30px;
         color: #434343;
     }
 

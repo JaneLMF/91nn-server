@@ -15,13 +15,13 @@
     }
 
     .content {
-        font-size: 26px;
+        font-size: 28px;
         color: #434343;
         line-height: 40px;
     }
     
     .detail-btn {
-        font-size: 26px;
+        font-size: 28px;
         color: #959595;
     }
 </style>

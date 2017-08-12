@@ -11,14 +11,14 @@
                             <div class="bcClassification">
                                 <text class="bc-tit bcName-tit">名称</text>
                                 <text class="bc-tit bcAlgorithm-tit">行业领域</text>
-                                <text class="bc-tit bcLevel-tit">排序</text>
+                                <text class="bc-tit bcLevel-tit">区块链</text>
                             </div>
                         </div>
                         <scroller class="bc-detail-wrap">
                             <div v-for="(item, i) in bc" :key="i" class="bc-wrap" @click="item.jumpDetails">
                                 <user-header :article="item.article" class="bc-header"></user-header>
                                 <text class="bc-algorithm">{{ item.algorithm }}</text>
-                                <image src="/src/view/link-app/images/paixu.png" class="bc-paixu"></image>
+                                <text class="bc-link">{{ item.link }}</text>
                             </div>
                         </scroller>
                     </div>

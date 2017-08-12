@@ -17,10 +17,6 @@
                 },
                 tabGroupLabel: [
                     {
-                        label: '自选',
-                        value: 0
-                    },
-                    {
                         label: '全部',
                         value: 1
                     },
@@ -61,11 +57,12 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: 'Skuchain',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: '资产交易',
+                        link: '以太坊',
                         jumpDetails() {
                             navigator.push(routerPage.appDetails)
                         }
@@ -73,11 +70,12 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: 'Bitgild',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: '资产交易',
+                        link: '以太坊',
                         jumpDetails() {
                             navigator.push(routerPage.appDetails)
                         }
@@ -85,11 +83,12 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: 'Richlist',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: '资产交易',
+                        link: '以太坊',
                         jumpDetails() {
                             navigator.push(routerPage.appDetails)
                         }
@@ -97,17 +96,18 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: 'OpenBazaar',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: '资产交易',
+                        link: '以太坊',
                         jumpDetails() {
                             navigator.push(routerPage.appDetails)
                         }
                     }
                 ],
-                tabBarValue: 0,
+                tabBarValue: 1,
                 tabBarClass: {
                     activeClass: 'link-wiki-active',
                     defaultClass: 'link-wiki-default',

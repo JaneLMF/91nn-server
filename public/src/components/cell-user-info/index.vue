@@ -21,7 +21,7 @@
         background-color: #fff;
         padding-left: 30px;
         padding-right: 30px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
 
     .user-wrap {

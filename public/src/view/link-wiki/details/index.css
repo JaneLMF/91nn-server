@@ -2,6 +2,12 @@
     background-color: #f2f4f4;
 }
 
+.fenge-wrap {
+    width: 750px;
+    height: 10px;
+    background-color: #f8f8f8;
+}
+
 .detail-wrap {
     padding-right: 30px;
     padding-left:  30px;
@@ -61,8 +67,9 @@
 }
 
 .coin-content {
-    font-size: 26px;
+    font-size: 28px;
     color: #333333;
+    margin-bottom: 10px;
 }
 
 .coin-tit {
@@ -92,16 +99,18 @@
 
 .details-content-wrap {
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .details-content {
-    font-size: 26px;
+    font-size: 28px;
     color: #888888;
 }
 
 .details-more {
     margin-left: 30px;
-    width: 13px;
+    width: 24px;
     height: 24px;
 }
 
@@ -114,7 +123,8 @@
 .details-intro-content {
     width: 690px;
     display: inline-flex;
-    font-size: 26px;
+    font-size: 28px;
+    line-height: 40px;
     color: #434343;
 }
 

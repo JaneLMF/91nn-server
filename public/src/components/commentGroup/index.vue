@@ -59,8 +59,9 @@
         margin-left: 90px;
         padding-bottom: 35px;
         width: 600px;
-        font-size: 26px;
+        font-size: 28px;
         color: #434343;
+        line-height: 40px;
         border-bottom-width: 1px;
         border-color: #e5e5e5;
     }

@@ -19,7 +19,7 @@
     width: 690px;
     height: 60px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -29,15 +29,18 @@
 }
 
 .bcName-tit {
-    width: 490px;
+    /*width: 490px;*/
+    flex: 2;
 }
 
 .bcAlgorithm-tit {
-    width: 150px;
+    /*width: 150px;*/
+    flex: 1;
 }
 
 .bcLevel-tit {
-    width: 50px;
+    /*width: 50px;*/
+    flex: 1;
     text-align: right;
 }
 
@@ -53,21 +56,25 @@
     border-color: #e5e5e5;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 .bc-header {
-    width: 490px;
+    /*width: 490px;*/
+    flex: 2;
     justify-content: flex-start;
 }
 
 .bc-algorithm {
-    width: 150px;
-    font-size: 28px;
-    color: #959595;
+    /*width: 150px;*/
+    flex: 1;
+    font-size: 30px;
+    color: #000;
 }
 
-.bc-paixu {
-    margin-left: 9px;
-    width: 32px;
-    height: 28px;
+.bc-link {
+    flex: 1;
+    font-size: 30px;
+    color: #000;
+    text-align: right;
 }

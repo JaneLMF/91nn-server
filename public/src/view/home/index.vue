@@ -3,13 +3,14 @@
         <list class="list-wrap">
             <cell>
                 <n-search :oSearch="oSearch">
-                    <badge class="personal-header-mesg"
-                           :action="badgeData.action"
-                           :iconStyle="badgeData.iconStyle"
-                           :superScriptState="badgeData.superScriptState"
-                           :iconName="badgeData.iconName"
-                           @badge="viewMesg">
-                    </badge>
+                    <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
+                    <!--<badge class="personal-header-mesg"-->
+                           <!--:action="badgeData.action"-->
+                           <!--:iconStyle="badgeData.iconStyle"-->
+                           <!--:superScriptState="badgeData.superScriptState"-->
+                           <!--:iconName="badgeData.iconName"-->
+                           <!--@badge="viewMesg">-->
+                    <!--</badge>-->
                 </n-search>
             </cell>
             <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
@@ -606,7 +607,8 @@
             badge: require('components/badge/index.vue'),
             slotRepost: require('components/cells/slotRepost.vue'),
             cellCoin: require('components/cells/cellCoin.vue'),
-            cellLink: require('components/cells/cellLink.vue')
+            cellLink: require('components/cells/cellLink.vue'),
+            nMesgIcon: require('components/badge/mesgIcon/index.vue')
         },
         methods: {
             viewMesg()  {

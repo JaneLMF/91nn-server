@@ -10,16 +10,12 @@
             return {
                 oSearch: {
                     placeHolderText: '搜索区块链',
-                    hasBtn: true,
+                    hasBtn: false,
                     searchWrapStyle: 'search-wrap-fc6d3f',
                     searchMoudleStyle: '',
                     inputSearchStyle: 'input-search-fff'
                 },
                 tabGroupLabel: [
-                    {
-                        label: '自选',
-                        value: 0
-                    },
                     {
                         label: '全部',
                         value: 1
@@ -57,7 +53,7 @@
                         value: 9
                     }
                 ],
-                tabBarValue: 0,
+                tabBarValue: 1,
                 tabBarClass: {
                     activeClass: 'link-wiki-active',
                     defaultClass: 'link-wiki-default',
@@ -68,8 +64,8 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: '比特币/BitCoin',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: 'POW',
@@ -82,8 +78,8 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: '以太坊/Ethereum',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: 'POW',
@@ -96,8 +92,8 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: '小蚁/Antshares',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: 'POW',
@@ -110,8 +106,8 @@
                     {
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
-                            userName: 'tfboys',
-                            subTitle: 'weibo',
+                            userName: '布比/Bubi',
+                            subTitle: '2017-05-21',
                             headerStyle: 'user'
                         },
                         algorithm: 'POW',

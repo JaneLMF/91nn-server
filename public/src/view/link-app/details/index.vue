@@ -26,13 +26,15 @@
                      {
                         tit: '公司名称',
                         content: '上海仲托网络科技有限公司',
+                        hasBtn: false,
                         callBack() {
 
                         }
                      },
                     {
                         tit: '所用区块链',
-                        content: '比特币／BitCoin',
+                        content: '比特币/BitCoin',
+                        hasBtn: true,
                         callBack() {
 
                         }

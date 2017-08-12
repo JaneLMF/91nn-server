@@ -47,7 +47,7 @@
 
     .search-moudle {
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         border-radius: 4px;
         background-color: #f15d2d;

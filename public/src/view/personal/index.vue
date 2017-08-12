@@ -1,24 +1,50 @@
 <template>
     <list class="personal-bg">
-        <cell class="personal-header">
-            <image src="/src/view/personal/images/index-bg.png" class="personal-header-bg"></image>
-            <badge class="personal-header-mesg"
-                   :action="badgeData.action"
-                   :iconStyle="badgeData.iconStyle"
-                   :superScriptState="badgeData.superScriptState"
-                   :iconName="badgeData.iconName"></badge>
+        <cell class="personal-header" v-if="isLogin">
+            <image :src="userHomeBg" class="personal-header-bg"></image>
+            <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
             <user-info :userInfo="userInfo" class="user-info-wrap"></user-info>
         </cell>
-        <cell class="user-atten-bg">
+        <cell class="personal-header" v-else >
+            <image src="/resources/common/index-bg.png" class="personal-header-bg"></image>
+            <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
+            <div class="userIcon-wrap">
+                <div class="userHeader-wrap">
+                    <div class="userHeader-bg">
+                        <image :src="unLogin.userHeader" class="userHeader"></image>
+                    </div>
+                </div>
+                <div class="log-in-wrap">
+                    <text class="unLogin-btn">注册</text>
+                    <text class="unLogin-fenge">|</text>
+                    <text class="unLogin-btn">登录</text>
+                </div>
+                <text class="user-intro">{{ unLogin.userIntro }}</text>
+            </div>
+        </cell>
+        <cell class="user-atten-bg" v-if="isLogin">
             <div class="user-atten-wrap">
                 <div class="user-atten-group" @click="jumpToFollows">
                     <text class="user-atten-tit">我的关注</text>
-                    <text class="user-atten-content">88</text>
+                    <text class="user-atten-content">{{ myFollowers }}</text>
                 </div>
                 <text class="fenge">|</text>
                 <div class="user-atten-group" @click="jumpToFans">
                     <text class="user-atten-tit">我的粉丝</text>
-                    <text class="user-atten-content">288</text>
+                    <text class="user-atten-content">{{ myFans }}</text>
+                </div>
+            </div>
+        </cell>
+        <cell class="user-atten-bg" v-else>
+            <div class="user-atten-wrap">
+                <div class="user-atten-group">
+                    <text class="user-atten-tit">我的关注</text>
+                    <text class="user-atten-content">0</text>
+                </div>
+                <text class="fenge">|</text>
+                <div class="user-atten-group">
+                    <text class="user-atten-tit">我的粉丝</text>
+                    <text class="user-atten-content">0</text>
                 </div>
             </div>
         </cell>
@@ -74,6 +100,16 @@
     export default {
         data() {
             return {
+                unLogin: {
+                    userHeader: '/resources/common/unLoginHeader.png',
+                    isVIP: false,
+                    userName: '鹿晗',
+                    userIntro: '暂无简介'
+                },
+                isLogin: true,
+                userHomeBg: '/resources/common/index-bg.png',
+                myFollowers: 8888,
+                myFans: 8888,
                 userInfo: {
                     userHeader: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
                     isVIP: true,
@@ -114,7 +150,8 @@
         components: {
             userInfo: require('components/userInfo/index.vue'),
             badge: require('components/badge/index.vue'),
-            actionRow: require('components/actionRow/index.vue')
+            actionRow: require('components/actionRow/index.vue'),
+            nMesgIcon: require('components/badge/mesgIcon/index.vue')
         },
         methods: {
             jumpToFollows() {
@@ -138,29 +175,36 @@
 
     .personal-header {
         position: relative;
+        justify-content: flex-end;
+        align-items: center;
         width: 750px;
-        height: 394px;
+        height: 350px;
     }
 
     .personal-header-bg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
         width: 750px;
-        height: 394px;
+        height: 350px;
+    }
+
+    .personal-header-mesg-wrap {
+        margin-left: 30px;
+        margin-right: 30px;
+        width: 690px;
+        justify-content: center;
+        align-items: flex-end;
     }
 
     .personal-header-mesg {
         position: absolute;
-        top: 25px;
+        top: 30px;
         right: 30px;
-        width: 60px;
-        height: 60px;
     }
 
     .user-info-wrap {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
+        margin-bottom: 30px;
     }
 
     .user-atten-bg {
@@ -183,7 +227,7 @@
     }
 
     .user-atten-tit {
-        font-size: 26px;
+        font-size: 28px;
         color: #959595;
     }
 
@@ -197,7 +241,7 @@
         margin-right: 60px;
         margin-left: 60px;
         font-size: 26px;
-        color: #d2d2d2;
+        color: #e5e5e5;
     }
 
     .row-icon-wrap {
@@ -214,7 +258,56 @@
 
     .row-mesg {
         margin-right: 25px;
-        font-size: 28px;
+        font-size: 30px;
         color: #c9c9c9;
+    }
+
+    /*未登录*/
+    .userIcon-wrap {
+        margin-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .userHeader-wrap {
+        position: relative;
+        width: 132px;
+        height: 132px;
+    }
+
+    .userHeader-bg {
+
+    }
+
+    .userHeader {
+        width: 130px;
+        height: 130px;
+        border-radius: 130px;
+        border-width: 2px;
+        border-color: #f8997a;
+    }
+
+    .user-intro {
+        font-size: 28px;
+        color: #fff;
+    }
+
+    .log-in-wrap {
+        height: 70px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .unLogin-btn {
+        font-size: 36px;
+        color: #fff;
+    }
+
+    .unLogin-fenge {
+        font-size: 36px;
+        color: #fff;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 </style>

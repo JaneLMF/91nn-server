@@ -4,8 +4,8 @@
             <text class="infoBox-tit">{{ infoBox.tit }}</text>
             <div class="infoBox-content-wrap">
                 <text class="infoBox-content">{{ infoBox.content }}</text>
-                <div class="infoBox-btn-wrap">
-                    <image src="/src/components/infoRow/images/find-more.png" class="infoBox-btn"></image>
+                <div class="infoBox-btn-wrap" v-if="infoBox.hasBtn">
+                    <image src="/resources/common/find-more.png" class="infoBox-btn"></image>
                 </div>
             </div>
         </div>
@@ -20,6 +20,8 @@
     }
 
     .infoBox-wrap {
+        width: 690px;
+        height: 85px;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -31,7 +33,7 @@
 
     .infoBox-tit {
         font-size: 28px;
-        color: #535353;
+        color: #333;
     }
 
     .infoBox-content-wrap {
@@ -41,7 +43,7 @@
     }
 
     .infoBox-content {
-        font-size: 26px;
+        font-size: 28px;
         color: #959595;
     }
 
@@ -53,7 +55,7 @@
     }
 
     .infoBox-btn {
-        width: 13px;
+        width: 24px;
         height: 24px;
     }
 </style>
@@ -66,6 +68,7 @@
                     return {
                         tit: '',
                         content: '',
+                        hasBtn: true,
                         callBack() {
 
                         }

@@ -83,7 +83,7 @@
         width: 690px;
         font-size: 32px;
         color: #333333;
-        font-weight: bolder;
+        font-weight: 500;
         lines: 2;
     }
 

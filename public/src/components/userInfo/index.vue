@@ -59,7 +59,7 @@
     .userInfo-name {
         margin-top: 20px;
         margin-bottom: 20px;
-        font-size: 34px;
+        font-size: 36px;
         color: #fff;
     }
 
@@ -73,7 +73,7 @@
     }
 
     .user-intro {
-        font-size: 26px;
+        font-size: 28px;
         color: #fff;
     }
 </style>

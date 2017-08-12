@@ -237,7 +237,7 @@
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
                             userName: '月明静朗',
-                            subTitle: '2017-06-12  11：30',
+                            subTitle: '2017-06-12  11:30',
                             headerStyle: 'user'
                         },
                         agreeNum: '12',
@@ -247,7 +247,7 @@
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
                             userName: '月明静朗',
-                            subTitle: '2017-06-12  11：30',
+                            subTitle: '2017-06-12  11:30',
                             headerStyle: 'user'
                         },
                         agreeNum: '12',
@@ -257,7 +257,7 @@
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
                             userName: '月明静朗',
-                            subTitle: '2017-06-12  11：30',
+                            subTitle: '2017-06-12  11:30',
                             headerStyle: 'user'
                         },
                         agreeNum: '12',
@@ -267,7 +267,7 @@
                         article: {
                             headerUrl: '/src/view/home/images/badge-boss.png',
                             userName: '月明静朗',
-                            subTitle: '2017-06-12  11：30',
+                            subTitle: '2017-06-12  11:30',
                             headerStyle: 'user'
                         },
                         agreeNum: '12',

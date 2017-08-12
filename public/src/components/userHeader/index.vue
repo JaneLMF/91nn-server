@@ -72,7 +72,7 @@
 
     .user-name {
         font-size: 28px;
-        color: #434343;
+        color: #000;
     }
 
     .user-wiki-details-name {

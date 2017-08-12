@@ -4,7 +4,7 @@
 
 <style>
     .followTarget {
-        font-size: 28px;
+        font-size: 30px;
         color: #5583ff;
     }
 </style>

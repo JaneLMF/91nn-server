@@ -101,13 +101,13 @@
 
     .reply-default {
         line-height: 40px;
-        font-size: 26px;
+        font-size: 30px;
         color: #434343;
     }
 
     .reply-issue-name {
         line-height: 40px;
-        font-size: 26px;
+        font-size: 30px;
         color: #fc6d3f;
     }
 

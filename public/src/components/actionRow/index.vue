@@ -57,7 +57,7 @@
     }
 
     .tit-content {
-        font-size: 28px;
+        font-size: 30px;
         color: #434343;
     }
 

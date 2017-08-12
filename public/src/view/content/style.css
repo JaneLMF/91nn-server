@@ -73,14 +73,17 @@
 }
 
 .content-moudle-tit {
-    font-size: 36px;
-    color: #434343;
-    font-weight: bold;
+    font-size: 45px;
+    color: #000;
+    font-weight: 500;
+    line-height: 50px;
 }
 
 .content-moudle-content {
     margin-top: 30px;
-    font-size: 28px;
+    font-size: 36px;
+    line-height: 55px;
+    font-weight: 100;
     color: #434343;
 }
 

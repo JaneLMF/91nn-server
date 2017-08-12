@@ -7,11 +7,11 @@
                 <div v-if="isOver(item.targetTime)" class="ico-time-line-wrap">
                     <div class="ico-time-line-group">
                         <text class="ico-time-line-tit">开始</text>
-                        <text class="ico-time-line-content">{{ item.startTime }}</text>
+                        <text class="ico-time-line-content">{{ timeTranslate(item.startTime) }}</text>
                     </div>
                     <div class="ico-time-line-group">
                         <text class="ico-time-line-tit">结束</text>
-                        <text class="ico-time-line-content">{{ item.targetTime }}</text>
+                        <text class="ico-time-line-content">{{ timeTranslate(item.targetTime) }}</text>
                     </div>
                 </div>
                 <count-down v-else :targetTime="item.targetTime"></count-down>
@@ -90,8 +90,8 @@
                             lStyle: 'details',
                             level: 's'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501588184536
+                        startTime: 1502433842366,
+                        targetTime: 1502433842366
                     },
                     {
                         article: {
@@ -104,8 +104,8 @@
                             lStyle: 'details',
                             level: 'a'
                         },
-                        startTime: 1501668878136,
-                        targetTime: 1501584598645
+                        startTime: 1502433842366,
+                        targetTime: 1502434042271
                     },
                     {
                         article: {
@@ -118,8 +118,8 @@
                             lStyle: 'details',
                             level: 'b'
                         },
-                        startTime: 1501582479136,
-                        targetTime: 1501583048653
+                        startTime: 1502433842366,
+                        targetTime: 1502434042271
                     },
                     {
                         article: {
@@ -132,8 +132,8 @@
                             lStyle: 'details',
                             level: 'c'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501582478136
+                        startTime: 1502433842366,
+                        targetTime: 1502434042271
                     },
                     {
                         article: {
@@ -146,8 +146,8 @@
                             lStyle: 'details',
                             level: 'd'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501582478136
+                        startTime: 1502433842366,
+                        targetTime: 1502434042271
                     },
                     {
                         article: {
@@ -160,8 +160,8 @@
                             lStyle: 'details',
                             level: 'a'
                         },
-                        startTime: 1501405931000,
-                        targetTime: 1501582478136
+                        startTime: 1502433842366,
+                        targetTime: 1502434042271
                     }
                 ]
             }
@@ -172,6 +172,15 @@
             icoLevel: require('components/icoLevel/index.vue')
         },
         computed: {
+//            timeTranslate(timming) {
+//                var _date = new Date(timming);
+//                var _year = _date.getFullYear();
+//                var _month = _date.getMonth() + 1;
+//                var _day = _date.getDay();
+//                var _hour = _date.getHours();
+//                var _minutes = _date.getMinutes();
+//                return _year + '-' + _month + '-' + _day + ' ' + _hour + ':' + _minutes;
+//            }
 //            isOver(timming) {
 //                var now = new Date();
 //                var d_time = parseInt(timming) - now.getTime();
@@ -195,6 +204,22 @@
                 } else {
                     return false;
                 }
+            },
+            timeTranslate(timming) {
+                var _date = new Date(timming);
+                var _year = _date.getFullYear();
+                var _month = this.stringTranslate(_date.getMonth() + 1);
+                var _day = this.stringTranslate(_date.getDay());
+                var _hour = this.stringTranslate(_date.getHours());
+                var _minutes = this.stringTranslate(_date.getMinutes());
+                return _year + '-' + _month + '-' + _day + ' ' + _hour + ':' + _minutes;
+            },
+            stringTranslate(str) {
+                var target = str + '';
+                if(target.length == 1) {
+                    target = 0 + target;
+                }
+                return target;
             }
         }
     }

@@ -6,6 +6,12 @@
     position: relative;
 }
 
+.fenge-wrap {
+    width: 750px;
+    height: 10px;
+    background-color: #f8f8f8;
+}
+
 .top-bg {
     position: absolute;
     top: 0;
@@ -29,7 +35,8 @@
 }
 
 .nav-info-content {
-    font-size: 26px;
+    margin-bottom: 10px;
+    font-size: 28px;
     color: #333333;
 }
 

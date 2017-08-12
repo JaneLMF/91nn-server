@@ -91,7 +91,7 @@
         margin-right: 30px;
         flex-direction: row;
         border-top-width: 2px;
-        border-color: #e5e5e5;
+        border-color: #f8f8f8;
         width: 690px;
     }
 

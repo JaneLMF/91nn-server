@@ -135,23 +135,23 @@ export default {
     },
     mesgBox: {
         title: '消息',
-        path: '/mesgBox',
-        jsPath: 'view/mesgBox/index'
+        path: '/mesgIcon',
+        jsPath: 'view/mesgIcon/index'
     },
     commentMe: {
         title: '添加币',
         path: '/commentMe',
-        jsPath: 'view/mesgBox/commentme/index'
+        jsPath: 'view/mesgIcon/commentme/index'
     },
     atMe: {
         title: '我的资料',
         path: '/atMe',
-        jsPath: 'view/mesgBox/atme/index'
+        jsPath: 'view/mesgIcon/atme/index'
     },
     agreeMe: {
         title: '消息',
         path: '/agreeMe',
-        jsPath: 'view/mesgBox/agreeme/index'
+        jsPath: 'view/mesgIcon/agreeme/index'
     },
     repostInput: {
         title: '转发',

@@ -36,15 +36,15 @@
     }
 
     .comment-issue {
-        height: 60px;
-        line-height: 60px;
-        font-size: 26px;
+        margin-top: 20px;
+        font-size: 28px;
         color: #333333;
     }
 
     .comment-issue-content {
         margin-top: 15px;
-        font-size: 24px;
+        font-size: 26px;
+        line-height: 35px;
         color: #888888;
         lines: 2;
     }

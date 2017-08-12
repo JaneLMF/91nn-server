@@ -91,7 +91,7 @@
         margin-right: 30px;
         width: 690px;
         border-bottom-width: 1px;
-        border-color: #dddddd;
+        border-color: #e5e5e5;
         justify-content: center;
         align-items: center;
     }
@@ -131,7 +131,7 @@
     }
 
     .ico-details-pro-time {
-        font-size: 24px;
+        font-size: 26px;
         color: #959595;
     }
 
@@ -164,19 +164,19 @@
     }
 
     .ico-info-content {
-        font-size: 26px;
+        font-size: 28px;
         color: #333333;
     }
 
     .ico-info-tit {
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 24px;
         color: #959595;
     }
 
     .ico-info-fenge {
         font-size: 24px;
-        color: #959595;
+        color: #e5e5e5;
     }
 
     .ico-target-wrap {
@@ -188,16 +188,16 @@
         justify-content: space-between;
         align-items: center;
         border-bottom-width: 1px;
-        border-color: #dddddd;
+        border-color: #e5e5e5;
     }
 
     .ico-target-tit {
-        font-size: 26px;
+        font-size: 28px;
         color: #333333;
     }
 
     .ico-target-content {
-        font-size: 26px;
+        font-size: 28px;
         color: #959595;
     }
 
@@ -211,9 +211,10 @@
     }
 
     .ico-intro-content {
-        font-size: 26px;
+        font-size: 28px;
         color: #434343;
         lines: 3;
+        line-height: 40px;
     }
 
     .ico-intro-all {

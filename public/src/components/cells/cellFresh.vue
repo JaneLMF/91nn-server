@@ -27,10 +27,11 @@
 
     .article-tit {
         font-size: 32px;
-        color: #333333;
-        font-weight: bolder;
+        color: #000;
+        font-weight: 500;
         lines: 2;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
+        line-height: 40px;
     }
 
     .article-wrap {
@@ -42,9 +43,12 @@
         color: #888888;
         font-weight: 200;
         lines: 4;
+        line-height: 35px;
     }
 
     .article-content-notit {
+        font-size: 30px;
+        line-height: 40px;
         color: #333333;
     }
 

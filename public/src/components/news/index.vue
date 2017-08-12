@@ -53,12 +53,13 @@
 
     .news-content-tit {
         font-size: 32px;
-        color: #333333;
-        font-weight: bold;
+        color: #000;
+        font-weight: 500;
         lines: 2;
     }
 
     .news-content {
+        margin-top: 10px;
         font-size: 26px;
         color: #707070;
         lines: 2;
@@ -93,6 +94,7 @@
     .fenge {
         margin-left: 10px;
         margin-right: 10px;
+        color: #bbbbbb;
     }
 
     .news-img {

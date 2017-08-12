@@ -19,7 +19,7 @@
     }
 
     .repost-mesg {
-        font-size: 28px;
+        font-size: 30px;
         color: #333333;
     }
 
@@ -28,7 +28,7 @@
     }
 
     .repost-at-fenge {
-        font-size: 28px;
+        font-size: 30px;
         color: #5583ff;
     }
 
