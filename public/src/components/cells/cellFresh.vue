@@ -26,9 +26,9 @@
     }
 
     .article-tit {
-        font-size: 32px;
+        font-size: 30px;
         color: #000;
-        font-weight: 500;
+        font-weight: bold;
         lines: 2;
         margin-bottom: 10px;
         line-height: 40px;
@@ -39,11 +39,10 @@
     }
 
     .article-content {
-        font-size: 26px;
-        color: #888888;
-        font-weight: 200;
+        font-size: 30px;
+        color: #333333;
         lines: 4;
-        line-height: 35px;
+        line-height: 40px;
     }
 
     .article-content-notit {
