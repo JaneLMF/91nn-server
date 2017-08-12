@@ -13,8 +13,7 @@
             :rightItemTitle="rightItemTitle"
             :rightItemColor="rightItemColor"
             @naviBarRightItemClick="naviBarRightItemClick"
-            @naviBarLeftItemClick="naviBarLeftItemClick"
-    >
+            @naviBarLeftItemClick="naviBarLeftItemClick">
 
     </navbar>
     <div class="wrapper" :style="{ marginTop: height }">

@@ -1,18 +1,16 @@
 <template>
     <div class="home-wrap">
+        <n-search :oSearch="oSearch">
+            <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
+            <!--<badge class="personal-header-mesg"-->
+            <!--:action="badgeData.action"-->
+            <!--:iconStyle="badgeData.iconStyle"-->
+            <!--:superScriptState="badgeData.superScriptState"-->
+            <!--:iconName="badgeData.iconName"-->
+            <!--@badge="viewMesg">-->
+            <!--</badge>-->
+        </n-search>
         <list class="list-wrap">
-            <cell>
-                <n-search :oSearch="oSearch">
-                    <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
-                    <!--<badge class="personal-header-mesg"-->
-                           <!--:action="badgeData.action"-->
-                           <!--:iconStyle="badgeData.iconStyle"-->
-                           <!--:superScriptState="badgeData.superScriptState"-->
-                           <!--:iconName="badgeData.iconName"-->
-                           <!--@badge="viewMesg">-->
-                    <!--</badge>-->
-                </n-search>
-            </cell>
             <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
                 <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
             </cell>

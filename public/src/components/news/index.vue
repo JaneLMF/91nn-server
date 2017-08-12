@@ -47,21 +47,23 @@
 
     .news-content-wrap-noImg {
         width: 690px;
-        height: 190px;
+        height: 240px;
         align-content: space-between;
     }
 
     .news-content-tit {
         font-size: 32px;
+        line-height: 45px;
         color: #000;
-        font-weight: 500;
+        font-weight: bold;
         lines: 2;
     }
 
     .news-content {
         margin-top: 10px;
-        font-size: 26px;
-        color: #707070;
+        font-size: 32px;
+        line-height: 45px;
+        color: #333;
         lines: 2;
     }
 

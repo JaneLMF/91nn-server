@@ -1,0 +1,33 @@
+<back-navpage :title="title">
+	<div>
+		<list class="at-wrap">
+			<cell class="search-bg">
+				<div class="search-box">
+					<div class="search-wrap">
+						<image src="/src/components/search/images/nav-search.png" class="serch-icon"></image>
+					</div>
+					<input type="text" class="search-input" placeholder="请输入昵称或最近@过的人" />
+				</div>
+			</cell>
+			<cell class="user-list" v-if="atLeastGroup.length > 0">
+				<div class="user-list-tit-wrap">
+					<text class="user-list-tit">最近@过的人</text>
+				</div>
+				<div v-for="(item, i) in atLeastGroup" :key="i" class="user-list-group">
+					<user-item :userInfo="item" class="user-list-item"></user-item>
+				</div>
+			</cell>
+			<cell class="user-list" v-for="(userItem, i) in userGroup" :key="i">
+				<div class="user-list-tit-wrap">
+					<text class="user-list-tit">{{ userItem.class }}</text>
+				</div>
+				<div v-for="(item, j) in userItem.user" :key="j" class="user-list-group">
+					<user-item :userInfo="item" class="user-list-item"></user-item>
+				</div>
+			</cell>
+		</list>
+		<div class="index-menu-group">
+			<text v-for="(item, i) in indexMenu" :key="i" class="index-menu-item">{{ item }}</text>
+		</div>
+	</div>
+</back-navpage>

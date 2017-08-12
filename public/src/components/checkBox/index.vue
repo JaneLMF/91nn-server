@@ -5,7 +5,7 @@
 <script>
 	export default {
         props: {
-            ischecked: { default: false },
+            ischecked: { default: null },
             name: { default: '' },
             value: { default: '' }
         },
@@ -17,7 +17,7 @@
         },
         methods: {
             checkIt() {
-                this.ischecked = !this.ischecked;
+//                this.ischecked = !this.ischecked;
                 this.$emit('callBack', this.ischecked);
             }
         }

@@ -16,7 +16,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: '1800.62',
                             usdPrice: '300',
                         },
                         {
@@ -25,7 +25,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: -1.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.333,
                             usdPrice: '300',
                         },
                         {
@@ -34,7 +34,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: -0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.1234,
                             usdPrice: '300',
                         },
                         {
@@ -43,7 +43,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 1.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.12,
                             usdPrice: '300',
                         },
                         {
@@ -52,7 +52,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.12,
                             usdPrice: '300',
                         },
                         {
@@ -61,7 +61,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.39,
                             usdPrice: '300',
                         },
                         {
@@ -70,7 +70,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.12,
                             usdPrice: '300',
                         },
                         {
@@ -79,7 +79,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.34,
                             usdPrice: '300',
                         },
                         {
@@ -88,7 +88,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.12,
                             usdPrice: '300',
                         },
                         {
@@ -97,7 +97,7 @@
                             storeName: '云币网',
                             unit: '$',
                             increase: 0.6,
-                            cnyPrice: '1800',
+                            cnyPrice: 1800.1398,
                             usdPrice: '300',
                         }
                     ]

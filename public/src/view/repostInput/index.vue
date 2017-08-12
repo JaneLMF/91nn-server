@@ -3,7 +3,10 @@
 <template src="./index.html"></template>
 
 <script>
-	export default {
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
+
+    export default {
         data() {
             return {
                 title: '转发',
@@ -23,7 +26,7 @@
                 this.ischecked = v;
             },
             atUser() {
-                console.log('at');
+                navigator.push(routerPage.userList)
             }
         }
 	}

@@ -1,96 +1,100 @@
 <template>
-    <list class="personal-bg">
-        <cell class="personal-header" v-if="isLogin">
-            <image :src="userHomeBg" class="personal-header-bg"></image>
-            <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
-            <user-info :userInfo="userInfo" class="user-info-wrap"></user-info>
-        </cell>
-        <cell class="personal-header" v-else >
-            <image src="/resources/common/index-bg.png" class="personal-header-bg"></image>
-            <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
-            <div class="userIcon-wrap">
-                <div class="userHeader-wrap">
-                    <div class="userHeader-bg">
-                        <image :src="unLogin.userHeader" class="userHeader"></image>
+    <div>
+        <div>
+            <div class="personal-header" v-if="isLogin">
+                <image :src="userHomeBg" class="personal-header-bg"></image>
+                <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
+                <user-info :userInfo="userInfo" class="user-info-wrap"></user-info>
+            </div>
+            <div class="personal-header" v-else >
+                <image src="/resources/common/index-bg.png" class="personal-header-bg"></image>
+                <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
+                <div class="userIcon-wrap">
+                    <div class="userHeader-wrap">
+                        <div class="userHeader-bg">
+                            <image :src="unLogin.userHeader" class="userHeader"></image>
+                        </div>
+                    </div>
+                    <div class="log-in-wrap">
+                        <text class="unLogin-btn">注册</text>
+                        <text class="unLogin-fenge">|</text>
+                        <text class="unLogin-btn">登录</text>
+                    </div>
+                    <text class="user-intro">{{ unLogin.userIntro }}</text>
+                </div>
+            </div>
+            <div class="user-atten-bg" v-if="isLogin">
+                <div class="user-atten-wrap">
+                    <div class="user-atten-group" @click="jumpToFollows">
+                        <text class="user-atten-tit">我的关注</text>
+                        <text class="user-atten-content">{{ myFollowers }}</text>
+                    </div>
+                    <text class="fenge">|</text>
+                    <div class="user-atten-group" @click="jumpToFans">
+                        <text class="user-atten-tit">我的粉丝</text>
+                        <text class="user-atten-content">{{ myFans }}</text>
                     </div>
                 </div>
-                <div class="log-in-wrap">
-                    <text class="unLogin-btn">注册</text>
-                    <text class="unLogin-fenge">|</text>
-                    <text class="unLogin-btn">登录</text>
-                </div>
-                <text class="user-intro">{{ unLogin.userIntro }}</text>
             </div>
-        </cell>
-        <cell class="user-atten-bg" v-if="isLogin">
-            <div class="user-atten-wrap">
-                <div class="user-atten-group" @click="jumpToFollows">
-                    <text class="user-atten-tit">我的关注</text>
-                    <text class="user-atten-content">{{ myFollowers }}</text>
-                </div>
-                <text class="fenge">|</text>
-                <div class="user-atten-group" @click="jumpToFans">
-                    <text class="user-atten-tit">我的粉丝</text>
-                    <text class="user-atten-content">{{ myFans }}</text>
+            <div class="user-atten-bg" v-else>
+                <div class="user-atten-wrap">
+                    <div class="user-atten-group">
+                        <text class="user-atten-tit">我的关注</text>
+                        <text class="user-atten-content">0</text>
+                    </div>
+                    <text class="fenge">|</text>
+                    <div class="user-atten-group">
+                        <text class="user-atten-tit">我的粉丝</text>
+                        <text class="user-atten-content">0</text>
+                    </div>
                 </div>
             </div>
-        </cell>
-        <cell class="user-atten-bg" v-else>
-            <div class="user-atten-wrap">
-                <div class="user-atten-group">
-                    <text class="user-atten-tit">我的关注</text>
-                    <text class="user-atten-content">0</text>
-                </div>
-                <text class="fenge">|</text>
-                <div class="user-atten-group">
-                    <text class="user-atten-tit">我的粉丝</text>
-                    <text class="user-atten-content">0</text>
-                </div>
-            </div>
-        </cell>
-        <cell class="myInfo-wrap">
-            <action-row :rowTit="'我的动态'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-top: 10px;" :callBack="jumpMyNews">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/me-status.png" class="row-icon"></image>
-                </div>
-                <text slot="mesg" class="row-mesg">0</text>
-            </action-row>
-            <action-row :rowTit="'我的收藏'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="jumpMyFavorites">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/me-mark.png" class="row-icon"></image>
-                </div>
-                <text slot="mesg" class="row-mesg">0</text>
-            </action-row>
-            <action-row :rowTit="'我的评论'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-bottom: 10px;" :callBack="jumpMyComments">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/me-pinglun.png" class="row-icon"></image>
-                </div>
-                <text slot="mesg" class="row-mesg">0</text>
-            </action-row>
-        </cell>
-        <cell class="app-info">
-            <action-row :rowTit="'设置'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="settingAction">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/settings.png" class="row-icon"></image>
-                </div>
-            </action-row>
-            <action-row :rowTit="'关于你牛'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/about.png" class="row-icon"></image>
-                </div>
-            </action-row>
-            <action-row :rowTit="'帮助与反馈'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/mishu.png" class="row-icon"></image>
-                </div>
-            </action-row>
-            <action-row :rowTit="'推荐给好友'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
-                <div class="row-icon-wrap" slot="icon">
-                    <image src="/src/view/personal/images/share.png" class="row-icon"></image>
-                </div>
-            </action-row>
-        </cell>
-    </list>
+        </div>
+        <list class="personal-bg">
+            <cell class="myInfo-wrap">
+                <action-row :rowTit="'我的动态'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-top: 10px;" :callBack="jumpMyNews">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/me-status.png" class="row-icon"></image>
+                    </div>
+                    <text slot="mesg" class="row-mesg">0</text>
+                </action-row>
+                <action-row :rowTit="'我的收藏'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="jumpMyFavorites">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/me-mark.png" class="row-icon"></image>
+                    </div>
+                    <text slot="mesg" class="row-mesg">0</text>
+                </action-row>
+                <action-row :rowTit="'我的评论'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-bottom: 10px;" :callBack="jumpMyComments">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/me-pinglun.png" class="row-icon"></image>
+                    </div>
+                    <text slot="mesg" class="row-mesg">0</text>
+                </action-row>
+            </cell>
+            <cell class="app-info">
+                <action-row :rowTit="'设置'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="settingAction">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/settings.png" class="row-icon"></image>
+                    </div>
+                </action-row>
+                <action-row :rowTit="'关于你牛'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/about.png" class="row-icon"></image>
+                    </div>
+                </action-row>
+                <action-row :rowTit="'帮助与反馈'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/mishu.png" class="row-icon"></image>
+                    </div>
+                </action-row>
+                <action-row :rowTit="'推荐给好友'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon">
+                    <div class="row-icon-wrap" slot="icon">
+                        <image src="/src/view/personal/images/share.png" class="row-icon"></image>
+                    </div>
+                </action-row>
+            </cell>
+        </list>
+    </div>
 </template>
 
 <script>

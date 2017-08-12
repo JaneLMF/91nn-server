@@ -7,7 +7,7 @@
                     <image src="/src/view/home/images/zan.png" class="bc-zan-icon"></image>
                     <text class="bc-zan-content">{{ comment.agreeNum }}</text>
                 </div>
-                <image src="/src/view/home/images/pinglun.png" class="bc-pinglun-icon"></image>
+                <image src="/src/view/home/images/pinglun.png" class="bc-pinglun-icon" @click="toComment"></image>
             </div>
         </div>
         <text class="bc-content">{{ comment.content }}</text>

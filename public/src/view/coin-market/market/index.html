@@ -1,6 +1,8 @@
 <div class="root">
 	<div class="list-head">
-		<text class="list-head-item" v-for="s in ['名称', '最新价格', '涨跌幅']">{{s}}</text>
+		<text class="list-head-item">名称</text>
+		<text class="list-head-item list-head-item-price">最新价格</text>
+		<text class="list-head-item">涨跌幅</text>
 	</div>
 	<list class="border">
 		<cell v-for="coin in coins" @click="oncellclick(coin.id)">
@@ -16,9 +18,9 @@
 						<text class="price-usd">$ {{coin.usdPrice}}</text>
 					</div>
 					<div class="div-increase" :class="[coin.increase > 0 ? 'bg-price-up' : 'bg-price-down']" >
-						<text v-if="coin.increase == 0" class="price-calm">  {{coin.increase}}%</text>
-						<text v-if="coin.increase > 0" class="price-calm">  +{{coin.increase}}%</text>
-						<text v-if="coin.increase < 0" class="price-calm">  {{coin.increase}}%</text>
+						<text v-if="coin.increase == 0" class="price-calm">{{coin.increase}}%</text>
+						<text v-if="coin.increase > 0" class="price-calm">+{{coin.increase}}%</text>
+						<text v-if="coin.increase < 0" class="price-calm">{{coin.increase}}%</text>
 					</div>
 				</div>
 				<div class="item-line-bottom"></div>

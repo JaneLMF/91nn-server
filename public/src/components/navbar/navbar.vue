@@ -80,7 +80,6 @@
     right: 172px;
     text-align: center;
     font-size: 36px;
-    font-weight: bold;
   }
 
   .left-image-box {

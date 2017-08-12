@@ -7,7 +7,8 @@
 
     <n-null v-if="coins.length == 0"></n-null>
     <n-market v-else :coins="coins"></n-market>
-    <n-menu ref="menu" :show="showmenu">
+    <n-menu ref="menu">
+        <image class="menu-bg" slot="backgroud" src="/resources/coin-market/menu_backgroud.png"></image>
         <div class="menu-list">
             <div class="menu-item" v-for="item in menulist" @click="clickMenuItem(item.id)">
                 <image :src="item.icon" style="width: 24px; height: 24px;"></image>

@@ -43,7 +43,7 @@
             return {
                 title: '修改资料',
                 header: {
-                    rowTit: '手机',
+                    rowTit: '头像',
                     btnClass: 'details',
                     callBack() {
                         navigator.push(routerPage.updateAccount)

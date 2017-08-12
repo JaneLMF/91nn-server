@@ -1,0 +1,19 @@
+<div style="position: fixed; bottom: 0; left: 0;">
+	<div class="comment-box" @click="closeIt">
+		<div class="comment-wrap-bg">
+			<div class="comment-wrap">
+				<textarea class="comment-input" placeholder="我的想法是" rows="3" @input="isInputed"></textarea>
+				<div class="comment-action-row-wrap">
+					<div class="comment-action-row">
+						<n-check-box :ischecked="ischecked"
+									 :name="checkBoxName"
+									 @callBack="v=>ischecked=!v"
+						></n-check-box>
+						<image src="/resources/repostMesgBox/at-btn.png" class="at-icon" @click="atUser"></image>
+					</div>
+					<text class="submit-comment" :class="[canSubmit ? 'can-submit-comment' : '']">发表评论</text>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

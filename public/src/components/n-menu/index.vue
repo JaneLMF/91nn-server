@@ -1,7 +1,10 @@
 <template>
-    <div class="root">
-        <n-mask  v-if="show" @click="layoutClick"></n-mask>
-        <div v-if="show" class="box" ref="box" :style="{'top': computeTop}">
+    <div v-if="show" class="root">
+        <n-mask @click="layoutClick"></n-mask>
+        <div class="bg" :style="{'top': computeTop}">
+            <slot name="backgroud"></slot>
+        </div>
+        <div class="box" ref="box" :style="{'top': computeTop}">
             <div class="content">
                 <slot></slot>
             </div>
@@ -72,6 +75,11 @@
 
     .border {
         border-width: 1px;
+    }
+
+    .bg {
+        position: fixed;
+        right: 30px;
     }
 
     .box {

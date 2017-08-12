@@ -1,6 +1,6 @@
 <template>
     <back-navpage :title="title">
-        <div class="ico-details-wrap">
+        <div class="ico-details-wrap" style="flex: 1;">
             <list class="ico-details-list">
                 <cell>
                     <div class="ico-tit-bg">

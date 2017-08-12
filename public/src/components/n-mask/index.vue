@@ -1,5 +1,6 @@
 <template>
-    <div class="root" :style="{'opacity': opacity}" @click="_click"></div>
+    <div class="root" v-if="opacity > 0" :style="{'opacity': opacity, 'backgroundColor': backgroundColor}" @click="_click"></div>
+    <div class="root" v-else @click="_click"></div>
 </template>
 
 <script>
@@ -7,7 +8,12 @@
     module.exports = {
         props: {
             "opacity": {
-                default: '0.2'
+                type: Number,
+                default: 0
+            },
+            "backgroundColor": {
+                type: String,
+                default: '#f7f7f7'
             }
         },
         methods: {
@@ -25,7 +31,5 @@
         right: 0px;
         top: 0px;
         bottom: 0px;
-        background-color: #f7f7f7;
-        opacity: 0.3;
     }
 </style>

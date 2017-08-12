@@ -6,6 +6,7 @@
     export default {
         data() {
             return {
+                commentFlag: false,
                 title: '正文',
                 isAuth: false,
                 comment: [
@@ -64,7 +65,8 @@
         },
         components: {
             commentGroup: require('components/commentGroup/index.vue'),
-            backNavpage: require('components/navbar/back-navbar.vue')
+            backNavpage: require('components/navbar/back-navbar.vue'),
+            commentBox: require('components/commentBox/index.vue')
         },
         methods: {
             agreeIt() {
@@ -76,6 +78,9 @@
                     this.contentAgree--;
                 }
                 this.hasAgree = !this.hasAgree;
+            },
+            toComment() {
+                this.commentFlag = true
             }
         }
     }

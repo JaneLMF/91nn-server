@@ -49,7 +49,7 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        border-radius: 4px;
+        border-radius: 8px;
         background-color: #f15d2d;
     }
 
@@ -63,7 +63,7 @@
     }
 
     .search-moudle-noAll {
-        width: 610px;
+        width: 600px;
         height: 50px;
     }
 

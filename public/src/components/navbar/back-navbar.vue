@@ -3,7 +3,12 @@
             class="root"
             :dataRole="dataRole"
             :title="title"
-            :leftItemSrc="leftItemSrc" @naviBarLeftItemClick="leftItemClick">
+            :titleColor="titleColor"
+            :backgroundColor="backgroundColor"
+            :rightItemTitle="rightItemTitle"
+            :leftItemSrc="leftItemSrc" @naviBarLeftItemClick="leftItemClick"
+            :rightItemSrc="rightItemSrc">
+        <div v-if="showLine" style="height: 1px; background-color: #e5e5e5;"></div>
         <slot></slot>
     </navpage>
 </template>
@@ -12,9 +17,14 @@
     import navigator from 'utils/modules/navigator'
     export default {
         props: {
+            showLine: {default: false},
             title: { default: '' },
             dataRole: { default: 'none' },
             leftItemSrc: { default: '/src/images/common/back.png' },
+            backgroundColor: { default: '#fc6d3f' },
+            titleColor: { default: 'white' },
+            rightItemTitle: { default: '' },
+            rightItemSrc: {default: ''},
         },
         methods: {
             leftItemClick: function(e) {

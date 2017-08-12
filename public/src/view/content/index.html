@@ -1,4 +1,9 @@
-<back-navpage :title="title">
+<back-navpage :title="title"
+              showLine="true"
+              backgroundColor="#ffffff"
+              titleColor="#000000"
+              leftItemSrc="/resources/common/back_black.png"
+              rightItemSrc="/resources/common/more-black.png">
     <div class="content-wrap" style="flex: 1;">
         <list class="content-list" style="flex: 1;">
             <cell class="content-bg">
@@ -24,7 +29,7 @@
             <cell style="width: 750px; height: 20px; background-color: #f8f8f8;"></cell>
             <cell class="content-bg comment-bg">
                 <div class="comment-wrap">
-                    <div class="comment-font-wrap">
+                    <div class="comment-font-wrap" @click="toComment">
                         <text class="comment-font-s">评论</text>
                         <text class="comment-font-s">{{ contentComment }}</text>
                     </div>
@@ -50,5 +55,6 @@
                 <image class="comment-footer-repost-group" src="/src/view/content/images/repost.png"></image>
             </div>
         </div>
+        <comment-box v-if="commentFlag" @callBack="v => commentFlag = v"></comment-box>
     </div>
 </back-navpage>

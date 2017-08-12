@@ -26,12 +26,12 @@
     }
 
     .article-tit {
-        font-size: 30px;
+        font-size: 32px;
         color: #000;
         font-weight: bold;
         lines: 2;
         margin-bottom: 10px;
-        line-height: 40px;
+        line-height: 45px;
     }
 
     .article-wrap {
@@ -39,15 +39,15 @@
     }
 
     .article-content {
-        font-size: 30px;
+        font-size: 32px;
         color: #333333;
         lines: 4;
-        line-height: 40px;
+        line-height: 45px;
     }
 
     .article-content-notit {
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 32px;
+        line-height: 45px;
         color: #333333;
     }
 

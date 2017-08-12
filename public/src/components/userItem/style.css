@@ -1,0 +1,44 @@
+.user-item-wrap {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 690px;
+}
+
+.user-item-group {
+    width: 690px;
+    height: 165px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-header {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+}
+
+.user-info-wrap {
+    margin-left: 30px;
+    height: 165px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.user-name {
+    font-size: 28px;
+    color: #434343;
+}
+
+.user-intro {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #959595;
+}
+
+.line {
+    margin-left: 120px;
+    width: 570px;
+    height: 1px;
+    background-color: #e5e5e5;
+}

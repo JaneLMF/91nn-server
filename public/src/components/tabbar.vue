@@ -1,28 +1,34 @@
 <template>
-  <div class="wrapper">
-    <embed
-      v-for="(item , i) in tabItems"
-      :src="item.src"
-      :key="i"
-      type="weex"
-      :style="{ visibility: item.visibility }"
-      class="content"
-      ></embed>
-    <div class="tabbar" append="tree">
-      <tabitem
-        v-for="item in tabItems"
-        :key="item.index"
-        :index="item.index"
-        :icon="item.icon"
-        :title="item.title"
-        :titleColor="item.titleColor"
-        @tabItemOnClick="tabItemOnClick"
-        ></tabItem>
+    <div class="wrapper">
+      <div class="header-bg" :style="{height: computeHeight}"></div>
+      <embed
+        v-for="(item , i) in tabItems"
+        :src="item.src"
+        :key="i"
+        type="weex"
+        :style="{ visibility: item.visibility, marginTop: computeHeight }"
+        class="content"
+        ></embed>
+      <div class="tabbar" append="tree">
+        <tabitem
+          v-for="item in tabItems"
+          :key="item.index"
+          :index="item.index"
+          :icon="item.icon"
+          :title="item.title"
+          :titleColor="item.titleColor"
+          @tabItemOnClick="tabItemOnClick"
+          ></tabItem>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+  .header-bg {
+    width: 750px;
+    background-color: #fc6d3f;
+  }
   .wrapper {
     width: 750px;
     position: absolute;
@@ -51,6 +57,8 @@
 </style>
 
 <script>
+    import uweex from 'utils/weex/instance'
+
   module.exports = {
     props: {
       tabItems: { default: [] },
@@ -89,6 +97,18 @@
           }
         }
       },
-    }
+    },
+    computed: {
+        computeHeight: function(){
+            //adapter navbar for ios
+            if (uweex.isIOS()){
+                let env = weex.config.env;
+                let scale = env.scale;
+                let deviceWidth = env.deviceWidth / scale;
+                this.height = 20.0 * 750.0 / deviceWidth;
+            }
+            return this.height;
+        }
+    },
   }
 </script>

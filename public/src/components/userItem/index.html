@@ -1,0 +1,10 @@
+<div class="user-item-wrap" @click="clickIt">
+	<div class="user-item-group">
+		<image :src="userInfo.header" class="user-header"></image>
+		<div class="user-info-wrap">
+			<text class="user-name">{{ userInfo.name }}</text>
+			<text class="user-intro">{{ userInfo.intro }}</text>
+		</div>
+	</div>
+	<div class="line"></div>
+</div>

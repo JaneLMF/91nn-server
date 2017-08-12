@@ -6,12 +6,21 @@
 	border-width: 1px;
 }
 
+.menu-bg {
+	width: 174px;
+	height: 153px;
+}
+
 .menu-list {
-	background-color: white;
+	height: 140px;
+	align-items: flex-start;
 }
 
 .menu-item {
 	align-items: center;
 	flex-direction: row;
-	padding: 30px;
+	width: 174px;
+	padding-left: 30px;
+	padding-right: 30px;
+	flex: 1;
 }
