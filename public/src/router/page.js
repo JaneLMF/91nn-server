@@ -5,6 +5,7 @@
 export default {
     getStarted: {
         title: '新手营',
+        pageName: 'school',//进新手营的第一个页面
         path: '/getStarted',
         jsPath: 'view/home/get-started/index'
     },

@@ -7,11 +7,27 @@
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 	export default {
-		mounted () {
-
-		},
+        beforeCreate () {
+            nn.log(this.name + ' beforeCreate');
+        },
+        created() {
+            nn.log(this.name + ' created');
+        },
+        beforeMount() {
+            nn.log(this.name + ' beforeMount');
+        },
+        mounted () {
+            nn.log(this.name + ' mounted');
+        },
+        beforeDestroy() {
+            nn.log(this.name + ' beforeDestory');
+        },
+        destroyed() {
+            nn.log(this.name + ' destroyed');
+        },
 		data() {
             return {
+                name: 'hot-coin',
                 coins: [
                     {
                         id: '0',

@@ -52,7 +52,8 @@ function pushByUrl(url, query) {
 }
 
 function push(routePage, query = {}) {
-    query.title = routePage.title
+    query.title = routePage.title;
+    query.pageName = routePage.pageName;
     nn.log('getBaseUrl', getBaseUrl())
     let url = query ? `${getBaseUrl()}${routePage.jsPath}.js?${qs.stringify(query)}` : `${getBaseUrl()}${routePage}.js`
     nn.log('push ' + url)

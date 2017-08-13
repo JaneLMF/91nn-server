@@ -50,25 +50,25 @@
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
-    import apiUtils from 'utils/api'
+//    import apiUtils from 'utils/api'
     import nn from 'utils/debug'
 
-//    import { getArticleInHome } from 'api/index'
+    import nAPI from 'api/index'
 
     var modal = weex.requireModule('modal');
 
     export default {
         mounted() {
-            var getArticleInHome = function(_start, _length) {
-                var params = {
-                    topCategory: 'home',
-                    start: 0,
-                    length: 1000
-                }
-                return apiUtils.get('api/article', params);
-            }
+//            var getArticleInHome = function(_start, _length) {
+//                var params = {
+//                    topCategory: 'home',
+//                    start: 0,
+//                    length: 1000
+//                }
+//                return apiUtils.get('api/article', params);
+//            }
 
-            getArticleInHome(0, 1000).then(res => {
+            nAPI.getArticleInHome(0, 1000).then(res => {
                 nn.dump('success', res);
                 console.log(res.result);
             }).catch(res => {

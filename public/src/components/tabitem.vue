@@ -3,9 +3,9 @@
     :style="{ backgroundColor: backgroundColor }"
     class="container"
     @click="onclickitem">
-    <image
-      src="http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"
-      class="top-line"></image>
+    <!--<image-->
+      <!--src="http://gtms03.alicdn.com/tps/i3/TB1mdsiMpXXXXXpXXXXNw4JIXXX-640-4.png"-->
+      <!--class="top-line"></image>-->
     <image
       :src="icon"
       class="tab-icon"></image>
@@ -20,7 +20,7 @@
     flex: 1; 
     flex-direction: column; 
     align-items:center; 
-    justify-content:center; 
+    justify-content:center;
     height: 100;
   }
   .top-line {
