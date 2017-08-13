@@ -13,7 +13,7 @@
                           :titleColor="item.titleColor"
                           :bottomColor="item.bottomColor"
                           :backgroundColor="backgroundColor"
-                          @tabItemOnClick="tabItemOnClick">
+                          @tabItemOnClick="tabItemOnClick(item)">
                   </tabItem>
               </div>
             </div>

@@ -5,6 +5,7 @@
 <script>
     import config from 'utils/config'
     import nn from 'utils/debug'
+    import wtj from 'utils/modules/wtj'
 
 	export default {
 		props: {
@@ -13,7 +14,6 @@
                 default: 0
             },
       	},
-
 		data() {
 			return {
                 tabbarTop: 0,
@@ -26,6 +26,7 @@
                 tabItems: [
                     {
                         index: 0,
+                        name: 'school',
                         title: '新手学堂',
                         titleFontSize: '30px',
                         src: '/school/index.js',
@@ -33,6 +34,7 @@
                     },
                     {
                         index: 1,
+                        name: 'hot-chain',
                         title: '热链推荐',
                         titleFontSize: '30px',
                         src: '/hot-chain/index.js',
@@ -40,6 +42,7 @@
                     },
                     {
                         index: 2,
+                        name: 'hot-coin',
                         title: '热币推荐',
                         titleFontSize: '30px',
                         src: '/hot-coin/index.js',
@@ -62,8 +65,9 @@
                 this.index = tab.index
             },
             tabBarOnClick: function(e) {
-                console.log('tabBarOnClick', e.index)
-            }
+                nn.log('tabBarOnClick ' + e.index);
+                wtj.onPageStart(e.name);
+            },
         },
         components:{
             nTabbar: require('components/tabbar/tabbar.vue'),

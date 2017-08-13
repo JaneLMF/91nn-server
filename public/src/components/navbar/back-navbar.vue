@@ -15,6 +15,7 @@
 
 <script>
     import navigator from 'utils/modules/navigator'
+    import wtj from 'utils/modules/wtj'
     export default {
         props: {
             showLine: {default: false},
@@ -29,7 +30,11 @@
         methods: {
             leftItemClick: function(e) {
                 if (this.naviBarLeftItemClick == null){
-                    navigator.pop()
+                    wtj.onPageEnd().then(res => {
+                        navigator.pop()
+                    }).catch(res => {
+                        navigator.pop()
+                    });
                     return
                 }
                 this.$emit('naviBarLeftItemClick', e)
