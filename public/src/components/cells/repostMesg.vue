@@ -1,13 +1,12 @@
 <template>
     <div class="repost-mesg-wrap">
-        <text v-if="type == 'text'" class="repost-mesg">{{ repostInfo }}</text>
-        <div class="repost-at-target-wrap" v-else-if="type == 'user'">
+        <text v-if="repostText.type == 'text'" class="repost-mesg">{{ repostText.text }}</text>
+        <div class="repost-at-target-wrap" v-else-if="repostText.type == 'atUser'">
             <text class="repost-at-fenge">//</text>
             <follow-target class="repost-at-target"
-                           :followType="followType"
-                           :followClass="followClass"
-                           :followTarget="followTarget"
-                           :followID="followID"
+                           :followType="repostText.type"
+                           :followText="repostText.atUser.nick"
+                           :followID="repostText.atUser._id"
             ></follow-target>
         </div>
     </div>
@@ -19,7 +18,7 @@
     }
 
     .repost-mesg {
-        font-size: 30px;
+        font-size: 32px;
         color: #333333;
     }
 
@@ -28,7 +27,7 @@
     }
 
     .repost-at-fenge {
-        font-size: 30px;
+        font-size: 32px;
         color: #5583ff;
     }
 
@@ -40,6 +39,13 @@
 <script>
     export default {
         props: {
+            repostText: {
+                default() {
+                    return {
+
+                    }
+                }
+            },
             type: { default: '' },
             repostInfo: { default: '' },
             followType: { default: '' },

@@ -8,22 +8,39 @@
 
 	export default {
         props: {
-            userType: { default: 'repost' },
+            userType: { default: '' },
             articleType: { default: 'news' },
-            news: {
+            title: { default: '' },
+            summary: { default: '' },
+            author: {
                 default() {
                     return {
-                        articleID: '',
-                        tit: '',
-                        intro: '',
-                        imgUrl: '',
-                        issue: '',
-                        comment: '',
-                        agree: '',
-                        time: ''
+
                     }
                 }
             },
+            commentCount: { default: '' },
+            upvoteCount: { default: '' },
+            createAt: { default: '' },
+            images: {
+                default() {
+                    return []
+                }
+            },
+//            news: {
+//                default() {
+//                    return {
+//                        articleID: '',
+//                        tit: '',
+//                        intro: '',
+//                        imgUrl: '',
+//                        issue: '',
+//                        comment: '',
+//                        agree: '',
+//                        time: ''
+//                    }
+//                }
+//            },
             dynamic: {
                 default() {
                     return {
@@ -32,28 +49,13 @@
                     }
                 }
             },
-//            newsDetails: {
-//                default() {
-//                    return {
-//                        article: {
-//                            headerUrl: '',
-//                            userName: '',
-//                            userIssue: '',
-//                            articleTime: '',
-//                            comment: '',
-//                            forward: '',
-//                            agree: ''
-//                        },
-//                        followType: '',
-//                        followClass: '',
-//                        followTarget: '',
-//                        coinPriceCNY: '',
-//                        coinPriceUS: '',
-//                        rise: '',
-//                        riseStatus: ''
-//                    }
-//                }
-//            }
+            newsDetails: {
+                default() {
+                    return {
+
+                    }
+                }
+            }
         },
         methods: {
             viewNewsDetails() {

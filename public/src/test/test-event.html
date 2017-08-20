@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+</head>
+<script>
+function setupWebViewJavascriptBridge(callback) {
+	if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+	if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+	window.WVJBCallbacks = [callback];
+	var WVJBIframe = document.createElement('iframe');
+	WVJBIframe.style.display = 'none';
+	WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';//for android
+//    WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';//for ios
+	document.documentElement.appendChild(WVJBIframe);
+	setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+}
+function lableClick() {
+	setupWebViewJavascriptBridge(function(bridge) {
+		bridge.callHandler('onEventForNative', {'event': 'clickLable', 'data': {'name': 'jane'}})
+	})
+}
+
+</script>
+<style type="text/css">
+	div {
+		display: flex;
+		flex-direction: column;
+	}
+</style>
+<body>
+	<div>
+		<label onclick="lableClick()">onEventForNative</label>
+	</div>
+</body>
+</html>

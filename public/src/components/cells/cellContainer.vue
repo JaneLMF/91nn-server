@@ -1,19 +1,28 @@
 <template>
     <div class="article-box">
-        <cell-user-info :headerUrl="article.headerUrl" :userName="article.userName" :userIssue="article.userIssue" :articleTime="article.articleTime" @callBack="toUserHome"></cell-user-info>
+        <cell-user-info :headerUrl="author.avatar" :userName="author.nick" :userIssue="author.from" :articleTime="articleTime" @callBack="toUserHome"></cell-user-info>
         <slot></slot>
         <div :class="[footerType == 0 ? 'button-fresh-group' : 'button-repost-group']">
+            <!--<div class="button-item" @click="repostIt">-->
+            <!--<image class="button-icon" src="/src/components/cells/images/zhuanfa.png"></image>-->
+            <!--<text class="button-content">{{ article.forward == 0 ? '转发' : article.forward }}</text>-->
+        <!--</div>-->
+            <!--<div class="button-item">-->
+                <!--<image class="button-icon" src="/src/components/cells/images/pinglun.png"></image>-->
+                <!--<text class="button-content">{{ article.comment == 0 ? '评论' : article.comment }}</text>-->
+            <!--</div>-->
+            <!--<div class="button-item" @click="agreeIt">-->
+                <!--<image class="button-icon" :src="agreeIcon"></image>-->
+                <!--<text class="button-content" :class="[hasAgree ? 'agree-active' : '']">{{ article.agree == 0 ? '赞' : article.agree }}</text>-->
+            <!--</div>-->
             <div class="button-item" @click="repostIt">
-                <image class="button-icon" src="/src/components/cells/images/zhuanfa.png"></image>
-                <text class="button-content">{{ article.forward == 0 ? '转发' : article.forward }}</text>
+                <n-repost :text="forward"></n-repost>
             </div>
             <div class="button-item">
-                <image class="button-icon" src="/src/components/cells/images/pinglun.png"></image>
-                <text class="button-content">{{ article.comment == 0 ? '评论' : article.comment }}</text>
+                <n-comment :text="comment"></n-comment>
             </div>
-            <div class="button-item" @click="agreeIt">
-                <image class="button-icon" :src="agreeIcon"></image>
-                <text class="button-content" :class="[hasAgree ? 'agree-active' : '']">{{ article.agree == 0 ? '赞' : article.agree }}</text>
+            <div class="button-item">
+                <n-agree :text="agree"></n-agree>
             </div>
         </div>
     </div>
@@ -28,19 +37,33 @@
     export default {
         props: {
             footerType: { default: 0 },
-            article: {
+            author: {
                 default() {
                     return {
-                        headerUrl: '',
-                        userName: '',
-                        userIssue: '',
-                        articleTime: '',
-                        comment: 0,
-                        forward: 0,
-                        agree: 0
+                        id: '',
+                        avatar: '',
+                        nick: '',
+                        from: ''
                     }
                 }
-            }
+            },
+            articleTime: { default: '' },
+            comment: { default: 0 },
+            forward: { default: 0 },
+            agree: { default: 0 }
+//            article: {
+//                default() {
+//                    return {
+//                        headerUrl: '',
+//                        userName: '',
+//                        userIssue: '',
+//                        articleTime: '',
+//                        comment: 0,
+//                        forward: 0,
+//                        agree: 0
+//                    }
+//                }
+//            }
         },
         data() {
             return {
@@ -75,7 +98,10 @@
             }
         },
         components: {
-            cellUserInfo: require('components/cell-user-info/index.vue')
+            cellUserInfo: require('components/cell-user-info/index.vue'),
+            nAgree: require('components/textIcon/agree/index.vue'),
+            nComment: require('components/textIcon/comment/index.vue'),
+            nRepost: require('components/textIcon/repost/index.vue')
         }
     }
 </script>

@@ -11,16 +11,19 @@ export default {
     },
     wikiIndex: {
         title: '链百科',
+        pageName: 'wiki',
         path: '/wikiIndex',
         jsPath: 'view/link-wiki/index/index'
     },
     wikiDetails: {
         title: '链百科',
+        pageName: 'wikiDetails',
         path: '/wikiDetails',
         jsPath: 'view/link-wiki/details/index'
     },
     appIndex: {
         title: '链应用',
+        pageName: 'app',
         path: '/appIndex',
         jsPath: 'view/link-app/index/index'
     },

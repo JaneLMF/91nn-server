@@ -1,0 +1,16 @@
+<div>
+	<cell-fresh v-if="cellItem.type == 'article'" :newsDetails="cellItem"></cell-fresh>
+	<slot-repost v-else-if="cellItem.type == 'transmitArticle' || cellItem.type == 'transmitArticleComment'" :newsDetails="cellItem"></slot-repost>
+	<cell-coin v-else-if="cellType == 'concernCoin'" :newsDetails="cellItem"></cell-coin>
+	<!--<cell-link v-else-if="cellType == 'transmitArticle'" :newsDetails="cellItem"></cell-link>-->
+	<!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
+		<!--<cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>-->
+	<!--</cell>-->
+	<!--<cell v-for="(item, i) in articleArr" :key="i" class="cell-wrap">-->
+		<!--<slot-repost class="cell-item" :repostMesgArr="item.repostMesgArr" :article="item.article" :news="item.news" :articleType="item.articleType" :dynamic="item.dynamic"></slot-repost>-->
+	<!--</cell>-->
+	<!--<cell v-for="(item, i) in dynamic" :key="i" class="cell-wrap">-->
+		<!--<cell-coin v-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>-->
+		<!--<cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>-->
+	<!--</cell>-->
+</div>

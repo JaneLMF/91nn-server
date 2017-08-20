@@ -1,8 +1,18 @@
 <template>
-    <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
+    <cell-container :footerType="footerType"
+                    :author="newsDetails.author"
+                    :articleTime="newsDetails.createAt"
+                    :comment="newsDetails.commentCount"
+                    :forward="newsDetails.transmitCount"
+                    :agree="newsDetails.upvoteCount">
+        <!--@agree="v=>newsDetails.article.agree=v">-->
+    <!--<cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">-->
         <div class="follow-text-wrap">
             <text class="follow-text">我刚刚关注了</text>
-            <follow-target :followType="newsDetails.followType" :followClass="newsDetails.followClass" :followTarget="newsDetails.followTarget"></follow-target>
+            <follow-target :followType="repostText.type"
+                           :followText="repostText.atUser.nick"
+                           :followID="repostText.atUser._id"
+            ></follow-target>
             <text class="follow-text">当前价格</text>
             <text class="follow-text">¥{{ newsDetails.coinPriceCNY }}</text>
         </div>

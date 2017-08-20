@@ -1,0 +1,24 @@
+.input-row {
+	margin-bottom: 20px;
+	flex-direction: row;
+}
+
+.input-icon {
+	width: 26px;
+	height: 32px;
+}
+
+.input-text {
+	padding-left: 20px;
+	width: 524px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 26px;
+	placeholder-color: #bbbbbb;
+}
+
+.line {
+	width: 570px;
+	height: 1px;
+	background-color: #dddddd;
+}

@@ -1,6 +1,24 @@
-<div class="article-wrap" :class="[userType == 'repost' ? 'repost-wrap' : 'fresh-wrap']">
-	<n-news v-if="articleType == 'news'" @viewIt="viewNewsDetails" :news="news"></n-news>
-	<n-dynamic v-else-if="articleType == 'dynamic'" @viewIt="viewNewsDetails" :dynamic="dynamic"></n-dynamic>
+<div class="article-wrap" :class="[userType == 'transmitArticle' || userType == 'transmitArticleComment' ? 'repost-wrap' : 'fresh-wrap']">
+	<!--<n-news v-if="userType == 'transmitArticle'"-->
+			<!--@viewIt="viewNewsDetails"-->
+			<!--:title="title"-->
+			<!--:summary="summary"-->
+			<!--:author="author"-->
+			<!--:commentCount="commentCount"-->
+			<!--:upvoteCount="upvoteCount"-->
+			<!--:createAt="createAt"-->
+			<!--:images="images"-->
+	<!--&gt;</n-news>-->
+	<n-dynamic
+			   @viewIt="viewNewsDetails"
+			   :title="title"
+			   :summary="summary"
+			   :author="author"
+			   :commentCount="commentCount"
+			   :upvoteCount="upvoteCount"
+			   :createAt="createAt"
+			   :images="images"
+	></n-dynamic>
 	<!--<n-coin v-if="articleType == 'coin'" @viewIt="viewNewsDetails" :newsDetails="newsDetails"></n-coin>-->
 	<!--<n-link v-else-if="articleType == 'link'" @viewIt="viewNewsDetails" :newsDetails="newsDetails"></n-link>-->
 </div>

@@ -16,6 +16,7 @@
 						icon: '',
 						image: '/src/view/home/images/homePage.png',
 						selectedImage: '/src/view/home/images/homePage-active.png',
+//                    	src: '/view/login/index.js',
 						src: '/view/home/index.js',
 						visibility: 'visible',
 					},

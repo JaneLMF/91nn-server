@@ -1,10 +1,10 @@
 <template>
-    <text class="followTarget" @click="clickIt">{{ followText }}</text>
+    <text class="followTarget" @click="clickIt">{{ follow }}</text>
 </template>
 
 <style>
     .followTarget {
-        font-size: 30px;
+        font-size: 32px;
         color: #5583ff;
     }
 </style>
@@ -16,24 +16,22 @@
     export default {
         props: {
             followType: { default: '' },
-            followClass: { default: '' },
-            followTarget: { default: '' },
+            followText: { default: '' },
             followID: { default: '' }
         },
         computed: {
-            followText() {
-                let followText = '',
+            follow() {
+                let followTarget = '',
                     followType = this.followType,
-                    followClass = this.followClass,
-                    followTarget = this.followTarget;
+                    followText = this.followText;
                 if(followType == 'coin') {
-                    followText = '$' + followClass + '/' + followTarget + '$';
+                    followTarget = '$' + followText + '$';
                 } else if(followType == 'link' || followType == 'app' || followType == 'ico') {
-                    followText = '$' + followClass + '·' + followTarget + '$';
-                } else if(followType == 'user') {
-                    followText = '@' + followTarget;
+                    followTarget = followText;
+                } else if(followType == 'atUser') {
+                    followTarget = '@' + followText;
                 }
-                return followText;
+                return followTarget;
             }
         },
         methods: {
@@ -42,7 +40,7 @@
                     navigator.push(routerPage.appDetails)
                 } else if(this.followType == 'link') {
                     navigator.push(routerPage.wikiDetails)
-                } else if(this.followType == 'user') {
+                } else if(this.followType == 'atUser') {
                     navigator.push(routerPage.userHome)
                 } else if(this.followType == 'app') {
                     navigator.push(routerPage.appDetails)

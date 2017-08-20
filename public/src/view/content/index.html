@@ -4,57 +4,60 @@
               titleColor="#000000"
               leftItemSrc="/resources/common/back_black.png"
               rightItemSrc="/resources/common/more-black.png">
-    <div class="content-wrap" style="flex: 1;">
-        <list class="content-list" style="flex: 1;">
-            <cell class="content-bg">
-                <div class="user-info-row">
-                    <div class="user-info-wrap">
-                        <image :src="authHeader" class="user-header"></image>
-                        <div class="user-info-group">
-                            <text class="user-name">{{ authName }}</text>
-                            <div class="content-issue-wrap">
-                                <text class="content-issue-text">{{ contentTime }}</text>
-                                <text class="content-issue-text content-issue">来自：</text>
-                                <text class="content-issue-text">{{ contentIssue }}</text>
-                            </div>
-                        </div>
-                    </div>
-                    <text v-if="!isAuth" class="follow-auth">十 关注</text>
-                </div>
-                <div class="content-moudle">
-                    <text class="content-moudle-tit">{{ contentTit }}</text>
-                    <text class="content-moudle-content">{{ content }}</text>
-                </div>
-            </cell>
-            <cell style="width: 750px; height: 20px; background-color: #f8f8f8;"></cell>
-            <cell class="content-bg comment-bg">
-                <div class="comment-wrap">
-                    <div class="comment-font-wrap" @click="toComment">
-                        <text class="comment-font-s">评论</text>
-                        <text class="comment-font-s">{{ contentComment }}</text>
-                    </div>
-                    <div class="comment-font-wrap agree-wrap">
-                        <text class="comment-font-s">赞</text>
-                        <text class="comment-font-s">{{ contentAgree }}</text>
-                    </div>
-                </div>
-                <div style="margin-bottom: 100px;">
-                    <div v-for="(item, i) in comment" :key="i">
-                        <comment-group :comment="item"></comment-group>
-                    </div>
-                </div>
-            </cell>
-        </list>
-        <div class="comment-footer-wrap">
-            <div class="comment-footer-bg">
-                <input type="text" class="comment-footer" placeholder="谈谈你的看法..." />
-                <div class="comment-footer-agree-group" @click="agreeIt">
-                    <image class="comment-footer-agree-icon" :src="agreeIcon"></image>
-                    <text class="comment-footer-agree-count" :class="[hasAgree ? 'agree-active' : '']">{{ contentAgree == 0 ? '赞' : contentAgree }}</text>
-                </div>
-                <image class="comment-footer-repost-group" src="/src/view/content/images/repost.png"></image>
-            </div>
-        </div>
-        <comment-box v-if="commentFlag" @callBack="v => commentFlag = v"></comment-box>
+    <div style="width: 755px; flex: 1">
+        <nn-webview src="http://115.159.67.22:60800/article/index.html" style="width: 755px; flex: 1" @click="webviewClick"></nn-webview>
     </div>
+    <!--<div class="content-wrap" style="flex: 1;">-->
+        <!--<list class="content-list" style="flex: 1;">-->
+            <!--<cell class="content-bg">-->
+                <!--<div class="user-info-row">-->
+                    <!--<div class="user-info-wrap">-->
+                        <!--<image :src="authHeader" class="user-header"></image>-->
+                        <!--<div class="user-info-group">-->
+                            <!--<text class="user-name">{{ authName }}</text>-->
+                            <!--<div class="content-issue-wrap">-->
+                                <!--<text class="content-issue-text">{{ contentTime }}</text>-->
+                                <!--<text class="content-issue-text content-issue">来自：</text>-->
+                                <!--<text class="content-issue-text">{{ contentIssue }}</text>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<text v-if="!isAuth" class="follow-auth">十 关注</text>-->
+                <!--</div>-->
+                <!--<div class="content-moudle">-->
+                    <!--<text class="content-moudle-tit">{{ contentTit }}</text>-->
+                    <!--<text class="content-moudle-content">{{ content }}</text>-->
+                <!--</div>-->
+            <!--</cell>-->
+            <!--<cell style="width: 750px; height: 20px; background-color: #f8f8f8;"></cell>-->
+            <!--<cell class="content-bg comment-bg">-->
+                <!--<div class="comment-wrap">-->
+                    <!--<div class="comment-font-wrap" @click="toComment">-->
+                        <!--<text class="comment-font-s">评论</text>-->
+                        <!--<text class="comment-font-s">{{ contentComment }}</text>-->
+                    <!--</div>-->
+                    <!--<div class="comment-font-wrap agree-wrap">-->
+                        <!--<text class="comment-font-s">赞</text>-->
+                        <!--<text class="comment-font-s">{{ contentAgree }}</text>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div style="margin-bottom: 100px;">-->
+                    <!--<div v-for="(item, i) in comment" :key="i">-->
+                        <!--<comment-group :comment="item"></comment-group>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</cell>-->
+        <!--</list>-->
+        <!--<div class="comment-footer-wrap">-->
+            <!--<div class="comment-footer-bg">-->
+                <!--<input type="text" class="comment-footer" placeholder="谈谈你的看法..." />-->
+                <!--<div class="comment-footer-agree-group" @click="agreeIt">-->
+                    <!--<image class="comment-footer-agree-icon" :src="agreeIcon"></image>-->
+                    <!--<text class="comment-footer-agree-count" :class="[hasAgree ? 'agree-active' : '']">{{ contentAgree == 0 ? '赞' : contentAgree }}</text>-->
+                <!--</div>-->
+                <!--<image class="comment-footer-repost-group" src="/src/view/content/images/repost.png"></image>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<comment-box v-if="commentFlag" @callBack="v => commentFlag = v"></comment-box>-->
+    <!--</div>-->
 </back-navpage>

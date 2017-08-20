@@ -1,4 +1,12 @@
 <div class="mesg-wrap" @click="viewDetails">
-    <text class="user">@{{ dynamic.userName }}:</text>
-    <text class="content">{{ dynamic.content }}</text>
+    <text class="user">@{{ author.nick }}:</text>
+    <text class="title">{{ title }}</text>
+    <text class="article-content" :class="[title.length == 0 ? 'article-content-notit' : '']">{{ summary }}</text>
+    <div class="article-img-wrap" v-if="images.length > 0">
+        <div class="article-img-group" v-for="(item, i) in images" :key="i">
+            <div class="article-img-box">
+                <image class="article-img-item" :src="item.url"></image>
+            </div>
+        </div>
+    </div>
 </div>

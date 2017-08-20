@@ -2,27 +2,19 @@
     <div class="home-wrap">
         <n-search :oSearch="oSearch">
             <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
-            <!--<badge class="personal-header-mesg"-->
-            <!--:action="badgeData.action"-->
-            <!--:iconStyle="badgeData.iconStyle"-->
-            <!--:superScriptState="badgeData.superScriptState"-->
-            <!--:iconName="badgeData.iconName"-->
-            <!--@badge="viewMesg">-->
-            <!--</badge>-->
         </n-search>
         <list class="list-wrap">
-            <cell v-for="(item, i) in news" :key="i" class="cell-wrap">
-                <cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>
+            <cell v-for="(item, i) in articleMoudle" :key="i" class="cell-wrap">
+                <cell-box class="cell-item" :cellItem="item"></cell-box>
             </cell>
-            <cell v-for="(item, i) in articleArr" :key="i" class="cell-wrap">
-                <slot-repost class="cell-item" :repostMesgArr="item.repostMesgArr" :article="item.article" :news="item.news" :articleType="item.articleType" :dynamic="item.dynamic"></slot-repost>
-            </cell>
-            <cell v-for="(item, i) in dynamic" :key="i" class="cell-wrap">
-                <cell-coin v-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>
-                <cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>
-            </cell>
-            <!--<cell v-else v-for="(item, i) in dynamic" :key="i" class="cell-wrap">-->
-                <!--<cell-coin v-else-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>-->
+            <!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
+                <!--<cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>-->
+            <!--</cell>-->
+            <!--<cell v-for="(item, i) in articleArr" :key="i" class="cell-wrap">-->
+                <!--<slot-repost class="cell-item" :repostMesgArr="item.repostMesgArr" :article="item.article" :news="item.news" :articleType="item.articleType" :dynamic="item.dynamic"></slot-repost>-->
+            <!--</cell>-->
+            <!--<cell v-for="(item, i) in dynamic" :key="i" class="cell-wrap">-->
+                <!--<cell-coin v-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>-->
                 <!--<cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>-->
             <!--</cell>-->
         </list>
@@ -59,24 +51,17 @@
 
     export default {
         mounted() {
-//            var getArticleInHome = function(_start, _length) {
-//                var params = {
-//                    topCategory: 'home',
-//                    start: 0,
-//                    length: 1000
-//                }
-//                return apiUtils.get('api/article', params);
-//            }
-
             nAPI.getArticleInHome(0, 1000).then(res => {
                 nn.dump('success', res);
                 console.log(res.result);
+                this.articleMoudle = res.result;
             }).catch(res => {
                 nn.dump('Failed', res)
             })
         },
         data() {
             return {
+                articleMoudle: [],
                 oSearch: {
                     placeHolderText: '搜索区块链/币种/应用',
                     hasBtn: true,
@@ -606,7 +591,8 @@
             slotRepost: require('components/cells/slotRepost.vue'),
             cellCoin: require('components/cells/cellCoin.vue'),
             cellLink: require('components/cells/cellLink.vue'),
-            nMesgIcon: require('components/badge/mesgIcon/index.vue')
+            nMesgIcon: require('components/badge/mesgIcon/index.vue'),
+            cellBox: require('components/cells/cellBox/index.vue')
         },
         methods: {
             viewMesg()  {

@@ -5,12 +5,18 @@
 <script>
 	export default {
 		props: {
-            dynamic: {
+            title: { default: '' },
+            summary: { default: '' },
+            author: {
                 default() {
                     return {
-                        userName: '',
-                        content: ''
+
                     }
+                }
+            },
+            images: {
+                default() {
+                    return []
                 }
             }
         },

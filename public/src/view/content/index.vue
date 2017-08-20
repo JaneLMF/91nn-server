@@ -81,6 +81,17 @@
             },
             toComment() {
                 this.commentFlag = true
+            },
+            methods: {
+                webviewClick(view) {
+                    let data = view.data
+                    console.log('type of ', (typeof view.data))
+                    if ((typeof view.data) === 'string'){
+                        console.log('type is string')
+                        data = JSON.parse(view.data)
+                    }
+                    console.log('webview click ', data.event, data.data)
+                }
             }
         }
     }

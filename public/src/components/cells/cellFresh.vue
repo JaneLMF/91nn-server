@@ -1,16 +1,22 @@
 <template>
-    <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
+    <cell-container :footerType="footerType"
+                    :author="newsDetails.author"
+                    :articleTime="newsDetails.createAt"
+                    :comment="newsDetails.commentCount"
+                    :forward="newsDetails.transmitCount"
+                    :agree="newsDetails.upvoteCount">
+                    <!--@agree="v=>newsDetails.article.agree=v">-->
         <div class="article-module-bg" @click="viewDetails">
-            <div class="article-tit-wrap" v-if="newsDetails.cellModule.user.tit.length > 0">
-                <text class="article-tit">{{ newsDetails.cellModule.user.tit }}</text>
+            <div class="article-tit-wrap" v-if="newsDetails.title.length > 0">
+                <text class="article-tit">{{ newsDetails.title }}</text>
             </div>
             <div class="article-wrap">
-                <text class="article-content" :class="[newsDetails.cellModule.user.tit.length == 0 ? 'article-content-notit' : '']">{{ newsDetails.cellModule.user.content }}</text>
+                <text class="article-content" :class="[newsDetails.title.length == 0 ? 'article-content-notit' : '']">{{ newsDetails.summary }}</text>
             </div>
-            <div class="article-img-wrap" v-if="newsDetails.cellModule.user.contentImg.length > 0">
-                <div class="article-img-group" v-for="(item, i) in newsDetails.cellModule.user.contentImg" :key="i">
+            <div class="article-img-wrap" v-if="newsDetails.images.length > 0">
+                <div class="article-img-group" v-for="(item, i) in newsDetails.images" :key="i">
                     <div class="article-img-box">
-                        <image class="article-img-item" :src="item"></image>
+                        <image class="article-img-item" :src="item.url"></image>
                     </div>
                 </div>
             </div>
@@ -28,7 +34,7 @@
     .article-tit {
         font-size: 32px;
         color: #000;
-        font-weight: bold;
+        font-weight: 600;
         lines: 2;
         margin-bottom: 10px;
         line-height: 45px;
@@ -79,26 +85,29 @@
     import navigator from 'utils/modules/navigator'
 
     export default {
+        mounted() {
+            console.log(123);
+        },
         props: {
             newsDetails: {
                 default() {
                     return {
-                        article: {
-                            headerUrl: '',
-                            userName: '',
-                            userIssue: '',
-                            articleTime: '',
-                            comment: '',
-                            forward: '',
-                            agree: ''
-                        },
-                        cellModule: {
-                            user: {
-                                tit: '',
-                                content: '',
-                                contentImg: []
-                            }
-                        }
+//                        article: {
+//                            headerUrl: '',
+//                            userName: '',
+//                            userIssue: '',
+//                            articleTime: '',
+//                            comment: '',
+//                            forward: '',
+//                            agree: ''
+//                        },
+//                        cellModule: {
+//                            user: {
+//                                tit: '',
+//                                content: '',
+//                                contentImg: []
+//                            }
+//                        }
                     }
                 }
             }
