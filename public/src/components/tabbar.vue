@@ -53,11 +53,11 @@
 
         <div class="article-modal-wrap" v-if="articleFlag" @click="articleModal">
             <div class="article-modal-btn-box">
-                <div class="article-modal-btn-group">
+                <div class="article-modal-btn-group" @click="createNews">
                     <image src="/resources/nav-footer/dongtai.png" class="articl-modal-btn-icon"></image>
                     <text class="articl-modal-btn-tit">动态</text>
                 </div>
-                <div class="article-modal-btn-group">
+                <div class="article-modal-btn-group" @click="createArticles">
                     <image src="/resources/nav-footer/article.png" class="articl-modal-btn-icon"></image>
                     <text class="articl-modal-btn-tit">文章</text>
                 </div>
@@ -200,6 +200,8 @@
 
 <script>
     import uweex from 'utils/weex/instance'
+    import routerPage from 'router/page'
+    import navigator from 'utils/modules/navigator'
 
   module.exports = {
     props: {
@@ -220,6 +222,12 @@
       this.select(this.selectedIndex);
     },
     methods: {
+        createNews() {
+            navigator.push(routerPage.createNews);
+        },
+        createArticles() {
+            navigator.push(routerPage.createArticles);
+        },
       tabItemOnClick: function (e) {
         this.selectedIndex = e.index;
         this.select(e.index);

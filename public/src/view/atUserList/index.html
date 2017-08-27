@@ -22,7 +22,7 @@
 					<text class="user-list-tit">{{ userItem.class }}</text>
 				</div>
 				<div v-for="(item, j) in userItem.user" :key="j" class="user-list-group">
-					<user-item :userInfo="item" class="user-list-item"></user-item>
+					<user-item :userInfo="item" class="user-list-item" @callBack="chooseUser(item.name)"></user-item>
 				</div>
 			</cell>
 		</list>

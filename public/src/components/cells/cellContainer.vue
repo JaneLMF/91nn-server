@@ -1,6 +1,6 @@
 <template>
     <div class="article-box">
-        <cell-user-info :headerUrl="author.avatar" :userName="author.nick" :userIssue="author.from" :articleTime="articleTime" @callBack="toUserHome"></cell-user-info>
+        <cell-user-info :headerUrl="headerUrl" :userName="author.nick" :userIssue="author.from" :articleTime="articleTime" @callBack="toUserHome"></cell-user-info>
         <slot></slot>
         <div :class="[footerType == 0 ? 'button-fresh-group' : 'button-repost-group']">
             <!--<div class="button-item" @click="repostIt">-->
@@ -48,9 +48,9 @@
                 }
             },
             articleTime: { default: '' },
-            comment: { default: 0 },
-            forward: { default: 0 },
-            agree: { default: 0 }
+            comment: { default: '0' },
+            forward: { default: '0' },
+            agree: { default: '0' }
 //            article: {
 //                default() {
 //                    return {
@@ -68,7 +68,13 @@
         data() {
             return {
                 hasAgree: false,
-                agreeIcon: '/src/components/cells/images/zan.png'
+                agreeIcon: '/src/components/cells/images/zan.png',
+                headerUrl: '/resources/common/defaultHeader.png'
+            }
+        },
+        mounted() {
+            if(this.author.avatar.length > 0) {
+                this.headerUrl = this.author.avatar;
             }
         },
         methods: {

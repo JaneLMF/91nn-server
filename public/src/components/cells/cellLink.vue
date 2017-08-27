@@ -1,5 +1,10 @@
 <template>
-    <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
+    <cell-container :footerType="footerType"
+                    :author="newsDetails.author"
+                    :articleTime="newsDetails.createAt"
+                    :comment="newsDetails.commentCount"
+                    :forward="newsDetails.transmitCount"
+                    :agree="newsDetails.upvoteCount">
         <div class="follow-text-wrap">
             <text class="follow-text">我刚刚关注了</text>
             <follow-target :followType="newsDetails.followType" :followClass="newsDetails.followClass" :followTarget="newsDetails.followTarget"></follow-target>
@@ -29,22 +34,22 @@
             newsDetails: {
                 default() {
                     return {
-                        article: {
-                            headerUrl: '',
-                            userName: '',
-                            userIssue: '',
-                            articleTime: '',
-                            comment: '',
-                            forward: '',
-                            agree: ''
-                        },
-                        followType: '',
-                        followClass: '',
-                        followTarget: '',
-                        coinPriceCNY: '',
-                        coinPriceUS: '',
-                        rise: '',
-                        riseStatus: ''
+//                        article: {
+//                            headerUrl: '',
+//                            userName: '',
+//                            userIssue: '',
+//                            articleTime: '',
+//                            comment: '',
+//                            forward: '',
+//                            agree: ''
+//                        },
+//                        followType: '',
+//                        followClass: '',
+//                        followTarget: '',
+//                        coinPriceCNY: '',
+//                        coinPriceUS: '',
+//                        rise: '',
+//                        riseStatus: ''
                     }
                 }
             }

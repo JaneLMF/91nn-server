@@ -4,12 +4,12 @@
             <div class="userHeader-bg">
                 <image :src="userInfo.userHeader" class="userHeader" @click="viewInfo"></image>
             </div>
-            <image v-if="userInfo.isVIP" src="/src/components/userInfo/images/vip.png" class="userVIP"></image>
+            <image v-if="userInfo.attestation" src="/src/components/userInfo/images/vip.png" class="userVIP"></image>
         </div>
         <div class="userInfo-wrap">
             <text class="userInfo-name">{{ userInfo.userName }}</text>
-            <image src="/src/components/userInfo/images/sex-m.png" class="userInfo-sex"></image>
-            <!--<image :src="[userInfo.userSex == 'man' ? '/src/components/userInfo/images/sex-m.png' : '/src/components/userInfo/images/sex-w.png']" class="userInfo-sex"></image>-->
+            <!--<image src="/src/components/userInfo/images/sex-m.png" class="userInfo-sex"></image>-->
+            <image :src="[userInfo.userSex == 'male' ? maleIcon : femaleIcon]" class="userInfo-sex"></image>
         </div>
         <text class="user-intro">{{ userInfo.userIntro }}</text>
     </div>
@@ -80,12 +80,18 @@
 
 <script>
     export default {
+        data() {
+            return {
+                maleIcon: '/src/components/userInfo/images/sex-w.png',
+                femaleIcon: '/src/components/userInfo/images/sex-m.png'
+            }
+        },
         props: {
             userInfo: {
                 default() {
                     return {
                         userHeader: '',
-                        isVIP: false,
+                        attestation: false,
                         userName: '',
                         userSex: '',
                         userIntro: ''
@@ -97,6 +103,9 @@
             viewInfo() {
                 this.$emit('viewInfo');
             }
+        },
+        mounted() {
+            console.log(this.userInfo.userSex);
         }
     }
 </script>

@@ -1,0 +1,22 @@
+.content-bg {
+    width: 750px;
+    background-color: #fff;
+}
+
+.content-wrap {
+    width: 570px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.input-group {
+    margin-top: 80px;
+}
+
+.txtBtn-wrap {
+    margin-top: 40px;
+    width: 570px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

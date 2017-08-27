@@ -9,6 +9,7 @@
         },
         data() {
 	        return {
+                inputType: 'text',
 	            iconUrl: '/resources/inputIcon/phoneNum.png',
                 placeHolderText: '请输入手机号码'
             }
@@ -19,6 +20,7 @@
         methods: {
 	        callBack(v) {
 	            console.log(v);
+	            this.$emit('callBack', v);
             }
         }
 	}

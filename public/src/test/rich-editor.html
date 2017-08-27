@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,37 +37,46 @@
     }
 </style>
 <body>
-    <input id="title" placeholder="请输入标题" class="title-theme"/>
-    <hr class="title-theme"/>
-    <div id="content" contenteditable="true" placeholder="轻触开始编辑"></div>
-    <script>
-        var editor = document.getElementById('content');
-        var title = document.getElementById('title');
-        function insertImage(imagePath) {
-            console.log('insertImage')
-            var image = document.createElement('img');
-            image.src = imagePath;
-            editor.appendChild(image)
-            editor.appendChild(document.createElement('br'))
-        }
-        function placeHTMLToEditor(obj) {
-            editor.innerHTML = obj.html;
+<input id="title" placeholder="请输入标题" class="title-theme"/>
+<hr class="title-theme"/>
+<div id="content" contenteditable="true" placeholder="轻触开始编辑"></div>
+<script>
+    var editor = document.getElementById('content');
+    var title = document.getElementById('title');
+    function insertImage(imagePath) {
+        console.log('insertImage')
+        var image = document.createElement('img');
+        image.src = imagePath;
+        editor.appendChild(image)
+        editor.appendChild(document.createElement('br'))
+    }
+    function insertUser(userNick) {
+        console.log('insertUser');
+        var atUser = document.createElement('span');
+        atUser.text('@' + userNick);
+        editor.appendChild(atUser);
+    }
+    function appendHTML(html) {
+        editor.innerHTML += html;
+    }
+    function placeHTMLToEditor(obj) {
+        editor.innerHTML = obj.html;
 
-            if (obj.showTitle) {
-                var els = document.getElementsByClassName('title-theme');
-                els[0].style.display = 'block';
-                els[1].style.display = 'block';
-                if (obj.title) {
-                    title.value = obj.title;
-                }
+        if (obj.showTitle) {
+            var els = document.getElementsByClassName('title-theme');
+            els[0].style.display = 'block';
+            els[1].style.display = 'block';
+            if (obj.title) {
+                title.value = obj.title;
             }
         }
-        function html() {
-            return {
-                html:editor.innerHTML.replace(/div/g,"p"),
-                title:title.value
-            };
-        }
-    </script>
+    }
+    function html() {
+        return {
+            html:editor.innerHTML.replace(/div/g,"p"),
+            title:title.value
+        };
+    }
+</script>
 </body>
 </html>

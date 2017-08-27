@@ -47,6 +47,26 @@ export default {
         path: '/settings',
         jsPath: 'view/personal/settings/index'
     },
+    login: {
+        title: '登录',
+        path: '/login',
+        jsPath: 'view/personal/login/index'
+    },
+    register: {
+        title: '注册',
+        path: '/register',
+        jsPath: 'view/personal/register/index'
+    },
+    registerNext: {
+        title: '注册输入密码',
+        path: '/registerNext',
+        jsPath: 'view/personal/register/register-next/index'
+    },
+    registerNick: {
+        title: '注册输入昵称',
+        path: '/registerNick',
+        jsPath: 'view/personal/register/register-nick/index'
+    },
     updatePw: {
         title: '修改密码',
         path: '/updatePw',
@@ -166,5 +186,15 @@ export default {
         title: '选择用户',
         path: '/userList',
         jsPath: 'view/atUserList/index'
+    },
+    createNews: {
+        title: '发动态',
+        path: '/createNews',
+        jsPath: 'view/createNews/index'
+    },
+    createArticles: {
+        title: '发文章',
+        path: '/createArticles',
+        jsPath: 'view/createArticles/index'
     }
 }

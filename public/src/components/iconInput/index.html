@@ -1,7 +1,8 @@
 <div>
 	<div class="input-row">
 		<image :src="iconUrl" class="input-icon"></image>
-		<input type="text" :placeholder="placeHolderText" class="input-text" @input="inputIt" />
+		<input v-if="inputType == 'text'" type="text" :placeholder="placeHolderText" class="input-text" @input="inputIt" />
+		<input v-else-if="inputType == 'password'" type="password" :placeholder="placeHolderText" class="input-text" @input="inputIt" />
 	</div>
 	<div class="line"></div>
 </div>

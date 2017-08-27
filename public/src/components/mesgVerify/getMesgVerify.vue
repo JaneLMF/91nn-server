@@ -23,6 +23,12 @@
 </style>
 
 <script>
+    import nn from 'utils/debug'
+
+    import nAPI from 'api/index'
+
+    var modal = weex.requireModule('modal');
+
     export default {
         props: {
             canVerify: { default: false },
@@ -50,7 +56,17 @@
                             this.$emit('input', true);
                             this.seconds = 10;
                         }
-                    },1000)
+                    },1000);
+
+                    console.log(this.phoneNum);
+
+                    nAPI.getMesgVerify(this.phoneNum).then(res => {
+                        nn.dump('success', res);
+                        modal.toast({ message: '已成功发送短信验证码', duration: 1 })
+                    }).catch(res => {
+                        nn.dump('Failed', res)
+                        modal.toast({ message: 'sendMesgVerifyFailed', duration: 1 })
+                    })
                 }
             }
         }

@@ -1,0 +1,74 @@
+.personalInfo-bg {
+	width: 750px;
+	background-color: #fff;
+}
+
+.personalInfo-wrap {
+	margin-left: 90px;
+	margin-right: 90px;
+	width: 570px;
+	align-items: center;
+}
+
+.personalInfo-tit {
+	margin-top: 60px;
+	font-size: 36px;
+	color: #333333;
+}
+
+.sex-choose-wrap {
+	margin-top: 130px;
+	margin-bottom: 100px;
+	flex-direction: row;
+}
+
+.choose-sex {
+	width: 140px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 8px;
+	border-width: 1px;
+	border-color: #bbbbbb;
+	font-size: 26px;
+	color: #bbbbbb;
+}
+
+.choose-sex-active {
+	border-color: #ff622a;
+	color: #ff622a;
+}
+
+.sex-choose-text {
+	margin-left: 46px;
+	margin-right: 46px;
+	line-height: 60px;
+	font-size: 26px;
+	color: #bbbbbb;
+}
+
+.update-input {
+	margin-top: 90px;
+	padding-bottom: 12px;
+	width: 570px;
+	border-bottom-width: 1px;
+	border-color: #dddddd;
+	font-size: 28px;
+	placeholder-color: #bbbbbb;
+}
+
+.submit-btn {
+	margin-top: 80px;
+	width: 570px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	font-size: 32px;
+	color: #fff;
+	border-radius: 8px;
+	background-color: #eee;
+}
+
+.submit-btn-active {
+	background-color: #fc6d3f;
+}

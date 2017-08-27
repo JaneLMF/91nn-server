@@ -1,5 +1,5 @@
 <template>
-    <text class="followTarget" @click="clickIt">{{ follow }}</text>
+    <text class="followTarget" @click="clickIt">{{ followText }}</text>
 </template>
 
 <style>
@@ -20,27 +20,25 @@
             followID: { default: '' }
         },
         computed: {
-            follow() {
-                let followTarget = '',
-                    followType = this.followType,
-                    followText = this.followText;
-                if(followType == 'coin') {
-                    followTarget = '$' + followText + '$';
-                } else if(followType == 'link' || followType == 'app' || followType == 'ico') {
-                    followTarget = followText;
-                } else if(followType == 'atUser') {
-                    followTarget = '@' + followText;
-                }
-                return followTarget;
-            }
+//            follow() {
+//                let followTarget = '',
+//                    followType = this.followType,
+//                    followText = this.followText;
+//                if(followType == 'atUser') {
+//                    followTarget = '@' + followText;
+//                } else {
+//                    followTarget = followText;
+//                }
+//                return followTarget;
+//            }
         },
         methods: {
             clickIt() {
                 if(this.followType == 'coin') {
                     navigator.push(routerPage.appDetails)
-                } else if(this.followType == 'link') {
+                } else if(this.followType == 'chain') {
                     navigator.push(routerPage.wikiDetails)
-                } else if(this.followType == 'atUser') {
+                } else if(this.followType == 'user') {
                     navigator.push(routerPage.userHome)
                 } else if(this.followType == 'app') {
                     navigator.push(routerPage.appDetails)

@@ -26,7 +26,7 @@
                     html:'',
                 };
                 storage.setItem('richEditorContent',JSON.stringify(content),()=>{
-                    navigator.push({url:'http://192.168.2.22:8080/dist/native/test/rich-editor.js'},()=>{})
+                    navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
                 });
             },
             editNoTitle(){
@@ -42,7 +42,7 @@
                     html:html,
                 };
                 storage.setItem('richEditorContent',JSON.stringify(content),()=>{
-                    navigator.push({url:'http://192.168.2.22:8080/dist/native/test/rich-editor.js'},()=>{})
+                    navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
                 });
             },
             writeHasTitle(){
@@ -52,7 +52,7 @@
                     showTitle:true,
                 };
                 storage.setItem('richEditorContent',JSON.stringify(content),()=>{
-                    navigator.push({url:'http://192.168.2.22:8080/dist/native/test/rich-editor.js'},()=>{})
+                    navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
                 });
             },
 
@@ -70,7 +70,7 @@
                     showTitle:true
                 };
                 storage.setItem('richEditorContent',JSON.stringify(content),()=>{
-                    navigator.push({url:'http://192.168.2.22:8080/dist/native/test/rich-editor.js'},()=>{})
+                    navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
                 });
             },
             viewappear(){

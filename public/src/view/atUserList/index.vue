@@ -3,6 +3,10 @@
 <template src="./index.html"></template>
 
 <script>
+    import navigator from 'utils/modules/navigator'
+
+    const storage = weex.requireModule('storage');
+
 	export default {
         data() {
             return {
@@ -112,6 +116,19 @@
         components: {
             backNavpage: require('components/navbar/back-navbar.vue'),
             userItem: require('components/userItem/index.vue')
+        },
+        methods: {
+            chooseUser(v) {
+                console.log(v);
+//                navigator.pop();
+//                storage.setItem('atTargetUser',JSON.stringify(v),()=>{
+////                navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
+//                });
+                storage.setItem('atTargetUser', v,()=>{
+                    console.log('storage:' + v);
+//                navigator.push({url:'http://192.168.0.114:8080/dist/native/test/rich-editor.js'},()=>{})
+                });
+            }
         }
 	}
 </script>

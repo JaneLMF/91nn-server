@@ -130,7 +130,7 @@
             //右侧按钮标题
             rightItemTitle: { default: '' },
             //右侧按钮标题颜色
-            rightItemColor: { default: 'black' },
+            rightItemColor: { default: '#fff' },
             //左侧按钮图片
             leftItemSrc: { default: '/src/images/common/back.png' },
             //左侧按钮标题

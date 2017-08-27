@@ -20,7 +20,11 @@
             cellFresh: require('components/cells/cellFresh.vue'),
             slotRepost: require('components/cells/slotRepost.vue'),
             cellCoin: require('components/cells/cellCoin.vue'),
-            cellLink: require('components/cells/cellLink.vue')
+            concernApp: require('components/cells/concernApp.vue'),
+            concernChain: require('components/cells/concernChain.vue'),
+            concernCoin: require('components/cells/concernCoin.vue'),
+            concernUser: require('components/cells/concernUser.vue'),
+            repostComment: require('components/cells/repostComment.vue')
         }
 	}
 </script>

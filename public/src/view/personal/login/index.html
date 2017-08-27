@@ -1,0 +1,13 @@
+<back-navpage :title="title">
+	<div class="content-bg">
+		<div class="content-wrap">
+			<input-phone class="input-group" @callBack="getPhone"></input-phone>
+			<input-pw class="input-group" @callBack="getPw"></input-pw>
+			<nn-button class="input-group" :buttonStyle="buttonStyle" @callBack="login"></nn-button>
+			<div class="txtBtn-wrap">
+				<text-button :txtBtnStyle="txtBtnStyle[0]" @callBack="regist"></text-button>
+				<text-button :txtBtnStyle="txtBtnStyle[1]" @callBack="forgetPw"></text-button>
+			</div>
+		</div>
+	</div>
+</back-navpage>

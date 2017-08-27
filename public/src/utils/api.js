@@ -42,7 +42,7 @@ function post(url, body) {
       },
       body: JSON.stringify(body)
     }, res => {
-      if (res.ok && res.data && res.data.code === 0) {
+      if (res.ok && res.data && res.data.errCode === 0) {
         resolve(res.data)
       } else {
         reject(res.data)

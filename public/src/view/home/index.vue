@@ -3,25 +3,30 @@
         <n-search :oSearch="oSearch">
             <n-mesg-icon class="personal-header-mesg"></n-mesg-icon>
         </n-search>
-        <list class="list-wrap">
+        <list class="list-wrap" @scroll="isViewed">
+            <refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+                <text class="indicator">{{ refreshText }}</text>
+            </refresh>
             <cell v-for="(item, i) in articleMoudle" :key="i" class="cell-wrap">
                 <cell-box class="cell-item" :cellItem="item"></cell-box>
             </cell>
-            <!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
-                <!--<cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>-->
-            <!--</cell>-->
-            <!--<cell v-for="(item, i) in articleArr" :key="i" class="cell-wrap">-->
-                <!--<slot-repost class="cell-item" :repostMesgArr="item.repostMesgArr" :article="item.article" :news="item.news" :articleType="item.articleType" :dynamic="item.dynamic"></slot-repost>-->
-            <!--</cell>-->
-            <!--<cell v-for="(item, i) in dynamic" :key="i" class="cell-wrap">-->
-                <!--<cell-coin v-if="item.type == 2" :newsDetails="item.newsDetails" class="cell-item"></cell-coin>-->
-                <!--<cell-link v-else-if="item.type == 3" :newsDetails="item.newsDetails" class="cell-item"></cell-link>-->
-            <!--</cell>-->
+            <loading class="loading" @loading="onloading" :display="showLoading">
+                <text class="indicator">Loading ...</text>
+            </loading>
         </list>
     </div>
 </template>
 
 <style>
+    .indicator {
+        width: 750px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        background-color: rgba(252, 109, 63, 0.65);
+        font-size: 24px;
+        text-align: center;
+    }
 
     .personal-header-mesg {
         margin-left: 30px;
@@ -42,7 +47,6 @@
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
-//    import apiUtils from 'utils/api'
     import nn from 'utils/debug'
 
     import nAPI from 'api/index'
@@ -51,9 +55,8 @@
 
     export default {
         mounted() {
-            nAPI.getArticleInHome(0, 1000).then(res => {
+            nAPI.getArticleInHome(this.userID, this.maxLength, this.isFirstTime).then(res => {
                 nn.dump('success', res);
-                console.log(res.result);
                 this.articleMoudle = res.result;
             }).catch(res => {
                 nn.dump('Failed', res)
@@ -61,6 +64,12 @@
         },
         data() {
             return {
+                refreshText: '正在加载内容',
+                refreshing: false,
+                showLoading: 'hide',
+                userID: '598eca8c9f4489110c5b7fee',
+                maxLength: 10,
+                isFirstTime: true,
                 articleMoudle: [],
                 oSearch: {
                     placeHolderText: '搜索区块链/币种/应用',
@@ -86,502 +95,7 @@
                         hasName: false,                         //是否有tit
                         name: ''
                     }
-                },
-                news: [
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: []
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: []
-                                }
-                            }
-                        }
-                    },
-                    {
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                articleArr: [
-                    {
-                        repostMesgArr: [
-                            {
-                                type: 'text',
-                                repostInfo: 'test'
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            }
-                        ],
-                        article: {
-                            headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                            userName: '鹿晗',
-                            userIssue: '你牛',
-                            articleTime: '15:30',
-                            comment: '0',
-                            forward: '0',
-                            agree: '0'
-                        },
-                        news: {
-                            articleID: '',
-                            tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                            intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                            imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                            issue: '比特大时代',
-                            comment: '10',
-                            agree: '10',
-                            time: '07/23'
-                        },
-                        articleType: 'news'
-                    },
-                    {
-                        repostMesgArr: [
-                            {
-                                type: 'text',
-                                repostInfo: 'test'
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            }
-                        ],
-                        article: {
-                            headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                            userName: '鹿晗',
-                            userIssue: '你牛',
-                            articleTime: '15:30',
-                            comment: '0',
-                            forward: '0',
-                            agree: '0'
-                        },
-                        news: {
-                            articleID: '',
-                            tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                            intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                            imgUrl: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                            issue: '比特大时代',
-                            comment: '10',
-                            agree: '10',
-                            time: '07/23'
-                        },
-                        articleType: 'news'
-                    },
-                    {
-                        repostMesgArr: [
-                            {
-                                type: 'text',
-                                repostInfo: 'test'
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            }
-                        ],
-                        article: {
-                            headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                            userName: '鹿晗',
-                            userIssue: '你牛',
-                            articleTime: '15:30',
-                            comment: '0',
-                            forward: '0',
-                            agree: '0'
-                        },
-                        news: {
-                            articleID: '',
-                            tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                            intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                            imgUrl: '',
-                            issue: '比特大时代',
-                            comment: '10',
-                            agree: '10',
-                            time: '07/23'
-                        },
-                        articleType: 'dynamic',
-                        dynamic: {
-                            userName: '鹿晗',
-                            content: '啊除了你我看呢乾瓦莱卡诺从 i 为你离开我呢俄方离开伯纳乌错误吃我就不从 win 单位'
-                        }
-                    },
-                    {
-                        repostMesgArr: [
-                            {
-                                type: 'text',
-                                repostInfo: 'test'
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            },
-                            {
-                                type: 'user',
-                                followType: 'user',
-                                followTarget: '鹿晗'
-                            },
-                            {
-                                type: 'text',
-                                repostInfo: 'test',
-                            }
-                        ],
-                        article: {
-                            headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                            userName: '鹿晗',
-                            userIssue: '你牛',
-                            articleTime: '15:30',
-                            comment: '0',
-                            forward: '0',
-                            agree: '0'
-                        },
-                        news: {
-                            articleID: '',
-                            tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                            intro: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                            imgUrl: '',
-                            issue: '比特大时代',
-                            comment: '10',
-                            agree: '10',
-                            time: '07/23'
-                        },
-                        articleType: 'dynamic',
-                        dynamic: {
-                            userName: '鹿晗',
-                            content: '啊除了你我看呢乾瓦莱卡诺从 i 为你离开我呢俄方离开伯纳乌错误吃我就不从 win 单位'
-                        }
-                    }
-                ],
-                dynamic: [
-                    {
-                        type: 0,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '15:30',
-                                comment: '0',
-                                forward: '0',
-                                agree: '0'
-                            },
-                            cellModule: {
-                                user: {
-                                    tit: '比特币的胜利！美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        type: 1,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            cellModule: {
-                                user: {
-                                    content: 'repost',
-                                    repostList: [
-                                        {
-                                            name: '王俊凯',
-                                            content: 'T'
-                                        },
-                                        {
-                                            name: '王源',
-                                            content: 'F'
-                                        },
-                                        {
-                                            name: '易洋千玺',
-                                            content: 'BOYS'
-                                        }
-                                    ]
-                                },
-                                repostFrom: {
-                                    name: '贺冲',
-                                    tit: '美国国税局放弃要求Coinbase提供用户账户密码和安全设置',
-                                    content: '到达现场，记者没想到这里会如此繁忙。头戴安全帽的工作人员似乎是在那思索些什么，来来往往的水泥车和货车看得记者眼花缭乱，他们是在进行大规模的布线工作...',
-                                    contentImg: [
-                                        'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                                        'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        type: 2,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            followType: 'coin',
-                            followClass: '比特股',
-                            followTarget: 'BTS',
-                            coinPriceCNY: '1999.890',
-                            coinPriceUS: '3077.48',
-                            rise: '0.88%',
-                            riseStatus: 'up'
-                        }
-                    },
-                    {
-                        type: 2,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            followType: 'coin',
-                            followClass: '比特股',
-                            followTarget: 'BTS',
-                            coinPriceCNY: '1999.890',
-                            coinPriceUS: '3077.48',
-                            rise: '0.88%',
-                            riseStatus: 'down'
-                        }
-                    },
-                    {
-                        type: 3,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            followType: 'link',
-                            followClass: '区块链',
-                            followTarget: 'BTS',
-                            coinPriceCNY: '1999.890',
-                            coinPriceUS: '3077.48',
-                            rise: '0.88%',
-                            riseStatus: 'down'
-                        }
-                    },
-                    {
-                        type: 3,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            followType: 'app',
-                            followClass: '区块链应用',
-                            followTarget: 'BTS',
-                            coinPriceCNY: '1999.890',
-                            coinPriceUS: '3077.48',
-                            rise: '0.88%',
-                            riseStatus: 'down'
-                        }
-                    },
-                    {
-                        type: 3,
-                        newsDetails: {
-                            article: {
-                                headerUrl: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                                userName: '鹿晗',
-                                userIssue: '你牛',
-                                articleTime: '12.30',
-                                comment: '1',
-                                forward: '2',
-                                agree: '3'
-                            },
-                            followType: 'ico',
-                            followClass: 'ICO项目',
-                            followTarget: 'BTS',
-                            coinPriceCNY: '1999.890',
-                            coinPriceUS: '3077.48',
-                            rise: '0.88%',
-                            riseStatus: 'down'
-                        }
-                    }
-                ]
+                }
             }
         },
         components: {
@@ -597,6 +111,42 @@
         methods: {
             viewMesg()  {
                 navigator.push(routerPage.mesgBox);
+            },
+            onrefresh (event) {
+                console.log('is refreshing')
+                modal.toast({ message: 'refresh', duration: 1 })
+                this.refreshing = true
+                nAPI.getArticleInHome(this.userID, this.maxLength, this.isFirstTime).then(res => {
+                    nn.dump('success', res);
+                    this.articleMoudle = res.result.concat(this.articleMoudle);
+                    this.refreshing = false;
+                    this.refreshText = '更新' + res.result.length + '篇内容'
+                    console.log('ansoknqoidnaoknsdklancoijascklmzxocoiacaso');
+//                    console.log(this.articleMoudle);
+                }).catch(res => {
+                    nn.dump('Failed', res)
+                })
+            },
+//            onpullingdown (event) {
+//                console.log('is onpulling down')
+//                modal.toast({ message: 'pulling down', duration: 1 })
+//            },
+            onloading (event) {
+                modal.toast({message: 'loading', duration: 1})
+                this.showLoading = 'show'
+                nAPI.getArticleInHome(this.userID, this.maxLength, this.isFirstTime).then(res => {
+                    nn.dump('success', res);
+                    this.articleMoudle = res.result.concat(this.articleMoudle);
+                    this.showLoading = 'hide'
+                    console.log('ansoknqoidnaoknsdklancoijascklmzxocoiacaso');
+//                    console.log(this.articleMoudle);
+                }).catch(res => {
+                    nn.dump('Failed', res)
+                })
+            },
+            isViewed(e) {
+                this.isFirstTime = false;
+                console.log(e.contentOffset.x, e.contentOffset.y);
             }
         }
     }

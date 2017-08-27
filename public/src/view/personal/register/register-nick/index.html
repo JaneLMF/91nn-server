@@ -1,0 +1,14 @@
+<back-navpage :title="title" :backgroundColor="'#fff'" :rightItemTitle="rightItemTitle" :rightItemClickFn="submitArticle" :rightItemColor="'#333333'">
+    <div class="personalInfo-bg">
+        <div class="personalInfo-wrap">
+            <text class="personalInfo-tit">填写个人资料</text>
+            <div class="sex-choose-wrap">
+                <text class="choose-sex" :class="[isFemale ? 'choose-sex-active' : '']" @click="chooseFemale">帅哥</text>
+                <text class="sex-choose-text">或</text>
+                <text class="choose-sex" :class="[isFemale ? '' : 'choose-sex-active']" @click="chooseMale">美女</text>
+            </div>
+            <input type="text" placeholder="请输入昵称" class="update-input" @change="getNick" />
+            <text class="submit-btn" :class="[canSubmit ? 'submit-btn-active' : '']" @click="submitForm">完成</text>
+        </div>
+    </div>
+</back-navpage>

@@ -1,0 +1,15 @@
+<back-navpage :title="title" :rightItemTitle="rightItemTitle" :rightItemClickFn="submitArticle" :rightItemColor="'#fff'">
+	<div class="repost-mesg-wrap">
+		<nn-web class="web repost-mesg-input" ref="web" @change="finsh" src="http://images-file.oss-cn-hangzhou.aliyuncs.com/91nn/rich-editor.html"></nn-web>
+		<div class="repost-action-bar-bg">
+			<div class="repost-action-bar-wrap">
+				<n-check-box :ischecked="ischecked"
+							 :name="checkBoxName"
+							 @callBack="checkBoxCallBack(v)"
+				></n-check-box>
+				<image src="/resources/repostMesgBox/at-btn.png" class="at-icon" @click="atUser"></image>
+				<!--<n-at @callBack="atUser" :size="atSize" :iconUrl="atIconUrl"></n-at>-->
+			</div>
+		</div>
+	</div>
+</back-navpage>

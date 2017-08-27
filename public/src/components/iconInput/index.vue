@@ -5,12 +5,13 @@
 <script>
 	export default {
 		props: {
+		    inputType: { default: 'text' },
 		    iconUrl: { default: '' },
             placeHolderText: { default: '' }
         },
         methods: {
             inputIt(e) {
-                this.$emit('callBack', e);
+                this.$emit('callBack', e.value);
             }
         }
 	}

@@ -1,0 +1,9 @@
+<back-navpage :title="title">
+	<div class="update-bg">
+		<div class="update-wrap">
+			<input type="password" placeholder="请输入密码" class="update-input" @change="getPw" />
+			<input type="password" placeholder="请确认密码" class="update-input" @change="checkPw" />
+			<text class="submit-btn" :class="[canSubmit ? 'submit-btn-active' : '']" @click="submitForm">下一步</text>
+		</div>
+	</div>
+</back-navpage>

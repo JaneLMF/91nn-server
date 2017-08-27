@@ -16,9 +16,9 @@
                         </div>
                     </div>
                     <div class="log-in-wrap">
-                        <text class="unLogin-btn">注册</text>
+                        <text class="unLogin-btn" @click="regist">注册</text>
                         <text class="unLogin-fenge">|</text>
-                        <text class="unLogin-btn">登录</text>
+                        <text class="unLogin-btn" @click="login">登录</text>
                     </div>
                     <text class="user-intro">{{ unLogin.userIntro }}</text>
                 </div>
@@ -40,12 +40,12 @@
                 <div class="user-atten-wrap">
                     <div class="user-atten-group">
                         <text class="user-atten-tit">我的关注</text>
-                        <text class="user-atten-content">0</text>
+                        <text class="user-atten-content">{{ myFollowers }}</text>
                     </div>
                     <text class="fenge">|</text>
                     <div class="user-atten-group">
                         <text class="user-atten-tit">我的粉丝</text>
-                        <text class="user-atten-content">0</text>
+                        <text class="user-atten-content">{{ myFans }}</text>
                     </div>
                 </div>
             </div>
@@ -56,19 +56,19 @@
                     <div class="row-icon-wrap" slot="icon">
                         <image src="/src/view/personal/images/me-status.png" class="row-icon"></image>
                     </div>
-                    <text slot="mesg" class="row-mesg">0</text>
+                    <text slot="mesg" class="row-mesg">{{ articleCount }}</text>
                 </action-row>
                 <action-row :rowTit="'我的收藏'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" :callBack="jumpMyFavorites">
                     <div class="row-icon-wrap" slot="icon">
                         <image src="/src/view/personal/images/me-mark.png" class="row-icon"></image>
                     </div>
-                    <text slot="mesg" class="row-mesg">0</text>
+                    <text slot="mesg" class="row-mesg">{{ collectedCount }}</text>
                 </action-row>
                 <action-row :rowTit="'我的评论'" :btnClass="'details'" class="updateInfo-content" :hasIcon="hasIcon" style="margin-bottom: 10px;" :callBack="jumpMyComments">
                     <div class="row-icon-wrap" slot="icon">
                         <image src="/src/view/personal/images/me-pinglun.png" class="row-icon"></image>
                     </div>
-                    <text slot="mesg" class="row-mesg">0</text>
+                    <text slot="mesg" class="row-mesg">{{ commentCount }}</text>
                 </action-row>
             </cell>
             <cell class="app-info">
@@ -101,6 +101,8 @@
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
+    const storage = weex.requireModule('storage');
+
     export default {
         data() {
             return {
@@ -110,13 +112,17 @@
                     userName: '鹿晗',
                     userIntro: '暂无简介'
                 },
-                isLogin: true,
+                isLogin: false,
                 userHomeBg: '/resources/common/index-bg.png',
                 myFollowers: 8888,
                 myFans: 8888,
+                articleCount: 0,
+                collectedCount: 0,
+                commentCount: 0,
                 userInfo: {
+                    id: '',
                     userHeader: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
-                    isVIP: true,
+                    attestation: true,
                     userName: '鹿晗',
                     userSex: 'man',
                     userIntro: '机械神教和比特神教信徒...'
@@ -166,8 +172,38 @@
             },
             jumpMyComments() {
                 navigator.push(routerPage.myComments)
+            },
+            regist() {
+                navigator.push(routerPage.register)
+            },
+            login() {
+                navigator.push(routerPage.login)
             }
-        }
+        },
+        mounted() {
+            storage.getItem('bossInfo',(res) => {
+                if(res.data) {
+                    console.log(res.data);
+                    var bossInfo = JSON.parse(res.data);
+                    this.isLogin = true;
+                    this.userInfo.userHeader = bossInfo.avatar;
+                    this.userInfo.userName = bossInfo.nick;
+                    this.userInfo.userSex = bossInfo.sex;
+                    this.userInfo.userIntro = bossInfo.briefInfo;
+                    this.userInfo.id = bossInfo._id;
+                    this.myFollowers = bossInfo.concernedUserCount;
+                    this.myFans = bossInfo.fansCount;
+                    this.articleCount = bossInfo.articleCount;
+                    this.collectedCount = bossInfo.collectedCount;
+                    this.commentCount = bossInfo.commentCount;
+                    if(bossInfo.type == 'normal') {
+                        this.userInfo.attestation = false;
+                    } else {
+                        this.userInfo.attestation = true;
+                    }
+                }
+            })
+        },
     }
 </script>
 

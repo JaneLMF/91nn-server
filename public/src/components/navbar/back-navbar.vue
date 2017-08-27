@@ -5,7 +5,8 @@
             :title="title"
             :titleColor="titleColor"
             :backgroundColor="backgroundColor"
-            :rightItemTitle="rightItemTitle"
+            :rightItemColor="rightItemColor"
+            :rightItemTitle="rightItemTitle" @naviBarRightItemClick="rightItemClick"
             :leftItemSrc="leftItemSrc" @naviBarLeftItemClick="leftItemClick"
             :rightItemSrc="rightItemSrc">
         <div v-if="showLine" style="height: 1px; background-color: #e5e5e5;"></div>
@@ -24,7 +25,9 @@
             backgroundColor: { default: '#fc6d3f' },
             titleColor: { default: 'white' },
             rightItemTitle: { default: '' },
+            rightItemColor: { default: '#fff' },
             rightItemSrc: {default: ''},
+            rightItemClickFn: {defauklt: Function}
         },
         methods: {
             leftItemClick: function(e) {
@@ -33,6 +36,9 @@
                     return
                 }
                 this.$emit('naviBarLeftItemClick', e)
+            },
+            rightItemClick: function() {
+                this.rightItemClickFn();
             }
         },
         components: {

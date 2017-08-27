@@ -1,7 +1,12 @@
 <div>
 	<cell-fresh v-if="cellItem.type == 'article'" :newsDetails="cellItem"></cell-fresh>
 	<slot-repost v-else-if="cellItem.type == 'transmitArticle' || cellItem.type == 'transmitArticleComment'" :newsDetails="cellItem"></slot-repost>
-	<cell-coin v-else-if="cellType == 'concernCoin'" :newsDetails="cellItem"></cell-coin>
+	<!--<cell-coin v-else-if="cellType == 'concernCoin'" :newsDetails="cellItem"></cell-coin>-->
+	<!--<cell-link v-else-if="cellType == 'concernChain' || cellType == 'concernApp'" :newsDetails="cellItem"></cell-link>-->
+	<concern-chain v-else-if="cellItem.type == 'concernChain'" :newsDetails="cellItem"></concern-chain>
+	<concern-app v-else-if="cellItem.type == 'concernApp'" :newsDetails="cellItem"></concern-app>
+	<concern-user v-else-if="cellItem.type == 'concernUser'" :newsDetails="cellItem"></concern-user>
+	<repost-comment v-else-if="cellItem.type == 'transmitChainComment' || cellItem.type == 'transmitArticleComment' || cellItem.type == 'transmitAppComment' || cellItem.type == 'transmitCoinComment'" :newsDetails="cellItem"></repost-comment>
 	<!--<cell-link v-else-if="cellType == 'transmitArticle'" :newsDetails="cellItem"></cell-link>-->
 	<!--<cell v-for="(item, i) in news" :key="i" class="cell-wrap">-->
 		<!--<cell-fresh :newsDetails="item.newsDetails" class="cell-item"></cell-fresh>-->

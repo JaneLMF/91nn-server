@@ -63,6 +63,8 @@
 </style>
 
 <script>
+    const storage = weex.requireModule('storage');
+
     export default {
         props: {
             buttonText: { default: '' },
@@ -94,7 +96,7 @@
                 this.mesgVerify = e.value;
             },
             submitForm() {
-                this.submitAction();
+                this.$emit('submit', {'phone': this.phoneNum, 'code': this.mesgVerify});
             }
         }
     }

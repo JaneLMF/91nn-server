@@ -8,9 +8,10 @@
         <!--@agree="v=>newsDetails.article.agree=v">-->
         <div>
             <div class="repost-mesg-wrap">
-                <div v-for="(item, i) in newsDetails.comment.content" :key="i">
-                    <repost-mesg :repostText="item"></repost-mesg>
-                </div>
+                <nn-html :html="newsDetails.comment.content" style="width: 690px;"></nn-html>
+                <!--<div v-for="(item, i) in newsDetails.comment.content" :key="i">-->
+                    <!--<repost-mesg :repostText="item"></repost-mesg>-->
+                <!--</div>-->
             </div>
             <div>
                 <n-article :userType="newsDetails.type"
@@ -36,7 +37,12 @@
 </style>
 
 <script>
+    var modal = weex.requireModule('modal');
+
     export default {
+        mounted() {
+            modal.toast({ message: this.newsDetails.comment.content, duration: 1 })
+        },
         props: {
             newsDetails: {
                 default() {
