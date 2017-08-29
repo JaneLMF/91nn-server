@@ -51,15 +51,23 @@
 
     import nAPI from 'api/index'
 
+    const storage = weex.requireModule('storage');
     var modal = weex.requireModule('modal');
 
     export default {
         mounted() {
-            nAPI.getArticleInHome(this.userID, this.maxLength, this.isFirstTime).then(res => {
-                nn.dump('success', res);
-                this.articleMoudle = res.result;
-            }).catch(res => {
-                nn.dump('Failed', res)
+            storage.getItem('bossInfo',(res) => {
+                if(res.data) {
+                    console.log(res.data);
+                    var bossInfo = JSON.parse(res.data);
+                    this.userID = bossInfo._id;
+                    nAPI.getArticleInHome(this.userID, this.maxLength, this.isFirstTime).then(res => {
+                        nn.dump('success', res);
+                        this.articleMoudle = res.result;
+                    }).catch(res => {
+                        nn.dump('Failed', res)
+                    })
+                }
             })
         },
         data() {

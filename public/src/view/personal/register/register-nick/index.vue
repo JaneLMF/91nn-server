@@ -52,6 +52,7 @@
                 } else {
                     nAPI.updateUserNickSex(this.uId, sex, this.nick).then(res => {
                         nn.dump('success', res);
+                        navigator.push(routerPage.home);
                     }).catch(res => {
                         nn.dump('Failed', res)
                     })
@@ -65,6 +66,9 @@
             },
             getNick(e) {
                 this.nick = e.value;
+            },
+            passSetInfo() {
+                navigator.push(routerPage.home);
             }
         }
 	}

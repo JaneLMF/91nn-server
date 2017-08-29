@@ -4,7 +4,8 @@
                     :articleTime="newsDetails.createAt"
                     :comment="newsDetails.commentCount"
                     :forward="newsDetails.transmitCount"
-                    :agree="newsDetails.upvoteCount">
+                    :agree="newsDetails.upvoteCount"
+                    :articleId="newsDetails._id">
                     <!--@agree="v=>newsDetails.article.agree=v">-->
         <div class="article-module-bg" @click="viewDetails">
             <div class="article-tit-wrap" v-if="newsDetails.title.length > 0">

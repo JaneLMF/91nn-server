@@ -21,7 +21,9 @@
                 ischecked: false,
                 checkBoxName: '同时评论',
                 atSize: 'xm',
-                atIconUrl: '/resources/repostMesgBox/at-btn.png'
+                atIconUrl: '/resources/repostMesgBox/at-btn.png',
+                userId: '',
+                articleId: ''
             }
         },
         components: {
@@ -30,6 +32,19 @@
             nAt: require('components/textIcon/at/index.vue')
         },
         mounted() {
+            storage.getItem('bossInfo',(res) => {
+//                modal.toast({ message: res.data, duration: 1 })
+                if(res.data) {
+                    var bossInfo = JSON.parse(res.data);
+                    this.userId = bossInfo._id;
+                }
+            })
+            storage.getItem('articleId',(res) => {
+                if(res.data) {
+                    this.articleId = res.data;
+                }
+            })
+
 //            storage.removeItem('atTargetUser', event => {
 //                console.log('delete value:', event.data)
 //                if(event.data != 'undefined') {
@@ -81,19 +96,21 @@
 //                navigator.pop();
                 nnWebView.evaluateJavascript(this.$refs.web,'window.html()',(e)=>{
                     var _e = JSON.parse(e);
+//                    modal.toast({ message: this.articleId, duration: 1 });
+//                    modal.toast({ message: this.userId, duration: 1 });
+//                    modal.toast({ message: _e.html, duration: 1 });
 //                    var obj = {
 //                        title:_e.title,
 //                        html:_e.html,
 //                        isEdited:true,
 //                    };
-                    console.log('adsamsfbciwebfknbzhmabhclamlhjvks ,mcnioadc,mq l');
-                    nAPI.repostArticle(_e.html).then(res => {
+                    nAPI.repostArticle(this.articleId, this.userId, _e.html).then(res => {
                         nn.dump('success', res)
                         modal.toast({ message: res.result, duration: 1 });
                         navigator.pop();
                     }).catch(res => {
                         nn.dump('Failed', res)
-//                        modal.toast({ message: res, duration: 1 });
+                        modal.toast({ message: res, duration: 1 });
                     })
 //                    storage.setItem('richEditorContent',JSON.stringify(obj),()=>{
 //                        navigator.pop({},()=>{});

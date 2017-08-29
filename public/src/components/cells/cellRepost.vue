@@ -1,5 +1,8 @@
 <template>
-    <cell-container :article="newsDetails.article" :footerType="footerType" @agree="v=>newsDetails.article.agree=v">
+    <cell-container :article="newsDetails.article"
+                    :footerType="footerType"
+                    @agree="v=>newsDetails.article.agree=v"
+                    :articleId="newsDetails.comment._id">
         <div>
             <div class="my-repost-content-wrap">
                 <text class="my-repost-content">{{ newsDetails.cellModule.user.content }}</text>

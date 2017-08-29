@@ -53,14 +53,22 @@
                 if(this.userPhone != '' && this.userPassword != '') {
                     nAPI.login(this.userPhone, this.userPassword).then(res => {
                         nn.dump('success', res);
-//                        storage.setItem('bossInfo', JSON.stringify(res.result), () => {
-//                            navigator.pop();
+//                        storage.getItem('bossInfo',(res) => {
+//                            if(res.data) {
+//                                console.log(res.data);
+//                                var bossInfo = JSON.parse(res.data);
+//
+//                            }
+//                        })
+//                        storage.removeItem('bossInfo', () => {
+//                            console.log(456);
 //                        });
-                        storage.setItem('bossInfo', JSON.parse(res.result), () => {
+                        storage.setItem('bossInfo', JSON.stringify(res.result), () => {
                             navigator.pop();
                         });
                     }).catch(res => {
                         nn.dump('Failed', res);
+                        console.log(789);
                         modal.toast({ message: res.err, duration: 1 })
                     })
                 } else {

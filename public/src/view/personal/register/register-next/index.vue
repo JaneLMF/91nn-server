@@ -17,7 +17,7 @@
             storage.getItem('registerInfo',(res) => {
                 if(res.data) {
                     console.log('getStorage:' + res.data);
-                    this.registerInfo = res.data;
+                    this.registerInfo = JSON.parse(res.data);
                 }
             })
         },
@@ -39,7 +39,7 @@
                 console.log(this.OncePassword);
             },
             checkPw(e) {
-                console.log(this.nick, this.OncePassword, e.value);
+                console.log(this.OncePassword, e.value);
                 if(e.value == this.OncePassword) {
                     this.checkPassword = e.value;
                     this.canSubmit = true;
@@ -48,6 +48,7 @@
                 }
             },
             submitForm() {
+                console.log(this.registerInfo.code, this.registerInfo.phone, this.checkPassword);
                 if(!this.canSubmit) {
                     modal.toast({ message: '请确认以上信息填写无误', duration: 1 })
                 } else {

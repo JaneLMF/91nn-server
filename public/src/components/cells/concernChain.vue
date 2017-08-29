@@ -4,7 +4,8 @@
                     :articleTime="newsDetails.createAt"
                     :comment="newsDetails.concerned.commentCount"
                     :forward="newsDetails.concerned.transmitCount"
-                    :agree="newsDetails.concerned.upvoteCount">
+                    :agree="newsDetails.concerned.upvoteCount"
+                    :articleId="newsDetails._id">
         <div class="follow-text-wrap">
             <text class="follow-text">我刚刚关注了</text>
             <follow-target :followType="newsDetails.concerned.topCategory" :followText="newsDetails.concerned.name" :followID="newsDetails.concerned._id"></follow-target>

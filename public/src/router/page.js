@@ -3,6 +3,11 @@
  */
 
 export default {
+    home: {
+        title: '主页',
+        path: '/home',
+        jsPath: 'view/index'
+    },
     getStarted: {
         title: '新手营',
         pageName: 'school',//进新手营的第一个页面
@@ -196,5 +201,10 @@ export default {
         title: '发文章',
         path: '/createArticles',
         jsPath: 'view/createArticles/index'
+    },
+    createComment: {
+        title: '评论',
+        path: '/createComment',
+        jsPath: 'view/createComment/index'
     }
 }

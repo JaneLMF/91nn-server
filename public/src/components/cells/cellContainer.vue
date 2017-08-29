@@ -18,25 +18,29 @@
             <div class="button-item" @click="repostIt">
                 <n-repost :text="forward"></n-repost>
             </div>
-            <div class="button-item">
+            <div class="button-item" @click="commentIt">
                 <n-comment :text="comment"></n-comment>
             </div>
             <div class="button-item">
-                <n-agree :text="agree"></n-agree>
+                <n-agree :text="agree" :targetType="targetType" :articleId="articleId" :userId="userId"></n-agree>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import nn from 'utils/debug'
+    import nAPI from 'api/index'
     import routerPage from 'router/page'
     import navigator from 'utils/modules/navigator'
 
+    const storage = weex.requireModule('storage');
     var modal = weex.requireModule('modal')
 
     export default {
         props: {
             footerType: { default: 0 },
+            articleId: { default: '' },
             author: {
                 default() {
                     return {
@@ -69,35 +73,74 @@
             return {
                 hasAgree: false,
                 agreeIcon: '/src/components/cells/images/zan.png',
-                headerUrl: '/resources/common/defaultHeader.png'
+                headerUrl: '/resources/common/defaultHeader.png',
+                targetType: 'article',
+                userId: ''
             }
         },
         mounted() {
             if(this.author.avatar.length > 0) {
                 this.headerUrl = this.author.avatar;
             }
+            storage.getItem('bossInfo',(res) => {
+                modal.toast({ message: res.data, duration: 1 })
+                if(res.data) {
+                    var bossInfo = JSON.parse(res.data);
+                    this.userId = bossInfo._id;
+                }
+            })
         },
         methods: {
             agreeIt() {
+                storage.setItem('articleId', this.articleId, () => {});
                 if(!this.hasAgree) {
-                    modal.toast({
-                        message: '已赞',
-                        duration: 0.3
+                    nAPI.upvote(this.articleId, this.userId).then(res => {
+                        nn.dump('success', res)
+                        modal.toast({
+                            message: '已赞',
+                            duration: 0.3
+                        })
+                        this.agreeIcon = '/src/components/cells/images/agree-active.png';
+                        this.$emit('agree', res.result);
+                    }).catch(res => {
+                        nn.dump('Failed', res)
+                        modal.toast({ message: res, duration: 1 });
                     })
-                    this.agreeIcon = '/src/components/cells/images/agree-active.png';
-                    this.$emit('agree', parseInt(this.article.agree) + 1);
+//                    modal.toast({
+//                        message: '已赞',
+//                        duration: 0.3
+//                    })
+//                    this.agreeIcon = '/src/components/cells/images/agree-active.png';
+//                    this.$emit('agree', parseInt(this.article.agree) + 1);
                 } else {
-                    modal.toast({
-                        message: '取消赞',
-                        duration: 0.3
+                    nAPI.upvote(this.articleId, this.userId).then(res => {
+                        nn.dump('success', res)
+                        modal.toast({
+                            message: '已赞',
+                            duration: 0.3
+                        })
+                        this.agreeIcon = '/src/components/cells/images/zan.png';
+                        this.$emit('agree', res.result);
+                    }).catch(res => {
+                        nn.dump('Failed', res)
+                        modal.toast({ message: res, duration: 1 });
                     })
-                    this.agreeIcon = '/src/components/cells/images/zan.png';
-                    this.$emit('agree', parseInt(this.article.agree) - 1);
+//                    modal.toast({
+//                        message: '取消赞',
+//                        duration: 0.3
+//                    })
+//                    this.agreeIcon = '/src/components/cells/images/zan.png';
+//                    this.$emit('agree', parseInt(this.article.agree) - 1);
                 }
                 this.hasAgree = !this.hasAgree;
             },
             repostIt() {
+                storage.setItem('articleId', this.articleId, () => {});
                 navigator.push(routerPage.repostInput)
+            },
+            commentIt() {
+                storage.setItem('articleId', this.articleId, () => {});
+                navigator.push(routerPage.createComment)
             },
             toUserHome() {
                 navigator.push(routerPage.userHome)

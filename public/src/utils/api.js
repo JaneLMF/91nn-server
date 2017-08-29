@@ -53,14 +53,18 @@ function post(url, body) {
   })
 }
 
-function del(url) {
+function del(url, body) {
   return new Promise((resolve, reject) => {
     stream.fetch({
       method: 'DELETE',
       url: baseUrl + url,
-      type: 'json'
+      type: 'json',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
     }, res => {
-      if (res.ok && res.data && res.data.code === 0) {
+      if (res.ok && res.data && res.data.errCode === 0) {
         resolve(res.data)
       } else {
         reject(res.data)
@@ -82,7 +86,7 @@ function put(url, body) {
       },
       body: JSON.stringify(body)
     }, res => {
-      if (res.ok && res.data && res.data.code === 0) {
+      if (res.ok && res.data && res.data.errCode === 0) {
         resolve(res.data)
       } else {
         reject(res.data)

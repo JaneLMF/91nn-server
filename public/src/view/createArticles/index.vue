@@ -14,6 +14,15 @@
     var modal = weex.requireModule('modal');
 
     export default {
+        mounted() {
+            storage.getItem('bossInfo',(res) => {
+                modal.toast({ message: res.data, duration: 1 })
+                if(res.data) {
+                    var bossInfo = JSON.parse(res.data);
+                    this.userId = bossInfo._id;
+                }
+            })
+        },
         data() {
             return {
                 title: '写文章',
@@ -21,7 +30,8 @@
                 ischecked: false,
                 checkBoxName: '同时评论',
                 atSize: 'xm',
-                atIconUrl: '/resources/repostMesgBox/at-btn.png'
+                atIconUrl: '/resources/repostMesgBox/at-btn.png',
+                userId: ''
             }
         },
         components: {
@@ -37,7 +47,12 @@
                 navigator.push(routerPage.userList)
             },
             finsh(){
-
+                var content = {
+                    title:'',
+                    html:'',
+                    showTitle:true,
+                };
+                nnWebView.evaluateJavascript(this.$refs.web,"window.placeHTMLToEditor("+JSON.stringify(content)+")",()=>{});
             },
             submitArticle() {
                 nnWebView.evaluateJavascript(this.$refs.web,'window.html()',(e)=>{
@@ -47,7 +62,7 @@
 //                        html:_e.html,
 //                        isEdited:true,
 //                    };
-                    nAPI.createArticles(_e.title, _e.html).then(res => {
+                    nAPI.createArticles(this.userId, _e.title, _e.html).then(res => {
                         nn.dump('success', res)
                         modal.toast({ message: res.result, duration: 1 });
                         navigator.pop();

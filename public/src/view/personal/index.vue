@@ -102,6 +102,7 @@
     import navigator from 'utils/modules/navigator'
 
     const storage = weex.requireModule('storage');
+    var modal = weex.requireModule('modal');
 
     export default {
         data() {
@@ -114,14 +115,14 @@
                 },
                 isLogin: false,
                 userHomeBg: '/resources/common/index-bg.png',
-                myFollowers: 8888,
-                myFans: 8888,
+                myFollowers: 0,
+                myFans: 0,
                 articleCount: 0,
                 collectedCount: 0,
                 commentCount: 0,
                 userInfo: {
                     id: '',
-                    userHeader: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4034448303,3432913783&fm=58&u_exp_0=3467414688,3099608373&fm_exp_0=86&bpow=960&bpoh=1394',
+                    userHeader: '/resources/common/unLoginHeader.png',
                     attestation: true,
                     userName: '鹿晗',
                     userSex: 'man',
@@ -182,11 +183,14 @@
         },
         mounted() {
             storage.getItem('bossInfo',(res) => {
+                modal.toast({ message: res.data, duration: 1 })
                 if(res.data) {
                     console.log(res.data);
                     var bossInfo = JSON.parse(res.data);
                     this.isLogin = true;
-                    this.userInfo.userHeader = bossInfo.avatar;
+                    if(bossInfo.avatar != '') {
+                        this.userInfo.userHeader = bossInfo.avatar;
+                    }
                     this.userInfo.userName = bossInfo.nick;
                     this.userInfo.userSex = bossInfo.sex;
                     this.userInfo.userIntro = bossInfo.briefInfo;

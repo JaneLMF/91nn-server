@@ -4,7 +4,8 @@
                     :articleTime="newsDetails.comment.createAt"
                     :comment="newsDetails.comment.commentCount"
                     :forward="newsDetails.comment.transmitCount"
-                    :agree="newsDetails.comment.upvoteCount">
+                    :agree="newsDetails.comment.upvoteCount"
+                    :articleId="newsDetails._id">
         <!--@agree="v=>newsDetails.article.agree=v">-->
         <div>
             <div class="repost-mesg-wrap">

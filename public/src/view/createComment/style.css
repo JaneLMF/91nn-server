@@ -1,0 +1,35 @@
+.repost-mesg-input {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    width: 750px;
+    height: 1080px;
+    rows: 10;
+    font-size: 28px;
+}
+
+.repost-action-bar-bg {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 750px;
+    height: 98px;
+    border-top-width: 1px;
+    border-color: #dddddd;
+}
+
+.repost-action-bar-wrap {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 690px;
+    height: 98px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.at-icon {
+    width: 40px;
+    height: 40px;
+}
